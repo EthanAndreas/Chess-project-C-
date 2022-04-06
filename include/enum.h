@@ -1,7 +1,7 @@
 #ifndef ENUM
 #define ENUM
 
-enum Color { empty = 0, White = 1, Black = 2 };
-enum State { none = 0, check = 1, checkmate = 2 };
+enum Color { EMPTY = 0, WHITE = 1, BLACK = 2 };
+enum State { NONE = 0, CHECK = 1, CHECKMATE = 2 };
 
 #endif

@@ -41,4 +41,40 @@ class Bishop : public Piece {
                        Piece ***chess_tab) const;
 };
 
+class Knight : public Piece {
+
+  public:
+    Knight(Color col, string str);
+
+    bool is_valid_move(int init_x, int init_y, int dest_x, int dest_y,
+                       Piece ***chess_tab) const;
+};
+
+class Pawn : public Piece {
+
+  public:
+    Pawn(Color col, string str);
+
+    bool is_valid_move(int init_x, int init_y, int dest_x, int dest_y,
+                       Piece ***chess_tab) const;
+};
+
+class Queen : public Piece {
+
+  public:
+    Queen(Color col, string str);
+
+    bool is_valid_move(int init_x, int init_y, int dest_x, int dest_y,
+                       Piece ***chess_tab) const;
+};
+
+class King : public Piece {
+
+  public:
+    King(Color col, string str);
+
+    bool is_valid_move(int init_x, int init_y, int dest_x, int dest_y,
+                       Piece ***chess_tab) const;
+};
+
 #endif
