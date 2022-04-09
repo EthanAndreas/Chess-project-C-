@@ -7,9 +7,9 @@
 #include "chessboard.h"
 using namespace std;
 
-bool saisie_correcte(string const & cmd);
-bool saisie_correcte_petitroque(string const & cmd);
-bool saisie_correcte_grandroque(string const & cmd);
+bool selection(string const & cmd);
+bool kingside_castling_selection(string const & cmd);
+bool queenside_castling_selection(string const & cmd);
 
 class Game{
 
@@ -19,23 +19,21 @@ class Game{
         int state;
     
     public :
-        //Constructeur
         Game();
 
-        //Destructeur
         ~Game();
 
         bool stroke();
 
-        static vector<int> stoi(string s);
         // string to int (coordinates)
+        static vector<int> stoi(string s);
         
         bool move(int ox, int oy, int dx, int dy);
 
+        void print();
+
         int get_state() const;
-
-        void set_state(int st);
-
+        int set_state(bool check) const;
         bool pat_or_mat();
 
         bool kingside_castling();

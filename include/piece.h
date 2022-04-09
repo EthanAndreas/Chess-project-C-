@@ -21,6 +21,10 @@ class Piece {
     void print();
 
     Color get_color() const;
+    string get_name() const; 
+
+    bool is_valid_move(int init_x, int init_y, int dest_x, int dest_y,
+                       Piece *chess_tab[8][8]) const;
 };
 
 class Rook : public Piece {
@@ -29,7 +33,7 @@ class Rook : public Piece {
     Rook(Color col, string str);
 
     bool is_valid_move(int init_x, int init_y, int dest_x, int dest_y,
-                       Piece ***chess_tab) const;
+                       Piece *chess_tab[8][8]) const;
 };
 
 class Bishop : public Piece {
@@ -38,7 +42,7 @@ class Bishop : public Piece {
     Bishop(Color col, string str);
 
     bool is_valid_move(int init_x, int init_y, int dest_x, int dest_y,
-                       Piece ***chess_tab) const;
+                       Piece *chess_tab[8][8]) const;
 };
 
 class Knight : public Piece {
@@ -47,7 +51,7 @@ class Knight : public Piece {
     Knight(Color col, string str);
 
     bool is_valid_move(int init_x, int init_y, int dest_x, int dest_y,
-                       Piece ***chess_tab) const;
+                       Piece *chess_tab[8][8]) const;
 };
 
 class Pawn : public Piece {
@@ -56,7 +60,7 @@ class Pawn : public Piece {
     Pawn(Color col, string str);
 
     bool is_valid_move(int init_x, int init_y, int dest_x, int dest_y,
-                       Piece ***chess_tab) const;
+                       Piece *chess_tab[8][8]) const;
 };
 
 class Queen : public Piece {
@@ -65,7 +69,7 @@ class Queen : public Piece {
     Queen(Color col, string str);
 
     bool is_valid_move(int init_x, int init_y, int dest_x, int dest_y,
-                       Piece ***chess_tab) const;
+                       Piece *chess_tab[8][8]) const;
 };
 
 class King : public Piece {
@@ -74,7 +78,7 @@ class King : public Piece {
     King(Color col, string str);
 
     bool is_valid_move(int init_x, int init_y, int dest_x, int dest_y,
-                       Piece ***chess_tab) const;
+                       Piece *chess_tab[8][8]) const;
 };
 
 #endif

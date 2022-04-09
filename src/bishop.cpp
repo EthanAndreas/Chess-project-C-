@@ -1,9 +1,9 @@
 #include "piece.h"
 
-Bishop::Bishop(Color col, string str) : Piece(col, str) {}
+Bishop::Bishop(Color col, string str) : Piece::Piece(col, str) {}
 
 bool Bishop::is_valid_move(int init_x, int init_y, int dest_x,
-                           int dest_y, Piece ***chess_tab) const {
+                           int dest_y, Piece *chess_tab[8][8]) const {
 
     // check if the move is valid for the chessboard
     if (dest_x < 0 || dest_x > 7 || dest_y < 0 || dest_y > 7)
