@@ -23,14 +23,8 @@ class Piece {
     Color get_color() const;
     string get_name() const;
 
-    bool is_valid_move(int init_x, int init_y, int dest_x, int dest_y,
-                       Piece *chess_tab[8][8]) const;
-};
-
-class Rook : public Piece {
-
-  public:
-    Rook(Color col, string str);
+    bool get_castling() const;
+    void set_castling();
 
     bool is_valid_move(int init_x, int init_y, int dest_x, int dest_y,
                        Piece *chess_tab[8][8]) const;
@@ -72,10 +66,33 @@ class Queen : public Piece {
                        Piece *chess_tab[8][8]) const;
 };
 
+class Rook : public Piece {
+
+  private:
+    // indicate if the rook has been castled
+    bool castling;
+
+  public:
+    Rook(Color col, string str);
+
+    bool get_castling() const;
+    void set_castling();
+
+    bool is_valid_move(int init_x, int init_y, int dest_x, int dest_y,
+                       Piece *chess_tab[8][8]) const;
+};
+
 class King : public Piece {
+
+  private:
+    // indicate if the king has been castled
+    bool castling;
 
   public:
     King(Color col, string str);
+
+    bool get_castling() const;
+    void set_castling();
 
     bool is_valid_move(int init_x, int init_y, int dest_x, int dest_y,
                        Piece *chess_tab[8][8]) const;

@@ -2,6 +2,10 @@
 
 Rook::Rook(Color col, string str) : Piece::Piece(col, str) {}
 
+bool Rook::get_castling() const { return castling; }
+
+void Rook::set_castling() { castling = true; }
+
 bool Rook::is_valid_move(int init_x, int init_y, int dest_x,
                          int dest_y, Piece *chess_tab[8][8]) const {
 

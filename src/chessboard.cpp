@@ -100,7 +100,8 @@ void Chessboard::move(int init_x, int init_y, int dest_x,
         delete chess_tab[dest_x][dest_y];
 
     // if the pawn to move is a king, update the location's save
-    if (chess_tab[init_x][init_y]->get_name() == "\u2654") {
+    if (chess_tab[init_x][init_y]->get_name() == "\u2654" ||
+        chess_tab[init_x][init_y]->get_name() == "\u265A") {
 
         if (chess_tab[init_x][init_y]->get_color() == WHITE) {
 
@@ -111,8 +112,18 @@ void Chessboard::move(int init_x, int init_y, int dest_x,
             *black_king[0] = dest_x;
             *black_king[1] = dest_y;
         }
+
+        // save of king's movement
+        chess_tab[init_x][init_y]->set_castling();
     }
 
+    // if the pawn to move is a rook
+    if (chess_tab[init_x][init_y]->get_name() == "\u2656" ||
+        chess_tab[init_x][init_y]->get_name() == "\u265C")
+        // save of rook's movement
+        chess_tab[init_x][init_y]->set_castling();
+
+    // move the piece
     chess_tab[dest_x][dest_y] = chess_tab[init_x][init_y];
     chess_tab[init_x][init_y] = nullptr;
 }

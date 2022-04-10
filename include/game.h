@@ -33,11 +33,14 @@ class Game {
     void print();
 
     State get_state() const;
-    State set_state_check(bool check) const;
+    void set_state(State new_state) const;
     State pat_or_mat();
 
     bool kingside_castling();
     bool queenside_castling();
+
+    bool move(int init_x, int init_y, int dest_x, int dest_y);
+    bool stroke();
 };
 
 #endif
