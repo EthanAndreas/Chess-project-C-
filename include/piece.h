@@ -21,7 +21,7 @@ class Piece {
     void print();
 
     Color get_color() const;
-    string get_name() const; 
+    string get_name() const;
 
     bool is_valid_move(int init_x, int init_y, int dest_x, int dest_y,
                        Piece *chess_tab[8][8]) const;
