@@ -16,7 +16,7 @@ class Game {
   private:
     Chessboard chessboard;
     Color player;
-    int state;
+    State *state;
 
   public:
     Game();
@@ -32,12 +32,11 @@ class Game {
 
     void print();
 
-    int get_state() const;
-    int set_state(bool check) const;
-    bool pat_or_mat();
+    State get_state() const;
+    State set_state_check(bool check) const;
+    State pat_or_mat();
 
     bool kingside_castling();
-
     bool queenside_castling();
 };
 

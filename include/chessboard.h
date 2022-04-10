@@ -25,8 +25,7 @@ class Chessboard {
                       int dest_y);
 
     string canonical_position() const;
-    string pgn_piece_name(string const name, bool view_pawn,
-                          bool view_color) const;
+    string pgn_piece_name(string const name, Color color) const;
 };
 
 #endif

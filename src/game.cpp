@@ -5,28 +5,33 @@ bool selection(string const &cmd) {
     return regex_match(cmd, mouvmtpattern);
 }
 
-bool kingside_castling(string const &cmd) {
+bool kingside_castling_selection(string const &cmd) {
     regex mouvmtpattern("(O|o|0)-(O|o|0)");
     return regex_match(cmd, mouvmtpattern);
 }
 
-Game::Game() : chessboard(), player(WHITE), state(EMPTY) {}
+bool queenside_castling_selection(string const &cmd) {
+    regex mouvmtpattern("(O|o|0)-(O|o|0)-(O|o|0)");
+    return regex_match(cmd, mouvmtpattern);
+}
+
+Game::Game() : chessboard(), player(WHITE) { *state = NONE; }
 
 Game::~Game() { cout << endl << " End of game !" << endl; }
 
 void Game::print() { chessboard.print_board(); }
 
-int Game::get_state() const { return state; }
+State Game::get_state() const { return *state; }
 
-int Game::set_state(bool check) const {
+State Game::set_state_check(bool check) const {
 
     if (check == true)
-        return CHECK;
+        return (*state = CHECK);
 
-    return EMPTY;
+    return (*state = NONE);
 }
 
-bool Game::pat_or_mat() {
+State Game::pat_or_mat() {
 
     for (int init_x = 0; init_x < 8; init_x++) {
 
@@ -45,7 +50,7 @@ bool Game::pat_or_mat() {
                         if (chessboard.allowed_move(player, init_x,
                                                     init_y, dest_x,
                                                     dest_y) == true)
-                            return false;
+                            return (*state = NONE);
                     }
                 }
             }
@@ -54,5 +59,5 @@ bool Game::pat_or_mat() {
 
     // in the case where we cannot only move any piece or any piece
     // that remove the check situation
-    return true;
+    return (*state = CHECKMATE);
 }

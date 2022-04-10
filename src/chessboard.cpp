@@ -151,8 +151,11 @@ bool Chessboard::allowed_move(Color color, int init_x, int init_y,
 
     if ((get_piece(init_x, init_y)
              ->is_valid_move(init_x, init_y, dest_x, dest_y,
-                             chess_tab)) == false)
+                             chess_tab)) == false) {
+
+        cout << "Invalid move" << endl;
         return false;
+    }
 
     Piece *copy_piece = chess_tab[dest_x][dest_y];
 
@@ -168,81 +171,56 @@ bool Chessboard::allowed_move(Color color, int init_x, int init_y,
     chess_tab[init_x][init_y] = chess_tab[dest_x][dest_y];
     chess_tab[dest_x][dest_y] = copy_piece;
 
+    cout << "You are in check situation with this move" << endl;
     return false;
 }
 
 string Chessboard::canonical_position() const {
 
     string output;
-    for (size_t row(1); row <= 8; row++) {
 
-        for (char col('a'); col <= 'h'; col++) {
+    for (int i = 0; i <= 8; i++) {
 
-            //   Square square(col + to_string(row));
+        for (char j = 'a'; j <= 'h'; j++) {
 
-            //   if (!empty_set(square))
-            // get pieces with theit PGN names,
-            // true -> with P for pawns, true -> w/b for colors.
-            //   output +=
-            //   pgn_piece_name(get_piece(square)->to_string(),true,true);
+            if (chess_tab[i][j - 'a'] != nullptr)
+                output += pgn_piece_name(
+                    chess_tab[i][j - 'a']->get_name(),
+                    chess_tab[i][j - 'a']->get_color());
+            else
+                output += "";
+
             output += ",";
         }
     }
     return output;
 }
 
-string Chessboard::pgn_piece_name(string const name, bool view_pawn,
-                                  bool view_color) const {
+string Chessboard::pgn_piece_name(string const name,
+                                  Color color) const {
 
-    string psymb;
+    string psymb = "";
 
-    if (name == "\u2656")
+    if (name == "\u2656" || name == "\u265C")
         psymb = "R"; // Rook W
-    else if (name == "\u2658")
+    else if (name == "\u2658" || name == "\u265E")
         psymb = "N"; // Knight W
-    else if (name == "\u2657")
+    else if (name == "\u2657" || name == "\u265D")
         psymb = "B"; // Bishop W
-    else if (name == "\u2655")
+    else if (name == "\u2655" || name == "\u265B")
         psymb = "Q"; // Queen W
-    else if (name == "\u2654")
+    else if (name == "\u2654" || name == "\u265A")
         psymb = "K"; // King W
-    else if (name.rfind("\u2659", 0) == 0 && view_pawn)
+    else if (name == "\u2659" || name == "\u265F")
         psymb = "P"; // Pawn W
 
     if (psymb.size() > 0) {
-
-        // one of the white piece has been found
-        if (view_color)
+        // one of the black piece has been found
+        if (color == BLACK)
+            return "b" + psymb;
+        else if (color == WHITE)
             return "w" + psymb;
-        else
-            return psymb;
     }
 
-    if (name == "\u265C")
-        // Rook B
-        psymb = "R";
-    else if (name == "\u265E")
-        // Knight B
-        psymb = "N";
-    else if (name == "\u265D")
-        // Bishop B
-        psymb = "B";
-    else if (name == "\u265B")
-        // Queen B
-        psymb = "Q";
-    else if (name == "\u265A")
-        // King B
-        psymb = "K";
-    else if (name.rfind("\u265F", 0) == 0 && view_pawn)
-        // Pawn B
-        psymb = "P";
-
-    if (psymb.size() > 0) {
-        // one of the black piece has been found
-        if (view_color)
-            return "b" + psymb;
-        else
-            return psymb;
-    } else
-        return "";
+    return psymb;
 }
