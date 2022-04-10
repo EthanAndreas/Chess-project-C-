@@ -15,22 +15,34 @@ bool queenside_castling_selection(string const &cmd) {
     return regex_match(cmd, mouvmtpattern);
 }
 
-Game::Game() : chessboard(), player(WHITE) { *state = NONE; }
+Game::Game() : chessboard(), player(WHITE) { state = NONE; }
 
 Game::~Game() { cout << endl << " End of game !" << endl; }
 
 void Game::print() { chessboard.print_board(); }
 
-State Game::get_state() const { return *state; }
+int *Game::string_to_int(string const &str) {
 
-void Game::set_state(State new_state) const {
+    int *tab = new int[4];
+
+    tab[0] = str[0] - '0';
+    tab[1] = str[1] - '0';
+    tab[2] = str[3] - '0';
+    tab[3] = str[4] - '0';
+
+    return tab;
+}
+
+State Game::get_state() const { return state; }
+
+void Game::set_state(State new_state) {
 
     if (new_state == NONE)
-        *state = NONE;
+        state = NONE;
     else if (new_state == CHECK)
-        *state = CHECK;
+        state = CHECK;
     else if (new_state == CHECKMATE)
-        *state = CHECKMATE;
+        state = CHECKMATE;
 }
 
 State Game::checkmate() {
@@ -52,7 +64,7 @@ State Game::checkmate() {
                         if (chessboard.allowed_move(player, init_x,
                                                     init_y, dest_x,
                                                     dest_y) == true)
-                            return (*state = NONE);
+                            return (state = NONE);
                     }
                 }
             }
@@ -61,7 +73,7 @@ State Game::checkmate() {
 
     // in the case where we cannot only move any piece or any piece
     // that remove the check situation
-    return (*state = CHECKMATE);
+    return (state = CHECKMATE);
 }
 
 bool Game::kingside_castling() {
@@ -185,11 +197,10 @@ bool Game::move(int init_x, int init_y, int dest_x, int dest_y) {
 
 bool Game::stroke() {
 
-    cout << "Player ";
-    if (player == white)
-        cout << "white" << endl;
+    if (player == WHITE)
+        cout << "Player white" << endl;
     if (player == BLACK)
-        cout << "black" << endl;
+        cout << "Player black" << endl;
 
     if (get_state() == CHECKMATE) {
 
@@ -205,9 +216,9 @@ bool Game::stroke() {
         return true;
     }
 
-    int done = 0;
+    bool done = false;
 
-    while (done == 0) {
+    while (done == false) {
 
         string str;
         cout << "What is your stroke : ";
@@ -219,7 +230,7 @@ bool Game::stroke() {
         if (kingside_castling_selection(str)) {
 
             if (kingside_castling() == true) {
-                done = 1;
+                done = false;
                 cout << "Castling done !" << endl;
                 break;
             }
@@ -227,33 +238,36 @@ bool Game::stroke() {
 
         else if (queenside_castling_selection(str)) {
 
-            if (queenside_castling() = true) {
-                done = 1;
+            if (queenside_castling() == true) {
+                done = false;
                 cout << "Castling done !" << endl;
                 break;
             }
         }
 
         else if (selection(str)) {
-            vector<int> coords = string_to_coord(reponse);
 
-            if (deplacer(coords[0], coords[1], coords[2], coords[3]))
-                coup_fait = true;
+            int *coord = string_to_int(str);
+
+            if (move(coord[0], coord[1], coord[2], coord[3])) {
+                done = true;
+                break;
+            }
         }
 
         else {
-            cout << endl << endl;
-            cerr << "/!\\ La saisie est incorrecte. Réessayez."
+            cout << "Error in command line !"
+                    "Please try again."
                  << endl;
         }
 
-        echiquier.afficher();
+        chessboard.print_board();
     }
 
-    if (Jcouleur == Noir)
-        Jcouleur = Blanc;
+    if (player == WHITE)
+        player = BLACK;
     else
-        Jcouleur = Noir;
+        player = WHITE;
 
     return false;
 }

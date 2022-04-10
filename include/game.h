@@ -16,28 +16,23 @@ class Game {
   private:
     Chessboard chessboard;
     Color player;
-    State *state;
+    State state;
 
   public:
     Game();
 
     ~Game();
 
-    bool stroke();
-
-    // string to int (coordinates)
-    static vector<int> stoi(string s);
-
-    bool move(int ox, int oy, int dx, int dy);
-
     void print();
 
     State get_state() const;
-    void set_state(State new_state) const;
-    State pat_or_mat();
+    void set_state(State new_state);
+    State checkmate();
 
     bool kingside_castling();
     bool queenside_castling();
+
+    int *string_to_int(string const &str);
 
     bool move(int init_x, int init_y, int dest_x, int dest_y);
     bool stroke();

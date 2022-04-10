@@ -8,8 +8,10 @@ class Chessboard {
 
   private:
     Piece *chess_tab[8][8];
-    int *white_king[2];
-    int *black_king[2];
+    int white_king_x;
+    int white_king_y;
+    int black_king_x;
+    int black_king_y;
 
   public:
     Chessboard();

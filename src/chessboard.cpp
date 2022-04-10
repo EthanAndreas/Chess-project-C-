@@ -34,10 +34,10 @@ Chessboard::Chessboard() {
     }
 
     // save of king's location
-    *white_king[0] = 0;
-    *white_king[1] = 4;
-    *black_king[0] = 7;
-    *black_king[1] = 4;
+    white_king_x = 0;
+    white_king_y = 4;
+    black_king_x = 7;
+    black_king_y = 4;
 }
 
 Chessboard::~Chessboard() {
@@ -105,12 +105,12 @@ void Chessboard::move(int init_x, int init_y, int dest_x,
 
         if (chess_tab[init_x][init_y]->get_color() == WHITE) {
 
-            *white_king[0] = dest_x;
-            *white_king[1] = dest_y;
+            white_king_x = dest_x;
+            white_king_y = dest_y;
         } else {
 
-            *black_king[0] = dest_x;
-            *black_king[1] = dest_y;
+            black_king_x = dest_x;
+            black_king_y = dest_y;
         }
 
         // save of king's movement
@@ -140,13 +140,13 @@ bool Chessboard::is_check(Color color) {
                 if (color == WHITE) {
 
                     if (get_piece(i, j)->is_valid_move(
-                            i, j, *white_king[0], *white_king[1],
+                            i, j, white_king_x, white_king_y,
                             chess_tab))
                         return true;
                 } else {
 
                     if (get_piece(i, j)->is_valid_move(
-                            i, j, *black_king[0], *black_king[1],
+                            i, j, black_king_x, black_king_y,
                             chess_tab))
                         return true;
                 }
