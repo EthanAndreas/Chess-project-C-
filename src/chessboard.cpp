@@ -139,15 +139,31 @@ bool Chessboard::is_check(Color color) {
 
                 if (color == WHITE) {
 
+                    if (get_piece(i, j)->get_name() == "\u2659") {
+
+                        if (chess_tab[i][j]->is_valid_move(
+                                i, j, white_king_x, white_king_y,
+                                chess_tab) == DIAGONAL_WHITE)
+                            return true;
+                    }
+
                     if (get_piece(i, j)->is_valid_move(
                             i, j, white_king_x, white_king_y,
-                            chess_tab))
+                            chess_tab) == GOOD)
                         return true;
                 } else {
 
+                    if (get_piece(i, j)->get_name() == "\u265F") {
+
+                        if (chess_tab[i][j]->is_valid_move(
+                                i, j, white_king_x, white_king_y,
+                                chess_tab) == DIAGONAL_BLACK)
+                            return true;
+                    }
+
                     if (get_piece(i, j)->is_valid_move(
                             i, j, black_king_x, black_king_y,
-                            chess_tab))
+                            chess_tab) == GOOD)
                         return true;
                 }
             }
@@ -160,9 +176,58 @@ bool Chessboard::is_check(Color color) {
 bool Chessboard::allowed_move(Color color, int init_x, int init_y,
                               int dest_x, int dest_y) {
 
-    if ((get_piece(init_x, init_y)
-             ->is_valid_move(init_x, init_y, dest_x, dest_y,
-                             chess_tab)) == false) {
+    int valid = 0;
+
+    // white pawn
+    if (chess_tab[init_x][init_y]->get_name() == "\u2659") {
+
+        if (get_piece(init_x, init_y)
+                ->is_valid_move(init_x, init_y, dest_x, dest_y,
+                                chess_tab) == ONE_CASE_WHITE)
+            valid = 1;
+
+        if (get_piece(init_x, init_y)
+                ->is_valid_move(init_x, init_y, dest_x, dest_y,
+                                chess_tab) == TWO_CASE_WHITE)
+            valid = 1;
+
+        if (get_piece(init_x, init_y)
+                ->is_valid_move(init_x, init_y, dest_x, dest_y,
+                                chess_tab) == DIAGONAL_WHITE) {
+
+            if (chess_tab[dest_x][dest_y] != nullptr &&
+                chess_tab[dest_x][dest_y]->get_color() == BLACK)
+                valid = 1;
+        }
+    } else if (chess_tab[init_x][init_y]->get_name() == "\u265F") {
+
+        if (get_piece(init_x, init_y)
+                ->is_valid_move(init_x, init_y, dest_x, dest_y,
+                                chess_tab) == ONE_CASE_BLACK)
+            valid = 1;
+
+        if (get_piece(init_x, init_y)
+                ->is_valid_move(init_x, init_y, dest_x, dest_y,
+                                chess_tab) == TWO_CASE_BLACK)
+            valid = 1;
+
+        if (get_piece(init_x, init_y)
+                ->is_valid_move(init_x, init_y, dest_x, dest_y,
+                                chess_tab) == DIAGONAL_BLACK) {
+
+            if (chess_tab[dest_x][dest_y] != nullptr &&
+                chess_tab[dest_x][dest_y]->get_color() == WHITE)
+                valid = 1;
+        }
+    } else {
+
+        if ((get_piece(init_x, init_y)
+                 ->is_valid_move(init_x, init_y, dest_x, dest_y,
+                                 chess_tab)) == GOOD)
+            valid = 1;
+    }
+
+    if (valid == 0) {
 
         cout << "Invalid move" << endl;
         return false;

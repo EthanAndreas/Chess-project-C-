@@ -6,17 +6,18 @@ bool Rook::get_castling() const { return castling; }
 
 void Rook::set_castling() { castling = true; }
 
-bool Rook::is_valid_move(int init_x, int init_y, int dest_x,
-                         int dest_y, Piece *chess_tab[8][8]) const {
+Movement Rook::is_valid_move(int init_x, int init_y, int dest_x,
+                             int dest_y,
+                             Piece *chess_tab[8][8]) const {
 
     if (dest_x < 0 || dest_x > 7 || dest_y < 0 || dest_y > 7)
-        return false;
+        return ERROR;
     if (dest_x == init_x || dest_y == init_y)
-        return false;
+        return ERROR;
 
     // test if the move is valid for the rook
     if ((dest_x - init_x) != 0 && (dest_y - init_y) != 0)
-        return false;
+        return ERROR;
 
     int i = init_x, j = init_y;
 
@@ -31,15 +32,7 @@ bool Rook::is_valid_move(int init_x, int init_y, int dest_x,
     }
 
     if (i != dest_x || j != dest_y)
-        return false;
+        return ERROR;
 
-    if (chess_tab[i][j] != nullptr) {
-        // we eat the piece of the opponent
-        if (chess_tab[i][j]->get_color() !=
-            chess_tab[init_x][init_y]->get_color())
-            return true;
-        return false;
-    }
-
-    return true;
+    return GOOD;
 }

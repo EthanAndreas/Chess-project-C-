@@ -4,19 +4,13 @@
 
 int main() {
 
-    Chessboard chess;
-    chess.print_board();
-
-    cout << "Begin of the game !";
+    cout << "Begin of the game !" << endl;
 
     Game game = Game();
     game.print();
 
     bool end = false;
 
-    while (end == false) {
-
+    while (end == false)
         end = game.stroke();
-        game.print();
-    }
 }

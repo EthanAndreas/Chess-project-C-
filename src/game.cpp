@@ -17,7 +17,7 @@ bool queenside_castling_selection(string const &cmd) {
 
 Game::Game() : chessboard(), player(WHITE) { state = NONE; }
 
-Game::~Game() { cout << endl << " End of game !" << endl; }
+Game::~Game() { cout << endl << "End of game !" << endl; }
 
 void Game::print() { chessboard.print_board(); }
 
@@ -147,7 +147,7 @@ bool Game::move(int init_x, int init_y, int dest_x, int dest_y) {
                 if (chessboard.is_check(BLACK) == true) {
 
                     set_state(CHECK);
-                    cout << "Check's situation for black pawns !"
+                    cout << "Check's situation against black pawns !"
                          << endl;
                 } else {
 
@@ -163,7 +163,7 @@ bool Game::move(int init_x, int init_y, int dest_x, int dest_y) {
                 if (chessboard.is_check(WHITE) == true) {
 
                     set_state(CHECK);
-                    cout << "Check's situation for white pawns !"
+                    cout << "Check's situation against white pawns !"
                          << endl;
                 } else {
 
@@ -180,17 +180,17 @@ bool Game::move(int init_x, int init_y, int dest_x, int dest_y) {
                 chessboard.get_piece(dest_x, dest_y)->get_color()) {
 
             cout << "There is already one of your pawns on this "
-                    "position."
+                    "position. "
                  << "Please try again." << endl;
             return false;
         }
 
-        cout << "This is a forbidden move !"
+        cout << "This is a forbidden move ! "
              << "Please try again." << endl;
         return false;
     }
 
-    cout << "You try to move a pawn that is not yours !"
+    cout << "You try to move a pawn that is not yours ! "
          << "Please try again." << endl;
     return false;
 }
@@ -234,9 +234,7 @@ bool Game::stroke() {
                 cout << "Castling done !" << endl;
                 break;
             }
-        }
-
-        else if (queenside_castling_selection(str)) {
+        } else if (queenside_castling_selection(str)) {
 
             if (queenside_castling() == true) {
                 done = false;
@@ -245,7 +243,7 @@ bool Game::stroke() {
             }
         }
 
-        else if (selection(str)) {
+        if (selection(str)) {
 
             int *coord = string_to_int(str);
 
@@ -253,9 +251,7 @@ bool Game::stroke() {
                 done = true;
                 break;
             }
-        }
-
-        else {
+        } else {
             cout << "Error in command line !"
                     "Please try again."
                  << endl;
