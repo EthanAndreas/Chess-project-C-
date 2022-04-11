@@ -16,18 +16,19 @@ class Piece {
   public:
     Piece(Color col, string str);
 
-    ~Piece();
+    virtual ~Piece();
 
     void print();
 
     Color get_color() const;
     string get_name() const;
 
-    bool get_castling() const;
-    void set_castling();
+    virtual bool get_castling() const = 0;
+    virtual void set_castling() = 0;
 
-    Movement is_valid_move(int init_x, int init_y, int dest_x,
-                           int dest_y, Piece *chess_tab[8][8]) const;
+    virtual Movement is_valid_move(int init_x, int init_y, int dest_x,
+                                   int dest_y,
+                                   Piece *chess_tab[8][8]) = 0;
 };
 
 class Bishop : public Piece {
@@ -35,8 +36,11 @@ class Bishop : public Piece {
   public:
     Bishop(Color col, string str);
 
+    bool get_castling() const;
+    void set_castling();
+
     Movement is_valid_move(int init_x, int init_y, int dest_x,
-                           int dest_y, Piece *chess_tab[8][8]) const;
+                           int dest_y, Piece *chess_tab[8][8]);
 };
 
 class Knight : public Piece {
@@ -44,8 +48,11 @@ class Knight : public Piece {
   public:
     Knight(Color col, string str);
 
+    bool get_castling() const;
+    void set_castling();
+
     Movement is_valid_move(int init_x, int init_y, int dest_x,
-                           int dest_y, Piece *chess_tab[8][8]) const;
+                           int dest_y, Piece *chess_tab[8][8]);
 };
 
 class Queen : public Piece {
@@ -53,8 +60,11 @@ class Queen : public Piece {
   public:
     Queen(Color col, string str);
 
+    bool get_castling() const;
+    void set_castling();
+
     Movement is_valid_move(int init_x, int init_y, int dest_x,
-                           int dest_y, Piece *chess_tab[8][8]) const;
+                           int dest_y, Piece *chess_tab[8][8]);
 };
 
 class Rook : public Piece {
@@ -70,7 +80,7 @@ class Rook : public Piece {
     void set_castling();
 
     Movement is_valid_move(int init_x, int init_y, int dest_x,
-                           int dest_y, Piece *chess_tab[8][8]) const;
+                           int dest_y, Piece *chess_tab[8][8]);
 };
 
 class King : public Piece {
@@ -86,7 +96,7 @@ class King : public Piece {
     void set_castling();
 
     Movement is_valid_move(int init_x, int init_y, int dest_x,
-                           int dest_y, Piece *chess_tab[8][8]) const;
+                           int dest_y, Piece *chess_tab[8][8]);
 };
 
 class Pawn : public Piece {
@@ -94,8 +104,11 @@ class Pawn : public Piece {
   public:
     Pawn(Color col, string str);
 
+    bool get_castling() const;
+    void set_castling();
+
     Movement is_valid_move(int init_x, int init_y, int dest_x,
-                           int dest_y, Piece *chess_tab[8][8]) const;
+                           int dest_y, Piece *chess_tab[8][8]);
 };
 
 #endif

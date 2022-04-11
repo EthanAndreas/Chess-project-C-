@@ -22,23 +22,16 @@ Game::~Game() { cout << endl << "End of game !" << endl; }
 
 void Game::print() { chessboard.print_board(); }
 
-int *Game::string_to_int(string str) {
+// string to coordinates
+int *Game::string_to_coord(string str) {
 
-    if (str.empty() == true)
-        return nullptr;
+    int *coord = new int[2];
+    coord[1] = str[0] - 'a';
+    coord[0] = str[1] - '1';
+    coord[3] = str[2] - 'a';
+    coord[2] = str[3] - '1';
 
-    int *tab = new int[4];
-
-    // use of coord in the opposite order
-    tab[1] = str[0] - 'a';
-    tab[0] = str[1] - '0';
-    tab[3] = str[3] - 'a';
-    tab[2] = str[4] - '0';
-
-    tab[1] -= 1;
-    tab[3] -= 1;
-
-    return tab;
+    return coord;
 }
 
 State Game::get_state() const { return state; }
@@ -237,21 +230,20 @@ bool Game::stroke() {
             }
         }
 
-        int error = 0;
+        if (selection(str)) {
 
-        if (selection(str) && error == 0) {
+            int *coord = string_to_coord(str);
 
-            int *coord = string_to_int(str);
+            cout << "You have selected : " << coord[0] << " "
+                 << coord[1] << endl;
 
-            if (coord == nullptr)
-                error = 1;
-            else {
+            cout << coord[2] << " " << coord[3] << endl;
 
-                if (move(coord[0], coord[1], coord[2], coord[3])) {
-                    done = true;
-                    break;
-                }
+            if (move(coord[0], coord[1], coord[2], coord[3])) {
+                done = true;
+                break;
             }
+
         } else {
             cout << "Error in command line !"
                     "Please try again."
