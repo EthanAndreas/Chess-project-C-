@@ -16,28 +16,8 @@ Movement King::is_valid_move(int init_x, int init_y, int dest_x,
         return ERROR;
 
     // test if the move is valid for the King
-    if (dest_y - init_y == 1) {
-        // moving up one space allowed
-
-        return GOOD;
-    } else if (dest_y - init_y == 1 && dest_x - init_x == 1) {
-        // movement of one square diagonally authorized
-
-        return GOOD;
-    } else if (dest_y - init_y == 1 && dest_x - init_x == -1) {
-        // movement of one square diagonally authorized
-
-        return GOOD;
-    } else if (dest_y - init_y == -1) {
-        // moving down one space allowed
-
-        return GOOD;
-    } else if (dest_y - init_y == -1 && dest_x - init_x == 1) {
-        // movement of one square diagonally authorized
-
-        return GOOD;
-    } else if (dest_y - init_y == -1 && dest_x - init_x == -1) {
-        // movement of one square diagonally authorized
+    if (abs(dest_x - init_x) <= 1 && abs(dest_y - init_y) <= 1) {
+        // move is valid
 
         return GOOD;
     } else

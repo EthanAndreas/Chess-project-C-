@@ -17,6 +17,18 @@ Movement Bishop::is_valid_move(int init_x, int init_y, int dest_x,
     // test if the move is valid for the bishop
     int i = init_x, j = init_y;
 
+    // first move
+    if (dest_x - init_x > 0)
+        i = init_x + 1;
+    else
+        i = init_x - 1;
+
+    if (dest_y - init_y > 0)
+        j = init_y + 1;
+    else
+        j = init_y - 1;
+
+    // move's rest
     while (chess_tab[i][j] == nullptr && i != dest_x && j != dest_y) {
 
         i += (dest_x - i > 0) ? 1 : -1;

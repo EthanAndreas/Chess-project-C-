@@ -18,7 +18,7 @@ Movement Pawn::is_valid_move(int init_x, int init_y, int dest_x,
 
     // black pawn
 
-    if (dest_x - init_x == 1) {
+    if (dest_x - init_x == 1 && dest_y - init_y == 0) {
         // moving up one space allowed
 
         if (chess_tab[dest_x][dest_y] == nullptr)
@@ -40,13 +40,12 @@ Movement Pawn::is_valid_move(int init_x, int init_y, int dest_x,
     } else if (dest_x - init_x == 1 && dest_y - init_y == -1) {
         // movement of one square diagonally authorized if there
         // is an opposing pawn
-
         return DIAGONAL_BLACK;
     }
 
     // white pawn
 
-    if (dest_x - init_x == -1) {
+    else if (dest_x - init_x == -1 && dest_y - init_y == 0) {
         // moving down one space allowed
 
         if (chess_tab[dest_x][dest_y] == nullptr)
@@ -65,6 +64,7 @@ Movement Pawn::is_valid_move(int init_x, int init_y, int dest_x,
         // is an opposing pawn;
 
         return DIAGONAL_WHITE;
+
     } else if (dest_x - init_x == -1 && dest_y - init_y == -1) {
         // movement of one square diagonally authorized if there
         // is an opposing pawn

@@ -33,6 +33,8 @@ Chessboard::Chessboard() {
         chess_tab[6][i] = new Pawn(Color::WHITE, "\u265F");
     }
 
+        chess_tab[4][1] = new Queen(Color::BLACK, "\u2655");
+    chess_tab[3][4] = new Rook(Color::BLACK, "\u2656");
     // chess_tab[7][3] = new Rook(Color::WHITE, "\u2656");
     // chess_tab[7][5] = new Rook(Color::WHITE, "\u2656");
     // chess_tab[6][3] = new Rook(Color::WHITE, "\u2656");
@@ -144,6 +146,7 @@ void Chessboard::move(int init_x, int init_y, int dest_x,
 }
 
 bool Chessboard::is_check(Color color) {
+    // test if color's pawns are in check
 
     for (int i = 0; i < 8; i++) {
 
@@ -153,9 +156,11 @@ bool Chessboard::is_check(Color color) {
 
                 if (chess_tab[i][j]->get_color() != color) {
 
-                    if (color == WHITE) {
+                    if (color == BLACK) {
 
-                        if (get_piece(i, j)->get_name() == "\u2659") {
+                        // the piece is a white pawn, the only move to
+                        // put king in check is a diagonal move
+                        if (get_piece(i, j)->get_name() == "\u265F") {
 
                             if (chess_tab[i][j]->is_valid_move(
                                     i, j, white_king_x, white_king_y,
@@ -163,13 +168,15 @@ bool Chessboard::is_check(Color color) {
                                 return true;
                         }
 
+                        // we try if all other pieces can touch the
+                        // king
                         if (get_piece(i, j)->is_valid_move(
                                 i, j, white_king_x, white_king_y,
                                 chess_tab) == GOOD)
                             return true;
                     } else {
 
-                        if (get_piece(i, j)->get_name() == "\u265F") {
+                        if (get_piece(i, j)->get_name() == "\u2659") {
 
                             if (chess_tab[i][j]->is_valid_move(
                                     i, j, white_king_x, white_king_y,
@@ -235,8 +242,6 @@ bool Chessboard::allowed_move(Color color, int init_x, int init_y,
     // white pawn
     if (chess_tab[init_x][init_y]->get_name() == "\u265F") {
 
-        cout << "pawn !!" << endl;
-
         if (get_piece(init_x, init_y)
                 ->is_valid_move(init_x, init_y, dest_x, dest_y,
                                 chess_tab) == ONE_CASE_WHITE)
@@ -276,13 +281,6 @@ bool Chessboard::allowed_move(Color color, int init_x, int init_y,
                 valid = 1;
         }
     } else {
-
-        cout << "other !!" << endl;
-
-        cout << get_piece(init_x, init_y)
-                    ->is_valid_move(init_x, init_y, dest_x, dest_y,
-                                    chess_tab)
-             << endl;
 
         if ((get_piece(init_x, init_y)
                  ->is_valid_move(init_x, init_y, dest_x, dest_y,

@@ -16,7 +16,7 @@ bool queenside_castling_selection(string const &cmd) {
     return regex_match(cmd, mouvmtpattern);
 }
 
-Game::Game() : chessboard(), player(WHITE) { state = NONE; }
+Game::Game() : chessboard(), player(BLACK), state(NONE) {}
 
 Game::~Game() { cout << endl << "End of game !" << endl; }
 
@@ -126,8 +126,13 @@ bool Game::queenside_castling() {
 
 bool Game::move(int init_x, int init_y, int dest_x, int dest_y) {
 
-    if (chessboard.get_piece(init_x, init_y) == nullptr)
+    if (chessboard.get_piece(init_x, init_y) == nullptr) {
+
+        cout << "No piece at this position !"
+                " Please, try again."
+             << endl;
         return false;
+    }
 
     if (chessboard.get_piece(init_x, init_y)->get_color() == player) {
 
@@ -234,11 +239,6 @@ bool Game::stroke() {
 
             int *coord = string_to_coord(str);
 
-            cout << "You have selected : " << coord[0] << " "
-                 << coord[1] << endl;
-
-            cout << coord[2] << " " << coord[3] << endl;
-
             if (move(coord[0], coord[1], coord[2], coord[3])) {
                 done = true;
                 break;
@@ -249,14 +249,14 @@ bool Game::stroke() {
                     "Please try again."
                  << endl;
         }
-
-        chessboard.print_board();
     }
 
-    if (player == WHITE)
-        player = BLACK;
-    else
-        player = WHITE;
+    chessboard.print_board();
+
+    // if (player == WHITE)
+    //     player = BLACK;
+    // else
+    //     player = WHITE;
 
     return false;
 }
