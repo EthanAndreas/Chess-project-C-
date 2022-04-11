@@ -1,6 +1,12 @@
 #ifndef ENUM
 #define ENUM
 
+#define NC "\e[0m"
+#define RED "\e[0;31m"
+#define GRN "\e[0;32m"
+#define CYN "\e[0;36m"
+#define REDB "\e[41m"
+
 enum Color { EMPTY = 0, WHITE = 1, BLACK = 2 };
 enum State { NONE = 0, CHECK = 1, CHECKMATE = 2 };
 enum Movement {

@@ -12,12 +12,12 @@ Chessboard::Chessboard() {
 
     // Initialisation of pieces
     chess_tab[0][0] = new Rook(Color::BLACK, "\u2656");
-    chess_tab[0][1] = new Knight(Color::BLACK, "\u2658");
-    chess_tab[0][2] = new Bishop(Color::BLACK, "\u2657");
-    chess_tab[0][3] = new Queen(Color::BLACK, "\u2655");
+    // chess_tab[0][1] = new Knight(Color::BLACK, "\u2658");
+    // chess_tab[0][2] = new Bishop(Color::BLACK, "\u2657");
+    // chess_tab[0][3] = new Queen(Color::BLACK, "\u2655");
     chess_tab[0][4] = new King(Color::BLACK, "\u2654");
-    chess_tab[0][5] = new Bishop(Color::BLACK, "\u2657");
-    chess_tab[0][6] = new Knight(Color::BLACK, "\u2658");
+    // chess_tab[0][5] = new Bishop(Color::BLACK, "\u2657");
+    // chess_tab[0][6] = new Knight(Color::BLACK, "\u2658");
     chess_tab[0][7] = new Rook(Color::BLACK, "\u2656");
     chess_tab[7][0] = new Rook(Color::WHITE, "\u265C");
     chess_tab[7][1] = new Knight(Color::WHITE, "\u265E");
@@ -33,8 +33,8 @@ Chessboard::Chessboard() {
         chess_tab[6][i] = new Pawn(Color::WHITE, "\u265F");
     }
 
-        chess_tab[4][1] = new Queen(Color::BLACK, "\u2655");
-    chess_tab[3][4] = new Rook(Color::BLACK, "\u2656");
+    // chess_tab[4][1] = new Queen(Color::BLACK, "\u2655");
+    // chess_tab[3][4] = new Rook(Color::BLACK, "\u2656");
     // chess_tab[7][3] = new Rook(Color::WHITE, "\u2656");
     // chess_tab[7][5] = new Rook(Color::WHITE, "\u2656");
     // chess_tab[6][3] = new Rook(Color::WHITE, "\u2656");
@@ -67,8 +67,12 @@ void Chessboard::print_board() {
     static const string &line =
         "  +-----+-----+-----+-----+-----+-----+-----+-----+";
 
+    static const string &space1 = " ";
+    static const string &space2 = "   ";
+
     // print the column name
-    cout << "     a     b     c     d     e     f     g     h    "
+    cout << endl
+         << "     a     b     c     d     e     f     g     h    "
          << endl;
     cout << line << endl;
 
@@ -84,9 +88,10 @@ void Chessboard::print_board() {
 
             if (chess_tab[i][j] != nullptr) {
 
-                cout << " ";
+                // system("color *background**foreground*");
+                cout << space1;
                 chess_tab[i][j]->print();
-                cout << "   ";
+                cout << space2;
 
             } else
                 cout << space;

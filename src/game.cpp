@@ -1,8 +1,8 @@
 #include "game.h"
 
 bool selection(string const &cmd) {
-    // regex mouvmtpattern("[a-h][1-8][a-h][1-8]");
-    // return regex_match(cmd, mouvmtpattern);
+    regex mouvmtpattern("[a-h][1-8][a-h][1-8]");
+    return regex_match(cmd, mouvmtpattern);
     return true;
 }
 
@@ -18,7 +18,7 @@ bool queenside_castling_selection(string const &cmd) {
 
 Game::Game() : chessboard(), player(BLACK), state(NONE) {}
 
-Game::~Game() { cout << endl << "End of game !" << endl; }
+Game::~Game() { cout << endl << GRN "End of game !" NC << endl; }
 
 void Game::print() { chessboard.print_board(); }
 
@@ -64,9 +64,9 @@ bool Game::kingside_castling() {
     int line;
 
     if (player == WHITE)
-        line = 0;
-    else
         line = 7;
+    else
+        line = 0;
 
     if (chessboard.get_piece(line, 4) == nullptr)
         return false;
@@ -80,7 +80,7 @@ bool Game::kingside_castling() {
         if (chessboard.get_piece(line, 1) != nullptr ||
             chessboard.get_piece(line, 2) != nullptr) {
 
-            cout << "Castling impossile !" << endl;
+            cout << RED "Castling impossile !" NC << endl;
             return false;
         }
     }
@@ -96,9 +96,9 @@ bool Game::queenside_castling() {
     int line;
 
     if (player == WHITE)
-        line = 0;
-    else
         line = 7;
+    else
+        line = 0;
 
     if (chessboard.get_piece(line, 4) == nullptr)
         return false;
@@ -113,7 +113,7 @@ bool Game::queenside_castling() {
             chessboard.get_piece(line, 5) != nullptr ||
             chessboard.get_piece(line, 6) != nullptr) {
 
-            cout << "Castling impossile !" << endl;
+            cout << RED "Castling impossile !" NC << endl;
             return false;
         }
     }
@@ -128,8 +128,8 @@ bool Game::move(int init_x, int init_y, int dest_x, int dest_y) {
 
     if (chessboard.get_piece(init_x, init_y) == nullptr) {
 
-        cout << "No piece at this position !"
-                " Please, try again."
+        cout << RED "No piece at this position !"
+                    " Please, try again." NC
              << endl;
         return false;
     }
@@ -145,7 +145,8 @@ bool Game::move(int init_x, int init_y, int dest_x, int dest_y) {
                 if (chessboard.is_check(BLACK) == true) {
 
                     set_state(CHECK);
-                    cout << "Check's situation against black pawns !"
+                    cout << NC
+                        "Check's situation against black pawns !"
                          << endl;
                 } else {
 
@@ -161,7 +162,8 @@ bool Game::move(int init_x, int init_y, int dest_x, int dest_y) {
                 if (chessboard.is_check(WHITE) == true) {
 
                     set_state(CHECK);
-                    cout << "Check's situation against white pawns !"
+                    cout << NC
+                        "Check's situation against white pawns !"
                          << endl;
                 } else {
 
@@ -177,34 +179,34 @@ bool Game::move(int init_x, int init_y, int dest_x, int dest_y) {
             chessboard.get_piece(init_x, init_y)->get_color() ==
                 chessboard.get_piece(dest_x, dest_y)->get_color()) {
 
-            cout << "There is already one of your pawns on this "
-                    "position. "
-                 << "Please try again." << endl;
+            cout << RED "There is already one of your pawns on this "
+                        "position. "
+                 << "Please try again." NC << endl;
             return false;
         }
 
-        cout << "This is a forbidden move ! "
-             << "Please try again." << endl;
+        cout << RED "This is a forbidden move ! "
+             << "Please try again." NC << endl;
         return false;
     }
 
-    cout << "You try to move a pawn that is not yours ! "
-         << "Please try again." << endl;
+    cout << RED "You try to move a pawn that is not yours ! "
+         << "Please try again." NC << endl;
     return false;
 }
 
 bool Game::stroke() {
 
     if (player == WHITE)
-        cout << "Player white" << endl;
+        cout << endl << NC "White player's round" << endl;
     if (player == BLACK)
-        cout << "Player black" << endl;
+        cout << endl << NC "Black player's round" << endl;
 
     checkmate();
 
     if (get_state() == CHECKMATE) {
 
-        cout << "Checkmate !" << endl;
+        cout << GRN "Checkmate !" NC << endl;
         return true;
     }
 
@@ -213,7 +215,7 @@ bool Game::stroke() {
     while (done == false) {
 
         string str;
-        cout << "What is your stroke : ";
+        cout << NC "What is your stroke : ";
         cin >> str;
 
         if (str == "/quit")
@@ -223,19 +225,17 @@ bool Game::stroke() {
 
             if (kingside_castling() == true) {
                 done = false;
-                cout << "Castling done !" << endl;
+                cout << GRN "Castling done !" NC << endl;
                 break;
             }
         } else if (queenside_castling_selection(str)) {
 
             if (queenside_castling() == true) {
                 done = false;
-                cout << "Castling done !" << endl;
+                cout << GRN "Castling done !" NC << endl;
                 break;
             }
-        }
-
-        if (selection(str)) {
+        } else if (selection(str)) {
 
             int *coord = string_to_coord(str);
 
@@ -245,18 +245,18 @@ bool Game::stroke() {
             }
 
         } else {
-            cout << "Error in command line !"
-                    "Please try again."
+            cout << RED "Error in command line ! "
+                        "Please try again." NC
                  << endl;
         }
     }
 
     chessboard.print_board();
 
-    // if (player == WHITE)
-    //     player = BLACK;
-    // else
-    //     player = WHITE;
+    if (player == WHITE)
+        player = BLACK;
+    else
+        player = WHITE;
 
     return false;
 }

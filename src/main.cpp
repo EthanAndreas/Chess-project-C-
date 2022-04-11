@@ -1,10 +1,10 @@
-#include <iostream>
-
 #include "game.h"
+#include <iostream>
+#include <stdlib.h>
 
 int main() {
 
-    cout << "Begin of the game !" << endl;
+    cout << endl << GRN "Begin of the game !" NC << endl;
 
     Game game = Game();
     game.print();
