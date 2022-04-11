@@ -32,7 +32,7 @@ class Game {
     bool kingside_castling();
     bool queenside_castling();
 
-    int *string_to_int(string const &str);
+    int *string_to_int(string str);
 
     bool move(int init_x, int init_y, int dest_x, int dest_y);
     bool stroke();

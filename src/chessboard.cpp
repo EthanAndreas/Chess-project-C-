@@ -33,6 +33,13 @@ Chessboard::Chessboard() {
         chess_tab[6][i] = new Pawn(Color::BLACK, "\u265F");
     }
 
+    // chess_tab[7][3] = new Rook(Color::WHITE, "\u2656");
+    // chess_tab[7][5] = new Rook(Color::WHITE, "\u2656");
+    // chess_tab[6][3] = new Rook(Color::WHITE, "\u2656");
+    // chess_tab[6][4] = new Rook(Color::WHITE, "\u2656");
+    // chess_tab[6][5] = new Rook(Color::WHITE, "\u2656");
+    // chess_tab[7][4] = new King(Color::BLACK, "\u265A");
+
     // save of king's location
     white_king_x = 0;
     white_king_y = 4;
@@ -89,11 +96,19 @@ void Chessboard::print_board() {
 }
 
 Piece *Chessboard::get_piece(int x, int y) const {
+
+    if (x < 0 || x > 7 || y < 0 || y > 7)
+        return nullptr;
+
     return chess_tab[x][y];
 }
 
 void Chessboard::move(int init_x, int init_y, int dest_x,
                       int dest_y) {
+
+    // security
+    if (chess_tab[init_x][init_y] == nullptr)
+        return;
 
     // in the case where the player destrinit_y an opponent piece
     if (chess_tab[dest_x][dest_y] != nullptr)
@@ -134,37 +149,39 @@ bool Chessboard::is_check(Color color) {
 
         for (int j = 0; j < 8; j++) {
 
-            if (chess_tab[i][j] != nullptr &&
-                chess_tab[i][j]->get_color() != color) {
+            if (chess_tab[i][j] != nullptr) {
 
-                if (color == WHITE) {
+                if (chess_tab[i][j]->get_color() != color) {
 
-                    if (get_piece(i, j)->get_name() == "\u2659") {
+                    if (color == WHITE) {
 
-                        if (chess_tab[i][j]->is_valid_move(
+                        if (get_piece(i, j)->get_name() == "\u2659") {
+
+                            if (chess_tab[i][j]->is_valid_move(
+                                    i, j, white_king_x, white_king_y,
+                                    chess_tab) == DIAGONAL_WHITE)
+                                return true;
+                        }
+
+                        if (get_piece(i, j)->is_valid_move(
                                 i, j, white_king_x, white_king_y,
-                                chess_tab) == DIAGONAL_WHITE)
+                                chess_tab) == GOOD)
+                            return true;
+                    } else {
+
+                        if (get_piece(i, j)->get_name() == "\u265F") {
+
+                            if (chess_tab[i][j]->is_valid_move(
+                                    i, j, white_king_x, white_king_y,
+                                    chess_tab) == DIAGONAL_BLACK)
+                                return true;
+                        }
+
+                        if (get_piece(i, j)->is_valid_move(
+                                i, j, black_king_x, black_king_y,
+                                chess_tab) == GOOD)
                             return true;
                     }
-
-                    if (get_piece(i, j)->is_valid_move(
-                            i, j, white_king_x, white_king_y,
-                            chess_tab) == GOOD)
-                        return true;
-                } else {
-
-                    if (get_piece(i, j)->get_name() == "\u265F") {
-
-                        if (chess_tab[i][j]->is_valid_move(
-                                i, j, white_king_x, white_king_y,
-                                chess_tab) == DIAGONAL_BLACK)
-                            return true;
-                    }
-
-                    if (get_piece(i, j)->is_valid_move(
-                            i, j, black_king_x, black_king_y,
-                            chess_tab) == GOOD)
-                        return true;
                 }
             }
         }
@@ -173,8 +190,45 @@ bool Chessboard::is_check(Color color) {
     return false;
 }
 
+bool Chessboard::is_checkmate(Color color) {
+
+    if (is_check(color)) {
+
+        for (int i = 0; i < 8; i++) {
+
+            for (int j = 0; j < 8; j++) {
+
+                if (chess_tab[i][j] != nullptr) {
+
+                    if (chess_tab[i][j]->get_color() == color) {
+
+                        for (int k = 0; k < 8; k++) {
+
+                            for (int l = 0; l < 8; l++) {
+
+                                if (chess_tab[i][j]->is_valid_move(
+                                        i, j, k, l, chess_tab) ==
+                                    GOOD)
+                                    return false;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        return true;
+    }
+
+    return false;
+}
+
 bool Chessboard::allowed_move(Color color, int init_x, int init_y,
                               int dest_x, int dest_y) {
+
+    // security
+    if (chess_tab[init_x][init_y] == nullptr)
+        return false;
 
     int valid = 0;
 
@@ -251,52 +305,52 @@ bool Chessboard::allowed_move(Color color, int init_x, int init_y,
     return false;
 }
 
-string Chessboard::canonical_position() const {
+// string Chessboard::canonical_position() const {
 
-    string output;
+//     string output;
 
-    for (int i = 0; i <= 8; i++) {
+//     for (int i = 0; i <= 8; i++) {
 
-        for (char j = 'a'; j <= 'h'; j++) {
+//         for (char j = 'a'; j <= 'h'; j++) {
 
-            if (chess_tab[i][j - 'a'] != nullptr)
-                output += pgn_piece_name(
-                    chess_tab[i][j - 'a']->get_name(),
-                    chess_tab[i][j - 'a']->get_color());
-            else
-                output += "";
+//             if (chess_tab[i][j - 'a'] != nullptr)
+//                 output += pgn_piece_name(
+//                     chess_tab[i][j - 'a']->get_name(),
+//                     chess_tab[i][j - 'a']->get_color());
+//             else
+//                 output += "";
 
-            output += ",";
-        }
-    }
-    return output;
-}
+//             output += ",";
+//         }
+//     }
+//     return output;
+// }
 
-string Chessboard::pgn_piece_name(string const name,
-                                  Color color) const {
+// string Chessboard::pgn_piece_name(string const name,
+//                                   Color color) const {
 
-    string psymb = "";
+//     string psymb = "";
 
-    if (name == "\u2656" || name == "\u265C")
-        psymb = "R"; // Rook W
-    else if (name == "\u2658" || name == "\u265E")
-        psymb = "N"; // Knight W
-    else if (name == "\u2657" || name == "\u265D")
-        psymb = "B"; // Bishop W
-    else if (name == "\u2655" || name == "\u265B")
-        psymb = "Q"; // Queen W
-    else if (name == "\u2654" || name == "\u265A")
-        psymb = "K"; // King W
-    else if (name == "\u2659" || name == "\u265F")
-        psymb = "P"; // Pawn W
+//     if (name == "\u2656" || name == "\u265C")
+//         psymb = "R"; // Rook W
+//     else if (name == "\u2658" || name == "\u265E")
+//         psymb = "N"; // Knight W
+//     else if (name == "\u2657" || name == "\u265D")
+//         psymb = "B"; // Bishop W
+//     else if (name == "\u2655" || name == "\u265B")
+//         psymb = "Q"; // Queen W
+//     else if (name == "\u2654" || name == "\u265A")
+//         psymb = "K"; // King W
+//     else if (name == "\u2659" || name == "\u265F")
+//         psymb = "P"; // Pawn W
 
-    if (psymb.size() > 0) {
-        // one of the black piece has been found
-        if (color == BLACK)
-            return "b" + psymb;
-        else if (color == WHITE)
-            return "w" + psymb;
-    }
+//     if (psymb.size() > 0) {
+//         // one of the black piece has been found
+//         if (color == BLACK)
+//             return "b" + psymb;
+//         else if (color == WHITE)
+//             return "w" + psymb;
+//     }
 
-    return psymb;
-}
+//     return psymb;
+// }

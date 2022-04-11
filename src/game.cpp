@@ -1,8 +1,9 @@
 #include "game.h"
 
 bool selection(string const &cmd) {
-    regex mouvmtpattern("[a-h][1-8][a-h][1-8]");
-    return regex_match(cmd, mouvmtpattern);
+    // regex mouvmtpattern("[a-h][1-8][a-h][1-8]");
+    // return regex_match(cmd, mouvmtpattern);
+    return true;
 }
 
 bool kingside_castling_selection(string const &cmd) {
@@ -21,14 +22,21 @@ Game::~Game() { cout << endl << "End of game !" << endl; }
 
 void Game::print() { chessboard.print_board(); }
 
-int *Game::string_to_int(string const &str) {
+int *Game::string_to_int(string str) {
+
+    if (str.empty() == true)
+        return nullptr;
 
     int *tab = new int[4];
 
-    tab[0] = str[0] - '0';
-    tab[1] = str[1] - '0';
-    tab[2] = str[3] - '0';
-    tab[3] = str[4] - '0';
+    // use of coord in the opposite order
+    tab[1] = str[0] - 'a';
+    tab[0] = str[1] - '0';
+    tab[3] = str[3] - 'a';
+    tab[2] = str[4] - '0';
+
+    tab[1] -= 1;
+    tab[3] -= 1;
 
     return tab;
 }
@@ -47,33 +55,15 @@ void Game::set_state(State new_state) {
 
 State Game::checkmate() {
 
-    for (int init_x = 0; init_x < 8; init_x++) {
+    if (chessboard.is_checkmate(player)) {
 
-        for (int init_y = 0; init_y < 8; init_y++) {
+        state = CHECKMATE;
+        return CHECKMATE;
+    } else {
 
-            if (chessboard.get_piece(init_x, init_y) != nullptr &&
-                chessboard.get_piece(init_x, init_y)->get_color() ==
-                    player) {
-
-                for (int dest_x = 0; dest_x < 8; dest_x++) {
-
-                    for (int dest_y = 0; dest_y < 8; dest_y++) {
-
-                        // if there is a case where we do not set a
-                        // check situation, there is no checkmate
-                        if (chessboard.allowed_move(player, init_x,
-                                                    init_y, dest_x,
-                                                    dest_y) == true)
-                            return (state = NONE);
-                    }
-                }
-            }
-        }
+        state = NONE;
+        return NONE;
     }
-
-    // in the case where we cannot only move any piece or any piece
-    // that remove the check situation
-    return (state = CHECKMATE);
 }
 
 bool Game::kingside_castling() {
@@ -85,9 +75,13 @@ bool Game::kingside_castling() {
     else
         line = 7;
 
-    if (chessboard.get_piece(line, 4) != nullptr &&
-        chessboard.get_piece(line, 4)->get_castling() != true &&
-        chessboard.get_piece(line, 7) != nullptr &&
+    if (chessboard.get_piece(line, 4) == nullptr)
+        return false;
+
+    if (chessboard.get_piece(line, 7) == nullptr)
+        return false;
+
+    if (chessboard.get_piece(line, 4)->get_castling() != true &&
         chessboard.get_piece(line, 7)->get_castling() != true) {
 
         if (chessboard.get_piece(line, 1) != nullptr ||
@@ -113,9 +107,13 @@ bool Game::queenside_castling() {
     else
         line = 7;
 
-    if (chessboard.get_piece(line, 4) != nullptr &&
-        chessboard.get_piece(line, 4)->get_castling() != true &&
-        chessboard.get_piece(line, 0) != nullptr &&
+    if (chessboard.get_piece(line, 4) == nullptr)
+        return false;
+
+    if (chessboard.get_piece(line, 0) == nullptr)
+        return false;
+
+    if (chessboard.get_piece(line, 4)->get_castling() != true &&
         chessboard.get_piece(line, 0)->get_castling() != true) {
 
         if (chessboard.get_piece(line, 3) != nullptr ||
@@ -135,8 +133,10 @@ bool Game::queenside_castling() {
 
 bool Game::move(int init_x, int init_y, int dest_x, int dest_y) {
 
-    if (chessboard.get_piece(init_x, init_y) != nullptr &&
-        chessboard.get_piece(init_x, init_y)->get_color() == player) {
+    if (chessboard.get_piece(init_x, init_y) == nullptr)
+        return false;
+
+    if (chessboard.get_piece(init_x, init_y)->get_color() == player) {
 
         if (chessboard.allowed_move(player, init_x, init_y, dest_x,
                                     dest_y) == true) {
@@ -202,16 +202,10 @@ bool Game::stroke() {
     if (player == BLACK)
         cout << "Player black" << endl;
 
+    checkmate();
+
     if (get_state() == CHECKMATE) {
 
-        if (checkmate() == CHECKMATE) {
-
-            cout << "Checkmate !" << endl;
-            return true;
-        }
-    }
-
-    if (checkmate() == CHECKMATE) {
         cout << "Checkmate !" << endl;
         return true;
     }
@@ -243,13 +237,20 @@ bool Game::stroke() {
             }
         }
 
-        if (selection(str)) {
+        int error = 0;
+
+        if (selection(str) && error == 0) {
 
             int *coord = string_to_int(str);
 
-            if (move(coord[0], coord[1], coord[2], coord[3])) {
-                done = true;
-                break;
+            if (coord == nullptr)
+                error = 1;
+            else {
+
+                if (move(coord[0], coord[1], coord[2], coord[3])) {
+                    done = true;
+                    break;
+                }
             }
         } else {
             cout << "Error in command line !"
