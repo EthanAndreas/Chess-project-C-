@@ -24,6 +24,7 @@ class Chessboard {
     void move(int init_x, int init_y, int dest_x, int dest_y);
     bool is_check(Color color);
     bool is_checkmate(Color color);
+    bool is_stalemate(Color color);
 
     bool allowed_move(Color color, int init_x, int init_y, int dest_x,
                       int dest_y);

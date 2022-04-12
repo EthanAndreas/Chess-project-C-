@@ -33,6 +33,7 @@ Chessboard::Chessboard() {
         chess_tab[6][i] = new Pawn(Color::WHITE, "\u265F");
     }
 
+    chess_tab[5][1] = new Pawn(Color::BLACK, "\u2659");
     // save of king's location
     white_king_x = 7;
     white_king_y = 4;
@@ -156,43 +157,45 @@ bool Chessboard::is_check(Color color) {
 
         for (int j = 0; j < 8; j++) {
 
-            if (chess_tab[i][j] != nullptr) {
+            if (chess_tab[i][j] != nullptr &&
+                chess_tab[i][j]->get_color() != color) {
 
-                if (chess_tab[i][j]->get_color() != color) {
+                if (color == BLACK) {
 
-                    if (color == BLACK) {
+                    // the piece is a white pawn, the only move to
+                    // put king in check is a diagonal move
+                    if (get_piece(i, j)->get_name() == "\u265F") {
 
-                        // the piece is a white pawn, the only move to
-                        // put king in check is a diagonal move
-                        if (get_piece(i, j)->get_name() == "\u265F") {
-
-                            if (chess_tab[i][j]->is_valid_move(
-                                    i, j, black_king_x, black_king_y,
-                                    chess_tab) == DIAGONAL_WHITE)
-                                return true;
-                        }
-
-                        // we try if all other pieces can touch the
-                        // king
-                        if (get_piece(i, j)->is_valid_move(
+                        if (chess_tab[i][j]->is_valid_move(
                                 i, j, black_king_x, black_king_y,
-                                chess_tab) == GOOD)
-                            return true;
-                    } else {
-
-                        if (get_piece(i, j)->get_name() == "\u2659") {
-
-                            if (chess_tab[i][j]->is_valid_move(
-                                    i, j, white_king_x, white_king_y,
-                                    chess_tab) == DIAGONAL_BLACK)
-                                return true;
-                        }
-
-                        if (get_piece(i, j)->is_valid_move(
-                                i, j, white_king_x, white_king_y,
-                                chess_tab) == GOOD)
+                                chess_tab) == DIAGONAL_WHITE)
                             return true;
                     }
+
+                    // we try if all other pieces can touch the
+                    // king
+                    if (get_piece(i, j)->is_valid_move(
+                            i, j, black_king_x, black_king_y,
+                            chess_tab) == GOOD)
+                        return true;
+                } else {
+
+                    // the piece is a white pawn, the only move to
+                    // put king in check is a diagonal move
+                    if (get_piece(i, j)->get_name() == "\u2659") {
+
+                        if (chess_tab[i][j]->is_valid_move(
+                                i, j, white_king_x, white_king_y,
+                                chess_tab) == DIAGONAL_BLACK)
+                            return true;
+                    }
+
+                    // we try if all other pieces can touch the
+                    // king
+                    if (get_piece(i, j)->is_valid_move(
+                            i, j, white_king_x, white_king_y,
+                            chess_tab) == GOOD)
+                        return true;
                 }
             }
         }
@@ -263,6 +266,37 @@ bool Chessboard::is_checkmate(Color color) {
     return false;
 }
 
+bool Chessboard::is_stalemate(Color color) {
+
+    string color_win = color == WHITE ? "Black" : "White";
+
+    // test if the piece can move
+    for (int i = 0; i < 8; i++) {
+
+        for (int j = 0; j < 8; j++) {
+
+            for (int k = 0; k < 8; k++) {
+
+                for (int l = 0; l < 8; l++) {
+
+                    if (chess_tab[i][j] != nullptr &&
+                        chess_tab[i][j]->get_color() == color &&
+                        chess_tab[i][j]->is_valid_move(
+                            i, j, k, l, chess_tab) != ERROR) {
+
+                        return false;
+                    }
+                }
+            }
+        }
+    }
+
+    // if no move can be done, the game is stalemate
+    cout << GRN "Stalemate! " << endl;
+    cout << GRN << color_win << " player won !" NC << endl;
+    return true;
+}
+
 bool Chessboard::allowed_move(Color color, int init_x, int init_y,
                               int dest_x, int dest_y) {
 
@@ -289,9 +323,7 @@ bool Chessboard::allowed_move(Color color, int init_x, int init_y,
                 ->is_valid_move(init_x, init_y, dest_x, dest_y,
                                 chess_tab) == DIAGONAL_WHITE) {
 
-            if (chess_tab[dest_x][dest_y] != nullptr &&
-                chess_tab[dest_x][dest_y]->get_color() == BLACK)
-                valid = 1;
+            valid = 1;
         }
     } else if (chess_tab[init_x][init_y]->get_name() == "\u2659") {
 
@@ -309,9 +341,7 @@ bool Chessboard::allowed_move(Color color, int init_x, int init_y,
                 ->is_valid_move(init_x, init_y, dest_x, dest_y,
                                 chess_tab) == DIAGONAL_BLACK) {
 
-            if (chess_tab[dest_x][dest_y] != nullptr &&
-                chess_tab[dest_x][dest_y]->get_color() == WHITE)
-                valid = 1;
+            valid = 1;
         }
     } else {
 

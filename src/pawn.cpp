@@ -37,11 +37,17 @@ Movement Pawn::is_valid_move(int init_x, int init_y, int dest_x,
         // movement of one square diagonally authorized if there
         // is an opposing pawn
 
-        return DIAGONAL_BLACK;
+        if (chess_tab[dest_x][dest_y] != nullptr &&
+            chess_tab[dest_x][dest_y]->get_color() != get_color())
+            return DIAGONAL_BLACK;
+
     } else if (dest_x - init_x == 1 && dest_y - init_y == -1) {
         // movement of one square diagonally authorized if there
         // is an opposing pawn
-        return DIAGONAL_BLACK;
+
+        if (chess_tab[dest_x][dest_y] != nullptr &&
+            chess_tab[dest_x][dest_y]->get_color() != get_color())
+            return DIAGONAL_BLACK;
     }
 
     // white pawn
@@ -64,13 +70,17 @@ Movement Pawn::is_valid_move(int init_x, int init_y, int dest_x,
         // movement of one square diagonally authorized if there
         // is an opposing pawn;
 
-        return DIAGONAL_WHITE;
+        if (chess_tab[dest_x][dest_y] != nullptr &&
+            chess_tab[dest_x][dest_y]->get_color() == BLACK)
+            return DIAGONAL_WHITE;
 
     } else if (dest_x - init_x == -1 && dest_y - init_y == -1) {
         // movement of one square diagonally authorized if there
         // is an opposing pawn
 
-        return DIAGONAL_WHITE;
+        if (chess_tab[dest_x][dest_y] != nullptr &&
+            chess_tab[dest_x][dest_y]->get_color() == BLACK)
+            return DIAGONAL_WHITE;
     }
 
     return ERROR;

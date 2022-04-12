@@ -48,13 +48,14 @@ void Game::set_state(State new_state) {
 
 State Game::checkmate() {
 
-    if (chessboard.is_checkmate(player)) {
+    if (chessboard.is_checkmate(player) ||
+        chessboard.is_stalemate(player)) {
 
-        state = CHECKMATE;
+        set_state(CHECKMATE);
         return CHECKMATE;
     } else {
 
-        state = NONE;
+        set_state(NONE);
         return NONE;
     }
 }
