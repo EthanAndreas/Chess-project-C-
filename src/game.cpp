@@ -82,10 +82,6 @@ bool Game::kingside_castling() {
         return false;
     }
 
-    cout << "res castling" << endl;
-    cout << chessboard.get_piece(line, 4)->get_castling() << endl;
-    cout << chessboard.get_piece(line, 7)->get_castling() << endl;
-
     if (chessboard.get_piece(line, 4)->get_castling() == true) {
 
         cout << RED "The king has already moved !" NC << endl;
@@ -237,18 +233,16 @@ bool Game::move(int init_x, int init_y, int dest_x, int dest_y) {
 
 bool Game::stroke() {
 
+    // check the check's situation each stroke, display in function :
+    // Chessboard::is_checkmate
+    checkmate();
+    if (get_state() == CHECKMATE)
+        return true;
+
     if (player == WHITE)
         cout << endl << NC "White player's round" << endl;
     if (player == BLACK)
         cout << endl << NC "Black player's round" << endl;
-
-    checkmate();
-
-    if (get_state() == CHECKMATE) {
-
-        cout << GRN "Checkmate !" NC << endl;
-        return true;
-    }
 
     // loop for the stroke until the player choose a valid move
     bool done = false;

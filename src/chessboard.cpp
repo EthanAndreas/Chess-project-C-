@@ -10,40 +10,33 @@ Chessboard::Chessboard() {
             chess_tab[i][j] = nullptr;
     }
 
-    // // Initialisation of pieces
-    // chess_tab[0][0] = new Rook(Color::BLACK, "\u2656");
-    // // chess_tab[0][1] = new Knight(Color::BLACK, "\u2658");
-    // // chess_tab[0][2] = new Bishop(Color::BLACK, "\u2657");
-    // // chess_tab[0][3] = new Queen(Color::BLACK, "\u2655");
-    // chess_tab[0][5] = new King(Color::BLACK, "\u2654");
-    // // chess_tab[0][5] = new Bishop(Color::BLACK, "\u2657");
-    // // chess_tab[0][6] = new Knight(Color::BLACK, "\u2658");
-    // chess_tab[0][7] = new Rook(Color::BLACK, "\u2656");
-    // chess_tab[7][0] = new Rook(Color::WHITE, "\u265C");
-    // chess_tab[7][1] = new Knight(Color::WHITE, "\u265E");
-    // chess_tab[7][2] = new Bishop(Color::WHITE, "\u265D");
-    // chess_tab[7][3] = new Queen(Color::WHITE, "\u265B");
-    // chess_tab[7][4] = new King(Color::WHITE, "\u265A");
-    // chess_tab[7][5] = new Bishop(Color::WHITE, "\u265D");
-    // chess_tab[7][6] = new Knight(Color::WHITE, "\u265E");
-    // chess_tab[7][7] = new Rook(Color::WHITE, "\u265C");
+    // Initialisation of pieces
+    chess_tab[0][0] = new Rook(Color::BLACK, "\u2656");
+    chess_tab[0][1] = new Knight(Color::BLACK, "\u2658");
+    chess_tab[0][2] = new Bishop(Color::BLACK, "\u2657");
+    chess_tab[0][3] = new Queen(Color::BLACK, "\u2655");
+    chess_tab[0][4] = new King(Color::BLACK, "\u2654");
+    chess_tab[0][5] = new Bishop(Color::BLACK, "\u2657");
+    chess_tab[0][6] = new Knight(Color::BLACK, "\u2658");
+    chess_tab[0][7] = new Rook(Color::BLACK, "\u2656");
+    chess_tab[7][0] = new Rook(Color::WHITE, "\u265C");
+    chess_tab[7][1] = new Knight(Color::WHITE, "\u265E");
+    chess_tab[7][2] = new Bishop(Color::WHITE, "\u265D");
+    chess_tab[7][3] = new Queen(Color::WHITE, "\u265B");
+    chess_tab[7][4] = new King(Color::WHITE, "\u265A");
+    chess_tab[7][5] = new Bishop(Color::WHITE, "\u265D");
+    chess_tab[7][6] = new Knight(Color::WHITE, "\u265E");
+    chess_tab[7][7] = new Rook(Color::WHITE, "\u265C");
 
-    // for (int i = 0; i < 8; i++) {
-    //     chess_tab[1][i] = new Pawn(Color::BLACK, "\u2659");
-    //     chess_tab[6][i] = new Pawn(Color::WHITE, "\u265F");
-    // }
-
-    chess_tab[7][3] = new Rook(Color::WHITE, "\u2656");
-    chess_tab[7][5] = new Rook(Color::WHITE, "\u2656");
-    chess_tab[6][3] = new Pawn(Color::WHITE, "\u265F");
-    chess_tab[6][4] = new Rook(Color::WHITE, "\u2656");
-    chess_tab[6][5] = new Pawn(Color::WHITE, "\u265F");
-    chess_tab[7][4] = new King(Color::BLACK, "\u265A");
+    for (int i = 0; i < 8; i++) {
+        chess_tab[1][i] = new Pawn(Color::BLACK, "\u2659");
+        chess_tab[6][i] = new Pawn(Color::WHITE, "\u265F");
+    }
 
     // save of king's location
-    white_king_x = 0;
+    white_king_x = 7;
     white_king_y = 4;
-    black_king_x = 7;
+    black_king_x = 0;
     black_king_y = 4;
 }
 
@@ -184,6 +177,9 @@ bool Chessboard::is_checkmate(Color color) {
     int init_x = color == BLACK ? black_king_x : white_king_x;
     int init_y = color == BLACK ? black_king_y : white_king_y;
 
+    string color_win = color == WHITE ? "Black" : "White";
+    string color_err = color == BLACK ? "Black" : "White";
+
     // if check, we try to move the king
     if (is_check(color)) {
 
@@ -220,9 +216,22 @@ bool Chessboard::is_checkmate(Color color) {
                     }
                 }
             }
+
+            // if any move leads to a check, the king is checkmate
+            cout << GRN "Checkmate! " << endl;
+            cout << GRN << color_win << " player won !" NC << endl;
+            return true;
         }
+
+        // the king is not in the board, end the game
+        cout << RED << color_err
+             << " king is not on the board ! Please, reset the "
+                "game. " NC
+             << endl;
+        return true;
     }
-    return true;
+
+    return false;
 }
 
 bool Chessboard::allowed_move(Color color, int init_x, int init_y,
@@ -298,7 +307,7 @@ bool Chessboard::allowed_move(Color color, int init_x, int init_y,
         // we go back to previous set
         chess_tab[init_x][init_y] = chess_tab[dest_x][dest_y];
         chess_tab[dest_x][dest_y] = copy_piece;
-        return false;
+        return true;
     }
 
     // we go back to previous set
