@@ -1,9 +1,10 @@
 #include "piece.h"
 
-Bishop::Bishop(Color col, string str) : Piece::Piece(col, str) {}
+Bishop::Bishop(Color col, string str)
+    : Piece::Piece(col, str), castling(false) {}
 
-bool Bishop::get_castling() const { return 0; }
-void Bishop::set_castling() {}
+bool Bishop::get_castling() const { return castling; }
+void Bishop::set_castling() { castling = true; }
 
 Movement Bishop::is_valid_move(int init_x, int init_y, int dest_x,
                                int dest_y, Piece *chess_tab[8][8]) {

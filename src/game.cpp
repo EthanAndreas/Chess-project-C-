@@ -16,7 +16,7 @@ bool queenside_castling_selection(string const &cmd) {
     return regex_match(cmd, mouvmtpattern);
 }
 
-Game::Game() : chessboard(), player(BLACK), state(NONE) {}
+Game::Game() : chessboard(), player(WHITE), state(NONE) {}
 
 Game::~Game() { cout << endl << GRN "End of game !" NC << endl; }
 
@@ -68,23 +68,45 @@ bool Game::kingside_castling() {
     else
         line = 0;
 
-    if (chessboard.get_piece(line, 4) == nullptr)
+    if (chessboard.get_piece(line, 4) == nullptr) {
+
+        cout << RED "There is no piece at the king's position !" NC
+             << endl;
         return false;
-
-    if (chessboard.get_piece(line, 7) == nullptr)
-        return false;
-
-    if (chessboard.get_piece(line, 4)->get_castling() != true &&
-        chessboard.get_piece(line, 7)->get_castling() != true) {
-
-        if (chessboard.get_piece(line, 1) != nullptr ||
-            chessboard.get_piece(line, 2) != nullptr) {
-
-            cout << RED "Castling impossile !" NC << endl;
-            return false;
-        }
     }
 
+    if (chessboard.get_piece(line, 7) == nullptr) {
+
+        cout << RED "There is no piece at the rook's position !" NC
+             << endl;
+        return false;
+    }
+
+    cout << "res castling" << endl;
+    cout << chessboard.get_piece(line, 4)->get_castling() << endl;
+    cout << chessboard.get_piece(line, 7)->get_castling() << endl;
+
+    if (chessboard.get_piece(line, 4)->get_castling() == true) {
+
+        cout << RED "The king has already moved !" NC << endl;
+        return false;
+    }
+
+    if (chessboard.get_piece(line, 7)->get_castling() == true) {
+
+        cout << RED "The rook has already moved !" NC << endl;
+        return false;
+    }
+
+    if (chessboard.get_piece(line, 5) != nullptr ||
+        chessboard.get_piece(line, 6) != nullptr) {
+
+        cout << RED "Castling impossile !" NC << endl;
+        return false;
+    }
+
+    chessboard.get_piece(line, 4)->set_castling();
+    chessboard.get_piece(line, 7)->set_castling();
     chessboard.move(line, 4, line, 6);
     chessboard.move(line, 7, line, 5);
 
@@ -100,24 +122,42 @@ bool Game::queenside_castling() {
     else
         line = 0;
 
-    if (chessboard.get_piece(line, 4) == nullptr)
+    if (chessboard.get_piece(line, 4) == nullptr) {
+
+        cout << RED "There is no piece at the king's position !" NC
+             << endl;
         return false;
-
-    if (chessboard.get_piece(line, 0) == nullptr)
-        return false;
-
-    if (chessboard.get_piece(line, 4)->get_castling() != true &&
-        chessboard.get_piece(line, 0)->get_castling() != true) {
-
-        if (chessboard.get_piece(line, 3) != nullptr ||
-            chessboard.get_piece(line, 5) != nullptr ||
-            chessboard.get_piece(line, 6) != nullptr) {
-
-            cout << RED "Castling impossile !" NC << endl;
-            return false;
-        }
     }
 
+    if (chessboard.get_piece(line, 0) == nullptr) {
+
+        cout << RED "There is no piece at the rook's position !" NC
+             << endl;
+        return false;
+    }
+
+    if (chessboard.get_piece(line, 4)->get_castling() == true) {
+
+        cout << RED "The king has already moved !" NC << endl;
+        return false;
+    }
+
+    if (chessboard.get_piece(line, 0)->get_castling() == true) {
+
+        cout << RED "The rook has already moved !" NC << endl;
+        return false;
+    }
+
+    if (chessboard.get_piece(line, 1) != nullptr ||
+        chessboard.get_piece(line, 2) != nullptr ||
+        chessboard.get_piece(line, 3) != nullptr) {
+
+        cout << RED "Castling impossile !" NC << endl;
+        return false;
+    }
+
+    chessboard.get_piece(line, 4)->set_castling();
+    chessboard.get_piece(line, 0)->set_castling();
     chessboard.move(line, 4, line, 2);
     chessboard.move(line, 0, line, 3);
 
@@ -210,8 +250,8 @@ bool Game::stroke() {
         return true;
     }
 
+    // loop for the stroke until the player choose a valid move
     bool done = false;
-
     while (done == false) {
 
         string str;
@@ -253,10 +293,7 @@ bool Game::stroke() {
 
     chessboard.print_board();
 
-    if (player == WHITE)
-        player = BLACK;
-    else
-        player = WHITE;
+    player = (player == WHITE) ? BLACK : WHITE;
 
     return false;
 }

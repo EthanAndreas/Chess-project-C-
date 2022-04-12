@@ -1,6 +1,7 @@
 #include "piece.h"
 
-King::King(Color col, string str) : Piece::Piece(col, str) {}
+King::King(Color col, string str)
+    : Piece::Piece(col, str), castling(false) {}
 
 bool King::get_castling() const { return castling; }
 

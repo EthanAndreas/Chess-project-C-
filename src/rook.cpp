@@ -1,6 +1,7 @@
 #include "piece.h"
 
-Rook::Rook(Color col, string str) : Piece::Piece(col, str) {}
+Rook::Rook(Color col, string str)
+    : Piece::Piece(col, str), castling(false) {}
 
 bool Rook::get_castling() const { return castling; }
 void Rook::set_castling() { castling = true; }

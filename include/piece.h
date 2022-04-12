@@ -33,6 +33,9 @@ class Piece {
 
 class Bishop : public Piece {
 
+  private:
+    bool castling;
+
   public:
     Bishop(Color col, string str);
 
@@ -45,6 +48,9 @@ class Bishop : public Piece {
 
 class Knight : public Piece {
 
+  private:
+    bool castling;
+
   public:
     Knight(Color col, string str);
 
@@ -56,6 +62,9 @@ class Knight : public Piece {
 };
 
 class Queen : public Piece {
+
+  private:
+    bool castling;
 
   public:
     Queen(Color col, string str);
@@ -100,6 +109,9 @@ class King : public Piece {
 };
 
 class Pawn : public Piece {
+
+  private:
+    bool castling;
 
   public:
     Pawn(Color col, string str);

@@ -1,9 +1,10 @@
 #include "piece.h"
 
-Knight::Knight(Color col, string str) : Piece(col, str) {}
+Knight::Knight(Color col, string str)
+    : Piece(col, str), castling(false) {}
 
-bool Knight::get_castling() const { return 0; }
-void Knight::set_castling() {}
+bool Knight::get_castling() const { return castling; }
+void Knight::set_castling() { castling = true; }
 
 Movement Knight::is_valid_move(int init_x, int init_y, int dest_x,
                                int dest_y, Piece *chess_tab[8][8]) {

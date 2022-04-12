@@ -1,9 +1,10 @@
 #include "piece.h"
 
-Pawn::Pawn(Color col, string str) : Piece::Piece(col, str) {}
+Pawn::Pawn(Color col, string str)
+    : Piece::Piece(col, str), castling(false) {}
 
-bool Pawn::get_castling() const { return 0; }
-void Pawn::set_castling() {}
+bool Pawn::get_castling() const { return castling; }
+void Pawn::set_castling() { castling = true; }
 
 Movement Pawn::is_valid_move(int init_x, int init_y, int dest_x,
                              int dest_y, Piece *chess_tab[8][8]) {

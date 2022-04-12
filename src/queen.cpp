@@ -1,9 +1,10 @@
 #include "piece.h"
 
-Queen::Queen(Color col, string str) : Piece::Piece(col, str) {}
+Queen::Queen(Color col, string str)
+    : Piece::Piece(col, str), castling(false) {}
 
-bool Queen::get_castling() const { return 0; }
-void Queen::set_castling() {}
+bool Queen::get_castling() const { return castling; }
+void Queen::set_castling() { castling = true; }
 
 Movement Queen::is_valid_move(int init_x, int init_y, int dest_x,
                               int dest_y, Piece *chess_tab[8][8]) {
