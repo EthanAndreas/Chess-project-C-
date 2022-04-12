@@ -54,42 +54,71 @@ Chessboard::~Chessboard() {
 
 void Chessboard::print_board() {
 
-    static const string &space = "     ";
-    static const string &line =
-        "  +-----+-----+-----+-----+-----+-----+-----+-----+";
-
+    static const string &space = "    ";
     static const string &space1 = " ";
-    static const string &space2 = "   ";
+    static const string &space2 = "  ";
+
+    int order;
 
     // print the column name
     cout << endl
-         << "     a     b     c     d     e     f     g     h    "
+         << RED "   a" WHT "   b" RED "   c" WHT "   d" RED "   e" WHT
+                "   f" RED "   g" WHT "   h" NC
          << endl;
-    cout << line << endl;
 
     for (int i = 7; i >= 0; i--) {
 
-        // print the line number
-        cout << i + 1 << " ";
+        if (i % 2 == 0) {
+            // print the line number
+            cout << WHT;
+            cout << i + 1 << " ";
+            cout << NC;
+            order = 0;
+        } else {
+            // print the line number
+            cout << RED;
+            cout << i + 1 << " ";
+            cout << NC;
+            order = 1;
+        }
 
         for (int j = 0; j < 8; j++) {
 
-            // separator between column
-            cout << "|";
+            // // separator between column
+            // cout << "|";
 
             if (chess_tab[i][j] != nullptr) {
 
-                // system("color *background**foreground*");
-                cout << space1;
-                chess_tab[i][j]->print();
-                cout << space2;
+                if (j % 2 == order) {
+                    cout << BLU_B;
+                    cout << space1;
+                    chess_tab[i][j]->print();
+                    cout << space2;
+                    cout << NC;
+                } else {
+                    cout << RED_B;
+                    cout << space1;
+                    chess_tab[i][j]->print();
+                    cout << space2;
+                    cout << NC;
+                }
 
-            } else
-                cout << space;
+            } else {
+                if (j % 2 == order) {
+                    cout << BLU_B;
+                    cout << space;
+                    cout << NC;
+                } else {
+                    cout << RED_B;
+                    cout << space;
+                    cout << NC;
+                }
+            }
         }
 
-        cout << "|";
-        cout << endl << line << endl;
+        // // cout << "|";
+        // cout << endl << line << endl;
+        cout << endl;
     }
 }
 
@@ -319,52 +348,54 @@ bool Chessboard::allowed_move(Color color, int init_x, int init_y,
     return false;
 }
 
-// string Chessboard::canonical_position() const {
+string Chessboard::canonical_position() const {
 
-//     string output;
+    string output;
 
-//     for (int i = 0; i <= 8; i++) {
+    for (int i = 0; i <= 8; i++) {
 
-//         for (char j = 'a'; j <= 'h'; j++) {
+        for (int j = 0; j <= 8; j++) {
 
-//             if (chess_tab[i][j - 'a'] != nullptr)
-//                 output += pgn_piece_name(
-//                     chess_tab[i][j - 'a']->get_name(),
-//                     chess_tab[i][j - 'a']->get_color());
-//             else
-//                 output += "";
+            if (chess_tab[i][j] != nullptr) {
 
-//             output += ",";
-//         }
-//     }
-//     return output;
-// }
+                string name = chess_tab[i][j]->get_name();
+                Color color_pawn = chess_tab[i][j]->get_color();
 
-// string Chessboard::pgn_piece_name(string const name,
-//                                   Color color) const {
+                output += pgn_piece_name(name, color_pawn);
+            } else
+                output += "";
 
-//     string psymb = "";
+            output += ",";
+        }
+    }
+    return output;
+}
 
-//     if (name == "\u2656" || name == "\u265C")
-//         psymb = "R"; // Rook W
-//     else if (name == "\u2658" || name == "\u265E")
-//         psymb = "N"; // Knight W
-//     else if (name == "\u2657" || name == "\u265D")
-//         psymb = "B"; // Bishop W
-//     else if (name == "\u2655" || name == "\u265B")
-//         psymb = "Q"; // Queen W
-//     else if (name == "\u2654" || name == "\u265A")
-//         psymb = "K"; // King W
-//     else if (name == "\u2659" || name == "\u265F")
-//         psymb = "P"; // Pawn W
+string Chessboard::pgn_piece_name(string const name,
+                                  Color color) const {
 
-//     if (psymb.size() > 0) {
-//         // one of the black piece has been found
-//         if (color == BLACK)
-//             return "b" + psymb;
-//         else if (color == WHITE)
-//             return "w" + psymb;
-//     }
+    string psymb = "";
 
-//     return psymb;
-// }
+    if (name == "\u2656" || name == "\u265C")
+        psymb = "R"; // Rook W
+    else if (name == "\u2658" || name == "\u265E")
+        psymb = "N"; // Knight W
+    else if (name == "\u2657" || name == "\u265D")
+        psymb = "B"; // Bishop W
+    else if (name == "\u2655" || name == "\u265B")
+        psymb = "Q"; // Queen W
+    else if (name == "\u2654" || name == "\u265A")
+        psymb = "K"; // King W
+    else if (name == "\u2659" || name == "\u265F")
+        psymb = "P"; // Pawn W
+
+    if (psymb.size() > 0) {
+        // one of the black piece has been found
+        if (color == BLACK)
+            return "b" + psymb;
+        else if (color == WHITE)
+            return "w" + psymb;
+    }
+
+    return psymb;
+}

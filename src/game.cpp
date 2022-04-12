@@ -291,3 +291,19 @@ bool Game::stroke() {
 
     return false;
 }
+
+void Game::end_game_display() {
+
+    string output = chessboard.canonical_position();
+
+    int i = 0;
+    int size = (int)output.size();
+
+    while (i < size) {
+
+        cout << output[i];
+
+        if (i % 2 == 0)
+            cout << endl;
+    }
+}

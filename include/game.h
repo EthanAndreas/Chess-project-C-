@@ -36,6 +36,8 @@ class Game {
 
     bool move(int init_x, int init_y, int dest_x, int dest_y);
     bool stroke();
+
+    void end_game_display();
 };
 
 #endif
