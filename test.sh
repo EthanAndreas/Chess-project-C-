@@ -3,7 +3,7 @@
 # Test 0 : Test on end of game during 2 seconds
 rm example/return.txt
 timeout 2  cat example/quit.txt | ./bin/exe >> example/return.txt
-var = $(grep -c "End of game !" example/return.txt)
+var = $(grep 'End of game !' example/return.txt)
 
 if [ $? == 1 ]
 then
