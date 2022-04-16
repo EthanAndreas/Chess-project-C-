@@ -25,12 +25,12 @@ void Pawn::promotion(int x, int y, Piece *chess_tab[8][8],
         B_name = "\u265D";
     }
 
-    cout << "You can upgrade your pawn." << endl
+    cout << GRN "You can upgrade your pawn. "
          << "Choose between Queen, Rook, Knight or Bishop." << endl;
 
-    cout << "Please enter Q / R / N / B to desginate your choice :"
-         << endl;
-    cin >> choice;
+    cout << "Please enter Q / R / N / B to desginate your choice "
+            ": " NC cin >>
+        choice;
 
     bool done = false;
     while (done == false) {

@@ -26,8 +26,8 @@ class Piece {
     virtual bool get_castling() const = 0;
     virtual void set_castling() = 0;
 
-    void promotion(int x, int y, Piece *chess_tab[8][8],
-                   Color color) {}
+    virtual void promotion(int x, int y, Piece *chess_tab[8][8],
+                           Color color) = 0;
 
     virtual Movement is_valid_move(int init_x, int init_y, int dest_x,
                                    int dest_y,
@@ -45,6 +45,9 @@ class Bishop : public Piece {
     bool get_castling() const;
     void set_castling();
 
+    void promotion(int x, int y, Piece *chess_tab[8][8],
+                   Color color) {}
+
     Movement is_valid_move(int init_x, int init_y, int dest_x,
                            int dest_y, Piece *chess_tab[8][8]);
 };
@@ -60,6 +63,9 @@ class Knight : public Piece {
     bool get_castling() const;
     void set_castling();
 
+    void promotion(int x, int y, Piece *chess_tab[8][8],
+                   Color color) {}
+
     Movement is_valid_move(int init_x, int init_y, int dest_x,
                            int dest_y, Piece *chess_tab[8][8]);
 };
@@ -74,6 +80,9 @@ class Queen : public Piece {
 
     bool get_castling() const;
     void set_castling();
+
+    void promotion(int x, int y, Piece *chess_tab[8][8],
+                   Color color) {}
 
     Movement is_valid_move(int init_x, int init_y, int dest_x,
                            int dest_y, Piece *chess_tab[8][8]);
@@ -91,6 +100,9 @@ class Rook : public Piece {
     bool get_castling() const;
     void set_castling();
 
+    void promotion(int x, int y, Piece *chess_tab[8][8],
+                   Color color) {}
+
     Movement is_valid_move(int init_x, int init_y, int dest_x,
                            int dest_y, Piece *chess_tab[8][8]);
 };
@@ -106,6 +118,9 @@ class King : public Piece {
 
     bool get_castling() const;
     void set_castling();
+
+    void promotion(int x, int y, Piece *chess_tab[8][8],
+                   Color color) {}
 
     Movement is_valid_move(int init_x, int init_y, int dest_x,
                            int dest_y, Piece *chess_tab[8][8]);
