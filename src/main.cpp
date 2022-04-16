@@ -14,5 +14,5 @@ int main() {
     while (end == false)
         end = game.stroke();
 
-    game.end_game_display();
+    cout << game.canonical_position() << endl;
 }

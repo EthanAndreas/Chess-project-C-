@@ -293,18 +293,56 @@ bool Game::stroke() {
     return false;
 }
 
-void Game::end_game_display() {
+string Game::canonical_position() {
 
-    string output = chessboard.canonical_position();
+    string output;
 
-    int i = 0;
-    int size = (int)output.size();
+    for (int i = 0; i < 8; i++) {
 
-    while (i < size) {
+        for (int j = 0; j < 8; j++) {
 
-        cout << output[i];
+            if (chessboard.get_piece(i, j) != nullptr) {
 
-        if (i % 2 == 0)
-            cout << endl;
+                string name = chessboard.get_piece(i, j)->get_name();
+                Color color_pawn =
+                    chessboard.get_piece(i, j)->get_color();
+
+                output += pgn_piece_name(name, color_pawn);
+            } else
+                output += "";
+
+            output += ",";
+        }
     }
+    return output;
+}
+
+string Game::pgn_piece_name(string name, Color color) {
+
+    string psymb;
+
+    if (name == "\u2656" || name == "\u265C")
+        psymb = "R"; // Rook W
+    else if (name == "\u2658" || name == "\u265E")
+        psymb = "N"; // Knight W
+    else if (name == "\u2657" || name == "\u265D")
+        psymb = "B"; // Bishop W
+    else if (name == "\u2655" || name == "\u265B")
+        psymb = "Q"; // Queen W
+    else if (name == "\u2654" || name == "\u265A")
+        psymb = "K"; // King W
+    else if (name == "\u2659" || name == "\u265F")
+        psymb = "P"; // Pawn W
+    else
+        psymb = "";
+
+    if (psymb.size() > 0) {
+        // one of the black piece has been found
+        if (color == BLACK)
+            psymb = "b" + psymb;
+        else if (color == WHITE)
+            psymb = "w" + psymb;
+    }
+
+    return psymb;
 }

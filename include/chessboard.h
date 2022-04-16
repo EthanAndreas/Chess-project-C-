@@ -28,9 +28,6 @@ class Chessboard {
 
     bool allowed_move(Color color, int init_x, int init_y, int dest_x,
                       int dest_y);
-
-    string canonical_position() const;
-    string pgn_piece_name(string const name, Color color) const;
 };
 
 #endif

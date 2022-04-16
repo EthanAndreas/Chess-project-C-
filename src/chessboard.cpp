@@ -33,7 +33,6 @@ Chessboard::Chessboard() {
         chess_tab[6][i] = new Pawn(Color::WHITE, "\u265F");
     }
 
-    chess_tab[5][1] = new Pawn(Color::BLACK, "\u2659");
     // save of king's location
     white_king_x = 7;
     white_king_y = 4;
@@ -376,56 +375,4 @@ bool Chessboard::allowed_move(Color color, int init_x, int init_y,
     cout << RED "You are in check situation with this move" NC
          << endl;
     return false;
-}
-
-string Chessboard::canonical_position() const {
-
-    string output;
-
-    for (int i = 0; i <= 8; i++) {
-
-        for (int j = 0; j <= 8; j++) {
-
-            if (chess_tab[i][j] != nullptr) {
-
-                string name = chess_tab[i][j]->get_name();
-                Color color_pawn = chess_tab[i][j]->get_color();
-
-                output += pgn_piece_name(name, color_pawn);
-            } else
-                output += "";
-
-            output += ",";
-        }
-    }
-    return output;
-}
-
-string Chessboard::pgn_piece_name(string const name,
-                                  Color color) const {
-
-    string psymb = "";
-
-    if (name == "\u2656" || name == "\u265C")
-        psymb = "R"; // Rook W
-    else if (name == "\u2658" || name == "\u265E")
-        psymb = "N"; // Knight W
-    else if (name == "\u2657" || name == "\u265D")
-        psymb = "B"; // Bishop W
-    else if (name == "\u2655" || name == "\u265B")
-        psymb = "Q"; // Queen W
-    else if (name == "\u2654" || name == "\u265A")
-        psymb = "K"; // King W
-    else if (name == "\u2659" || name == "\u265F")
-        psymb = "P"; // Pawn W
-
-    if (psymb.size() > 0) {
-        // one of the black piece has been found
-        if (color == BLACK)
-            return "b" + psymb;
-        else if (color == WHITE)
-            return "w" + psymb;
-    }
-
-    return psymb;
 }
