@@ -6,6 +6,63 @@ Pawn::Pawn(Color col, string str)
 bool Pawn::get_castling() const { return castling; }
 void Pawn::set_castling() { castling = true; }
 
+void Pawn::promotion(int x, int y, Piece *chess_tab[8][8],
+                     Color color) {
+
+    string choice, Q_name, R_name, N_name, B_name;
+
+    if (color == WHITE) {
+
+        Q_name = "\u2655";
+        R_name = "\u2656";
+        N_name = "\u2658";
+        B_name = "\u2657";
+    } else {
+
+        Q_name = "\u265B";
+        R_name = "\u265C";
+        N_name = "\u265E";
+        B_name = "\u265D";
+    }
+
+    cout << "You can upgrade your pawn." << endl
+         << "Choose between Queen, Rook, Knight or Bishop." << endl;
+
+    cout << "Please enter Q / R / N / B to desginate your choice :"
+         << endl;
+    cin >> choice;
+
+    bool done = false;
+    while (done == false) {
+
+        if (choice == "Q") {
+
+            delete chess_tab[x][y];
+            chess_tab[x][y] = new Queen(color, Q_name);
+            done = true;
+            break;
+        } else if (choice == "R") {
+
+            delete chess_tab[x][y];
+            chess_tab[x][y] = new Rook(color, R_name);
+            done = true;
+            break;
+        } else if (choice == "N") {
+
+            delete chess_tab[x][y];
+            chess_tab[x][y] = new Knight(color, N_name);
+            done = true;
+            break;
+        } else if (choice == "B") {
+
+            delete chess_tab[x][y];
+            chess_tab[x][y] = new Bishop(color, B_name);
+            done = true;
+            break;
+        }
+    }
+}
+
 Movement Pawn::is_valid_move(int init_x, int init_y, int dest_x,
                              int dest_y, Piece *chess_tab[8][8]) {
 

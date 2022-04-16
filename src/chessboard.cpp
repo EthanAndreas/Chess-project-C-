@@ -11,27 +11,30 @@ Chessboard::Chessboard() {
     }
 
     // Initialisation of pieces
-    chess_tab[0][0] = new Rook(Color::BLACK, "\u2656");
-    chess_tab[0][1] = new Knight(Color::BLACK, "\u2658");
-    chess_tab[0][2] = new Bishop(Color::BLACK, "\u2657");
-    chess_tab[0][3] = new Queen(Color::BLACK, "\u2655");
+    // chess_tab[0][0] = new Rook(Color::BLACK, "\u2656");
+    // chess_tab[0][1] = new Knight(Color::BLACK, "\u2658");
+    // chess_tab[0][2] = new Bishop(Color::BLACK, "\u2657");
+    // chess_tab[0][3] = new Queen(Color::BLACK, "\u2655");
     chess_tab[0][4] = new King(Color::BLACK, "\u2654");
-    chess_tab[0][5] = new Bishop(Color::BLACK, "\u2657");
-    chess_tab[0][6] = new Knight(Color::BLACK, "\u2658");
-    chess_tab[0][7] = new Rook(Color::BLACK, "\u2656");
-    chess_tab[7][0] = new Rook(Color::WHITE, "\u265C");
-    chess_tab[7][1] = new Knight(Color::WHITE, "\u265E");
-    chess_tab[7][2] = new Bishop(Color::WHITE, "\u265D");
-    chess_tab[7][3] = new Queen(Color::WHITE, "\u265B");
+    // chess_tab[0][5] = new Bishop(Color::BLACK, "\u2657");
+    // chess_tab[0][6] = new Knight(Color::BLACK, "\u2658");
+    // chess_tab[0][7] = new Rook(Color::BLACK, "\u2656");
+    // chess_tab[7][0] = new Rook(Color::WHITE, "\u265C");
+    // chess_tab[7][1] = new Knight(Color::WHITE, "\u265E");
+    // chess_tab[7][2] = new Bishop(Color::WHITE, "\u265D");
+    // chess_tab[7][3] = new Queen(Color::WHITE, "\u265B");
     chess_tab[7][4] = new King(Color::WHITE, "\u265A");
-    chess_tab[7][5] = new Bishop(Color::WHITE, "\u265D");
-    chess_tab[7][6] = new Knight(Color::WHITE, "\u265E");
-    chess_tab[7][7] = new Rook(Color::WHITE, "\u265C");
+    // chess_tab[7][5] = new Bishop(Color::WHITE, "\u265D");
+    // chess_tab[7][6] = new Knight(Color::WHITE, "\u265E");
+    // chess_tab[7][7] = new Rook(Color::WHITE, "\u265C");
 
-    for (int i = 0; i < 8; i++) {
-        chess_tab[1][i] = new Pawn(Color::BLACK, "\u2659");
-        chess_tab[6][i] = new Pawn(Color::WHITE, "\u265F");
-    }
+    // for (int i = 0; i < 8; i++) {
+    //     chess_tab[1][i] = new Pawn(Color::BLACK, "\u2659");
+    //     chess_tab[6][i] = new Pawn(Color::WHITE, "\u265F");
+    // }
+
+    chess_tab[6][1] = new Pawn(Color::BLACK, "\u2659");
+    chess_tab[1][1] = new Pawn(Color::WHITE, "\u265F");
 
     // save of king's location
     white_king_x = 7;
@@ -147,6 +150,21 @@ void Chessboard::move(int init_x, int init_y, int dest_x,
     // move the piece
     chess_tab[dest_x][dest_y] = chess_tab[init_x][init_y];
     chess_tab[init_x][init_y] = nullptr;
+
+    if (chess_tab[dest_x][dest_y]->get_name() == "\u265F") {
+
+        if (dest_x == 0)
+            chess_tab[dest_x][dest_y]->promotion(
+                dest_x, dest_y, chess_tab,
+                chess_tab[dest_x][dest_y]->get_color());
+
+    } else if (chess_tab[dest_x][dest_y]->get_name() == "\u2659") {
+
+        if (dest_x == 7)
+            chess_tab[dest_x][dest_y]->promotion(
+                dest_x, dest_y, chess_tab,
+                chess_tab[dest_x][dest_y]->get_color());
+    }
 }
 
 bool Chessboard::is_check(Color color) {

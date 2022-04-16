@@ -26,6 +26,9 @@ class Piece {
     virtual bool get_castling() const = 0;
     virtual void set_castling() = 0;
 
+    void promotion(int x, int y, Piece *chess_tab[8][8],
+                   Color color) {}
+
     virtual Movement is_valid_move(int init_x, int init_y, int dest_x,
                                    int dest_y,
                                    Piece *chess_tab[8][8]) = 0;
@@ -118,6 +121,8 @@ class Pawn : public Piece {
 
     bool get_castling() const;
     void set_castling();
+
+    void promotion(int x, int y, Piece *chess_tab[8][8], Color color);
 
     Movement is_valid_move(int init_x, int init_y, int dest_x,
                            int dest_y, Piece *chess_tab[8][8]);
