@@ -33,10 +33,6 @@ bool Queen::is_valid_move(int init_x, int init_y, int dest_x,
     else
         j = init_y - 1;
 
-    // move's rest
-    if (chess_tab[i][j] != nullptr)
-        return false;
-
     while (chess_tab[i][j] == nullptr && i != dest_x && j != dest_y) {
 
         i += (dest_x - i > 0) ? 1 : -1;
@@ -50,8 +46,7 @@ bool Queen::is_valid_move(int init_x, int init_y, int dest_x,
     if ((dest_x - init_x) != 0 && (dest_y - init_y) != 0)
         return false;
 
-    i = init_x;
-    j = init_y;
+    int i = init_x, j = init_y;
 
     if ((dest_x - init_x) != 0) {
 
@@ -72,6 +67,5 @@ bool Queen::is_valid_move(int init_x, int init_y, int dest_x,
     if (i != dest_x || j != dest_y)
         return false;
 
-    // one of the two case is respected, so we can move the queen
     return true;
 }
