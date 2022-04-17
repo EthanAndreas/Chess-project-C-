@@ -29,9 +29,9 @@ class Piece {
     virtual void promotion(int x, int y, Piece *chess_tab[8][8],
                            Color color) = 0;
 
-    virtual Movement is_valid_move(int init_x, int init_y, int dest_x,
-                                   int dest_y,
-                                   Piece *chess_tab[8][8]) = 0;
+    virtual bool is_valid_move(int init_x, int init_y, int dest_x,
+                               int dest_y,
+                               Piece *chess_tab[8][8]) = 0;
 };
 
 class Bishop : public Piece {
@@ -48,8 +48,8 @@ class Bishop : public Piece {
     void promotion(int x, int y, Piece *chess_tab[8][8],
                    Color color) {}
 
-    Movement is_valid_move(int init_x, int init_y, int dest_x,
-                           int dest_y, Piece *chess_tab[8][8]);
+    bool is_valid_move(int init_x, int init_y, int dest_x, int dest_y,
+                       Piece *chess_tab[8][8]);
 };
 
 class Knight : public Piece {
@@ -66,8 +66,8 @@ class Knight : public Piece {
     void promotion(int x, int y, Piece *chess_tab[8][8],
                    Color color) {}
 
-    Movement is_valid_move(int init_x, int init_y, int dest_x,
-                           int dest_y, Piece *chess_tab[8][8]);
+    bool is_valid_move(int init_x, int init_y, int dest_x, int dest_y,
+                       Piece *chess_tab[8][8]);
 };
 
 class Queen : public Piece {
@@ -84,8 +84,8 @@ class Queen : public Piece {
     void promotion(int x, int y, Piece *chess_tab[8][8],
                    Color color) {}
 
-    Movement is_valid_move(int init_x, int init_y, int dest_x,
-                           int dest_y, Piece *chess_tab[8][8]);
+    bool is_valid_move(int init_x, int init_y, int dest_x, int dest_y,
+                       Piece *chess_tab[8][8]);
 };
 
 class Rook : public Piece {
@@ -103,8 +103,8 @@ class Rook : public Piece {
     void promotion(int x, int y, Piece *chess_tab[8][8],
                    Color color) {}
 
-    Movement is_valid_move(int init_x, int init_y, int dest_x,
-                           int dest_y, Piece *chess_tab[8][8]);
+    bool is_valid_move(int init_x, int init_y, int dest_x, int dest_y,
+                       Piece *chess_tab[8][8]);
 };
 
 class King : public Piece {
@@ -122,8 +122,8 @@ class King : public Piece {
     void promotion(int x, int y, Piece *chess_tab[8][8],
                    Color color) {}
 
-    Movement is_valid_move(int init_x, int init_y, int dest_x,
-                           int dest_y, Piece *chess_tab[8][8]);
+    bool is_valid_move(int init_x, int init_y, int dest_x, int dest_y,
+                       Piece *chess_tab[8][8]);
 };
 
 class Pawn : public Piece {
@@ -139,8 +139,8 @@ class Pawn : public Piece {
 
     void promotion(int x, int y, Piece *chess_tab[8][8], Color color);
 
-    Movement is_valid_move(int init_x, int init_y, int dest_x,
-                           int dest_y, Piece *chess_tab[8][8]);
+    bool is_valid_move(int init_x, int init_y, int dest_x, int dest_y,
+                       Piece *chess_tab[8][8]);
 };
 
 #endif

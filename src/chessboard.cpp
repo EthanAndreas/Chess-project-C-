@@ -144,6 +144,17 @@ void Chessboard::move(int init_x, int init_y, int dest_x,
     // save that the piece has move at least once
     chess_tab[init_x][init_y]->set_castling();
 
+    // if the piece moved is a king, update the king's location
+    if (chess_tab[init_x][init_y]->get_name() == "\u2654") {
+
+        black_king_x = dest_x;
+        black_king_y = dest_y;
+    } else if (chess_tab[init_x][init_y]->get_name() == "\u265A") {
+
+        white_king_x = dest_x;
+        white_king_y = dest_y;
+    }
+
     // move the piece
     chess_tab[dest_x][dest_y] = chess_tab[init_x][init_y];
     chess_tab[init_x][init_y] = nullptr;
@@ -176,39 +187,22 @@ bool Chessboard::is_check(Color color) {
 
                 if (color == BLACK) {
 
-                    // the piece is a white pawn, the only move to
-                    // put king in check is a diagonal move
-                    if (get_piece(i, j)->get_name() == "\u265F") {
-
-                        if (chess_tab[i][j]->is_valid_move(
-                                i, j, black_king_x, black_king_y,
-                                chess_tab) == DIAGONAL_WHITE)
-                            return true;
-                    }
-
                     // we try if all other pieces can touch the
                     // king
                     if (get_piece(i, j)->is_valid_move(
                             i, j, black_king_x, black_king_y,
-                            chess_tab) == GOOD)
+                            chess_tab) == true) {
+
+                        cout << i << " " << j << endl;
                         return true;
-                } else {
-
-                    // the piece is a white pawn, the only move to
-                    // put king in check is a diagonal move
-                    if (get_piece(i, j)->get_name() == "\u2659") {
-
-                        if (chess_tab[i][j]->is_valid_move(
-                                i, j, white_king_x, white_king_y,
-                                chess_tab) == DIAGONAL_BLACK)
-                            return true;
                     }
+                } else {
 
                     // we try if all other pieces can touch the
                     // king
                     if (get_piece(i, j)->is_valid_move(
                             i, j, white_king_x, white_king_y,
-                            chess_tab) == GOOD)
+                            chess_tab) == true)
                         return true;
                 }
             }
@@ -220,60 +214,56 @@ bool Chessboard::is_check(Color color) {
 
 bool Chessboard::is_checkmate(Color color) {
 
-    int init_x = color == BLACK ? black_king_x : white_king_x;
-    int init_y = color == BLACK ? black_king_y : white_king_y;
-
     string color_win = color == WHITE ? "Black" : "White";
     string color_err = color == BLACK ? "Black" : "White";
 
-    // if check, we try to move the king
-    if (is_check(color)) {
+    int init_x = color == BLACK ? black_king_x : white_king_x;
+    int init_y = color == BLACK ? black_king_y : white_king_y;
 
-        if (chess_tab[init_x][init_y] != nullptr) {
-
-            // test if the piece can move
-            for (int i = 0; i < 8; i++) {
-
-                for (int j = 0; j < 8; j++) {
-
-                    if (get_piece(init_x, init_y)
-                            ->is_valid_move(init_x, init_y, i, j,
-                                            chess_tab) == GOOD) {
-
-                        Piece *copy_piece = chess_tab[i][j];
-
-                        // move the piece
-                        chess_tab[i][j] = chess_tab[init_x][init_y];
-                        chess_tab[init_x][init_y] = nullptr;
-
-                        // if the check is not set, it is not
-                        // checkmate
-                        if (is_check(color) == false) {
-
-                            // we go back to previous set
-                            chess_tab[init_x][init_y] =
-                                chess_tab[i][j];
-                            chess_tab[i][j] = copy_piece;
-                            return false;
-                        }
-
-                        chess_tab[init_x][init_y] = chess_tab[i][j];
-                        chess_tab[i][j] = copy_piece;
-                    }
-                }
-            }
-
-            // if any move leads to a check, the king is checkmate
-            cout << GRN "Checkmate ! " << endl;
-            cout << GRN << color_win << " player won !" NC << endl;
-            return true;
-        }
+    if (chess_tab[init_x][init_y] == nullptr) {
 
         // the king is not in the board, end the game
         cout << RED << color_err
              << " king is not on the board ! Please, reset the "
                 "game. " NC
              << endl;
+        return true;
+    }
+
+    // if check, we search a move that turns off the check's
+    // situation
+    if (is_check(color)) {
+
+        // every piece available
+        for (int k = 0; k < 8; k++) {
+            for (int l = 0; l < 8; l++) {
+
+                if (chess_tab[k][l] != nullptr &&
+                    chess_tab[k][l]->get_color() == color) {
+
+                    // test every possible move of the piece
+                    for (int i = 0; i < 8; i++) {
+                        for (int j = 0; j < 8; j++) {
+
+                            // if the move is correct
+                            if (chess_tab[i][j] == nullptr ||
+                                (chess_tab[i][j] != nullptr &&
+                                 chess_tab[i][j]->get_color() !=
+                                     color)) {
+
+                                if (allowed_move(color, k, l, i, j) ==
+                                    true)
+                                    return false;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        // if any move leads to a check, the king is checkmate
+        cout << GRN "Checkmate ! " << endl;
+        cout << GRN << color_win << " player won !" NC << endl;
         return true;
     }
 
@@ -285,20 +275,19 @@ bool Chessboard::is_stalemate(Color color) {
     string color_win = color == WHITE ? "Black" : "White";
 
     // test if the piece can move
-    for (int i = 0; i < 8; i++) {
+    for (int k = 0; k < 8; k++) {
+        for (int l = 0; l < 8; l++) {
 
-        for (int j = 0; j < 8; j++) {
+            if (chess_tab[k][l] != nullptr &&
+                chess_tab[k][l]->get_color() == color) {
 
-            for (int k = 0; k < 8; k++) {
+                for (int i = 0; i < 8; i++) {
+                    for (int j = 0; j < 8; j++) {
 
-                for (int l = 0; l < 8; l++) {
-
-                    if (chess_tab[i][j] != nullptr &&
-                        chess_tab[i][j]->get_color() == color &&
-                        chess_tab[i][j]->is_valid_move(
-                            i, j, k, l, chess_tab) != ERROR) {
-
-                        return false;
+                        if (chess_tab[k][l] != nullptr &&
+                            chess_tab[k][l]->get_color() == color &&
+                            allowed_move(color, k, l, i, j) == true)
+                            return false;
                     }
                 }
             }
@@ -320,55 +309,32 @@ bool Chessboard::allowed_move(Color color, int init_x, int init_y,
 
     int valid = 0;
 
-    // white pawn
-    if (chess_tab[init_x][init_y]->get_name() == "\u265F") {
-
-        if (get_piece(init_x, init_y)
-                ->is_valid_move(init_x, init_y, dest_x, dest_y,
-                                chess_tab) == ONE_CASE_WHITE)
-            valid = 1;
-
-        if (get_piece(init_x, init_y)
-                ->is_valid_move(init_x, init_y, dest_x, dest_y,
-                                chess_tab) == TWO_CASE_WHITE)
-            valid = 1;
-
-        if (get_piece(init_x, init_y)
-                ->is_valid_move(init_x, init_y, dest_x, dest_y,
-                                chess_tab) == DIAGONAL_WHITE) {
-
-            valid = 1;
-        }
-    } else if (chess_tab[init_x][init_y]->get_name() == "\u2659") {
-
-        if (get_piece(init_x, init_y)
-                ->is_valid_move(init_x, init_y, dest_x, dest_y,
-                                chess_tab) == ONE_CASE_BLACK)
-            valid = 1;
-
-        if (get_piece(init_x, init_y)
-                ->is_valid_move(init_x, init_y, dest_x, dest_y,
-                                chess_tab) == TWO_CASE_BLACK)
-            valid = 1;
-
-        if (get_piece(init_x, init_y)
-                ->is_valid_move(init_x, init_y, dest_x, dest_y,
-                                chess_tab) == DIAGONAL_BLACK) {
-
-            valid = 1;
-        }
-    } else {
-
-        if (get_piece(init_x, init_y)
-                ->is_valid_move(init_x, init_y, dest_x, dest_y,
-                                chess_tab) == GOOD)
-            valid = 1;
-    }
+    if (get_piece(init_x, init_y)
+            ->is_valid_move(init_x, init_y, dest_x, dest_y,
+                            chess_tab) == true)
+        valid = 1;
 
     if (valid == 0)
         return false;
 
+    if (chess_tab[dest_x][dest_y] != nullptr) {
+
+        if (chess_tab[dest_x][dest_y]->get_color() == color)
+            return false;
+    }
+
     Piece *copy_piece = chess_tab[dest_x][dest_y];
+
+    // if the piece we move is a king, update the location of the king
+    if (chess_tab[init_x][init_y]->get_name() == "\u2654") {
+
+        black_king_x = dest_x;
+        black_king_y = dest_y;
+    } else if (chess_tab[init_x][init_y]->get_name() == "\u265A") {
+
+        white_king_x = dest_x;
+        white_king_y = dest_y;
+    }
 
     // move the piece
     chess_tab[dest_x][dest_y] = chess_tab[init_x][init_y];
@@ -377,17 +343,38 @@ bool Chessboard::allowed_move(Color color, int init_x, int init_y,
     // if the check is not set, it is an allowed move
     if (is_check(color) == false) {
 
+        // we go back to previous king's location
+        if (chess_tab[dest_x][dest_y]->get_name() == "\u2654") {
+
+            black_king_x = init_x;
+            black_king_y = init_y;
+        } else if (chess_tab[dest_x][dest_y]->get_name() ==
+                   "\u265A") {
+
+            white_king_x = init_x;
+            white_king_y = init_y;
+        }
+
         // we go back to previous set
         chess_tab[init_x][init_y] = chess_tab[dest_x][dest_y];
         chess_tab[dest_x][dest_y] = copy_piece;
         return true;
     }
 
+    // we go back to previous king's location
+    if (chess_tab[dest_x][dest_y]->get_name() == "\u2654") {
+
+        black_king_x = init_x;
+        black_king_y = init_y;
+    } else if (chess_tab[dest_x][dest_y]->get_name() == "\u265A") {
+
+        white_king_x = init_x;
+        white_king_y = init_y;
+    }
+
     // we go back to previous set
     chess_tab[init_x][init_y] = chess_tab[dest_x][dest_y];
     chess_tab[dest_x][dest_y] = copy_piece;
 
-    cout << RED "You are in check situation with this move" NC
-         << endl;
     return false;
 }

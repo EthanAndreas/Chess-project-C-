@@ -6,17 +6,17 @@ Rook::Rook(Color col, string str)
 bool Rook::get_castling() const { return castling; }
 void Rook::set_castling() { castling = true; }
 
-Movement Rook::is_valid_move(int init_x, int init_y, int dest_x,
-                             int dest_y, Piece *chess_tab[8][8]) {
+bool Rook::is_valid_move(int init_x, int init_y, int dest_x,
+                         int dest_y, Piece *chess_tab[8][8]) {
 
     if (dest_x < 0 || dest_x > 7 || dest_y < 0 || dest_y > 7)
-        return ERROR;
+        return false;
     if (dest_x == init_x && dest_y == init_y)
-        return ERROR;
+        return false;
 
     // test if the move is valid for the rook
     if ((dest_x - init_x) != 0 && (dest_y - init_y) != 0)
-        return ERROR;
+        return false;
 
     int i = init_x, j = init_y;
 
@@ -37,7 +37,7 @@ Movement Rook::is_valid_move(int init_x, int init_y, int dest_x,
     }
 
     if (i != dest_x || j != dest_y)
-        return ERROR;
+        return false;
 
-    return GOOD;
+    return true;
 }

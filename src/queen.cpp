@@ -6,14 +6,14 @@ Queen::Queen(Color col, string str)
 bool Queen::get_castling() const { return castling; }
 void Queen::set_castling() { castling = true; }
 
-Movement Queen::is_valid_move(int init_x, int init_y, int dest_x,
-                              int dest_y, Piece *chess_tab[8][8]) {
+bool Queen::is_valid_move(int init_x, int init_y, int dest_x,
+                          int dest_y, Piece *chess_tab[8][8]) {
 
     // check if the move is valid for the chessboard
     if (dest_x < 0 || dest_x > 7 || dest_y < 0 || dest_y > 7)
-        return ERROR;
+        return false;
     if (dest_x == init_x && dest_y == init_y)
-        return ERROR;
+        return false;
 
     // test if the move is valid for the queen
 
@@ -34,6 +34,9 @@ Movement Queen::is_valid_move(int init_x, int init_y, int dest_x,
         j = init_y - 1;
 
     // move's rest
+    if (chess_tab[i][j] != nullptr)
+        return false;
+
     while (chess_tab[i][j] == nullptr && i != dest_x && j != dest_y) {
 
         i += (dest_x - i > 0) ? 1 : -1;
@@ -41,11 +44,11 @@ Movement Queen::is_valid_move(int init_x, int init_y, int dest_x,
     }
 
     if (i == dest_x && j == dest_y)
-        return GOOD;
+        return true;
 
     // Second case : same movement in one axis (Rook)
     if ((dest_x - init_x) != 0 && (dest_y - init_y) != 0)
-        return ERROR;
+        return false;
 
     i = init_x;
     j = init_y;
@@ -67,8 +70,8 @@ Movement Queen::is_valid_move(int init_x, int init_y, int dest_x,
     }
 
     if (i != dest_x || j != dest_y)
-        return ERROR;
+        return false;
 
     // one of the two case is respected, so we can move the queen
-    return GOOD;
+    return true;
 }

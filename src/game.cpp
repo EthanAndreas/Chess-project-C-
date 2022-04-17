@@ -16,7 +16,7 @@ bool queenside_castling_selection(string const &cmd) {
     return regex_match(cmd, mouvmtpattern);
 }
 
-Game::Game() : chessboard(), player(WHITE), state(NONE) {}
+Game::Game() : chessboard(), player(BLACK) {}
 
 Game::~Game() { cout << endl << GRN "End of game !" NC << endl; }
 
@@ -34,30 +34,13 @@ int *Game::string_to_coord(string str) {
     return coord;
 }
 
-State Game::get_state() const { return state; }
+bool Game::checkmate() {
 
-void Game::set_state(State new_state) {
-
-    if (new_state == NONE)
-        state = NONE;
-    else if (new_state == CHECK)
-        state = CHECK;
-    else if (new_state == CHECKMATE)
-        state = CHECKMATE;
-}
-
-State Game::checkmate() {
-
-    if (chessboard.is_checkmate(player) ||
-        chessboard.is_stalemate(player)) {
-
-        set_state(CHECKMATE);
-        return CHECKMATE;
-    } else {
-
-        set_state(NONE);
-        return NONE;
-    }
+    if (chessboard.is_checkmate(player) == true ||
+        chessboard.is_stalemate(player) == true)
+        return true;
+    else
+        return false;
 }
 
 bool Game::kingside_castling() {
@@ -181,16 +164,9 @@ bool Game::move(int init_x, int init_y, int dest_x, int dest_y) {
             if (player == WHITE) {
                 if (chessboard.is_check(BLACK) == true) {
 
-                    set_state(CHECK);
                     cout << NC
                         "Check's situation against black pawns !"
                          << endl;
-                } else {
-
-                    // if the check's situation is counter by the
-                    // player, the state is set to NONE
-                    if (get_state() == CHECK)
-                        set_state(NONE);
                 }
             }
 
@@ -198,14 +174,9 @@ bool Game::move(int init_x, int init_y, int dest_x, int dest_y) {
 
                 if (chessboard.is_check(WHITE) == true) {
 
-                    set_state(CHECK);
                     cout << NC
                         "Check's situation against white pawns !"
                          << endl;
-                } else {
-
-                    if (get_state() == CHECK)
-                        set_state(NONE);
                 }
             }
 
@@ -236,8 +207,7 @@ bool Game::stroke() {
 
     // check the check's situation each stroke, display in function :
     // Chessboard::is_checkmate
-    checkmate();
-    if (get_state() == CHECKMATE)
+    if (checkmate() == true)
         return true;
 
     if (player == WHITE)
@@ -285,6 +255,9 @@ bool Game::stroke() {
                  << endl;
         }
     }
+
+    if (checkmate() == true)
+        return true;
 
     chessboard.print_board();
 
