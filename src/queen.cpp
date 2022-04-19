@@ -46,7 +46,8 @@ bool Queen::is_valid_move(int init_x, int init_y, int dest_x,
     if ((dest_x - init_x) != 0 && (dest_y - init_y) != 0)
         return false;
 
-    int i = init_x, j = init_y;
+    i = init_x;
+    j = init_y;
 
     if ((dest_x - init_x) != 0) {
 

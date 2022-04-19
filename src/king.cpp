@@ -8,7 +8,9 @@ bool King::get_castling() const { return castling; }
 void King::set_castling() { castling = true; }
 
 bool King::is_valid_move(int init_x, int init_y, int dest_x,
-                             int dest_y, Piece *chess_tab[8][8]) {
+                         int dest_y, Piece *chess_tab[8][8]) {
+
+    (void)chess_tab;
 
     // check if the move is valid for the chessboard
     if (dest_x < 0 || dest_x > 7 || dest_y < 0 || dest_y > 7)
