@@ -19,130 +19,193 @@
 [31m6 [0m[41m    [0m[40m    [0m[41m    [0m[40m    [0m[41m    [0m[40m    [0m[41m    [0m[40m    [0m
 [37m5 [0m[40m    [0m[41m    [0m[40m    [0m[41m    [0m[40m    [0m[41m    [0m[40m    [0m[41m    [0m
 [31m4 [0m[41m    [0m[40m    [0m[41m    [0m[40m    [0m[41m    [0m[40m    [0m[41m    [0m[40m    [0m
-[37m3 [0m[40m    [0m[41m    [0m[40m    [0m[41m    [0m[40m ♙  [0m[41m    [0m[40m    [0m[41m    [0m
-[31m2 [0m[41m ♙  [0m[40m ♙  [0m[41m ♙  [0m[40m ♙  [0m[41m    [0m[40m ♙  [0m[41m ♙  [0m[40m ♙  [0m
-[37m1 [0m[40m ♖  [0m[41m ♘  [0m[40m ♗  [0m[41m ♕  [0m[40m ♔  [0m[41m ♗  [0m[40m ♘  [0m[41m ♖  [0m
+[37m3 [0m[40m ♘  [0m[41m    [0m[40m    [0m[41m    [0m[40m    [0m[41m    [0m[40m    [0m[41m    [0m
+[31m2 [0m[41m ♙  [0m[40m ♙  [0m[41m ♙  [0m[40m ♙  [0m[41m ♙  [0m[40m ♙  [0m[41m ♙  [0m[40m ♙  [0m
+[37m1 [0m[40m ♖  [0m[41m    [0m[40m ♗  [0m[41m ♕  [0m[40m ♔  [0m[41m ♗  [0m[40m ♘  [0m[41m ♖  [0m
 
 [32mWhite player's round[0m
 [0mWhat is your stroke : 
 [31m   a[37m   b[31m   c[37m   d[31m   e[37m   f[31m   g[37m   h[0m
-[31m8 [0m[41m ♜  [0m[40m ♞  [0m[41m ♝  [0m[40m ♛  [0m[41m ♚  [0m[40m ♝  [0m[41m ♞  [0m[40m ♜  [0m
-[37m7 [0m[40m    [0m[41m ♟  [0m[40m ♟  [0m[41m ♟  [0m[40m ♟  [0m[41m ♟  [0m[40m ♟  [0m[41m ♟  [0m
-[31m6 [0m[41m    [0m[40m    [0m[41m    [0m[40m    [0m[41m    [0m[40m    [0m[41m    [0m[40m    [0m
-[37m5 [0m[40m ♟  [0m[41m    [0m[40m    [0m[41m    [0m[40m    [0m[41m    [0m[40m    [0m[41m    [0m
+[31m8 [0m[41m ♜  [0m[40m    [0m[41m ♝  [0m[40m ♛  [0m[41m ♚  [0m[40m ♝  [0m[41m ♞  [0m[40m ♜  [0m
+[37m7 [0m[40m ♟  [0m[41m ♟  [0m[40m ♟  [0m[41m ♟  [0m[40m ♟  [0m[41m ♟  [0m[40m ♟  [0m[41m ♟  [0m
+[31m6 [0m[41m ♞  [0m[40m    [0m[41m    [0m[40m    [0m[41m    [0m[40m    [0m[41m    [0m[40m    [0m
+[37m5 [0m[40m    [0m[41m    [0m[40m    [0m[41m    [0m[40m    [0m[41m    [0m[40m    [0m[41m    [0m
 [31m4 [0m[41m    [0m[40m    [0m[41m    [0m[40m    [0m[41m    [0m[40m    [0m[41m    [0m[40m    [0m
-[37m3 [0m[40m    [0m[41m    [0m[40m    [0m[41m    [0m[40m ♙  [0m[41m    [0m[40m    [0m[41m    [0m
-[31m2 [0m[41m ♙  [0m[40m ♙  [0m[41m ♙  [0m[40m ♙  [0m[41m    [0m[40m ♙  [0m[41m ♙  [0m[40m ♙  [0m
-[37m1 [0m[40m ♖  [0m[41m ♘  [0m[40m ♗  [0m[41m ♕  [0m[40m ♔  [0m[41m ♗  [0m[40m ♘  [0m[41m ♖  [0m
+[37m3 [0m[40m ♘  [0m[41m    [0m[40m    [0m[41m    [0m[40m    [0m[41m    [0m[40m    [0m[41m    [0m
+[31m2 [0m[41m ♙  [0m[40m ♙  [0m[41m ♙  [0m[40m ♙  [0m[41m ♙  [0m[40m ♙  [0m[41m ♙  [0m[40m ♙  [0m
+[37m1 [0m[40m ♖  [0m[41m    [0m[40m ♗  [0m[41m ♕  [0m[40m ♔  [0m[41m ♗  [0m[40m ♘  [0m[41m ♖  [0m
 
 [32mBlack player's round[0m
 [0mWhat is your stroke : 
 [31m   a[37m   b[31m   c[37m   d[31m   e[37m   f[31m   g[37m   h[0m
-[31m8 [0m[41m ♜  [0m[40m ♞  [0m[41m ♝  [0m[40m ♛  [0m[41m ♚  [0m[40m ♝  [0m[41m ♞  [0m[40m ♜  [0m
-[37m7 [0m[40m    [0m[41m ♟  [0m[40m ♟  [0m[41m ♟  [0m[40m ♟  [0m[41m ♟  [0m[40m ♟  [0m[41m ♟  [0m
-[31m6 [0m[41m    [0m[40m    [0m[41m    [0m[40m    [0m[41m    [0m[40m    [0m[41m    [0m[40m    [0m
-[37m5 [0m[40m ♟  [0m[41m    [0m[40m    [0m[41m    [0m[40m    [0m[41m    [0m[40m    [0m[41m ♕  [0m
+[31m8 [0m[41m ♜  [0m[40m    [0m[41m ♝  [0m[40m ♛  [0m[41m ♚  [0m[40m ♝  [0m[41m ♞  [0m[40m ♜  [0m
+[37m7 [0m[40m ♟  [0m[41m ♟  [0m[40m ♟  [0m[41m ♟  [0m[40m ♟  [0m[41m ♟  [0m[40m ♟  [0m[41m ♟  [0m
+[31m6 [0m[41m ♞  [0m[40m    [0m[41m    [0m[40m    [0m[41m    [0m[40m    [0m[41m    [0m[40m    [0m
+[37m5 [0m[40m    [0m[41m    [0m[40m    [0m[41m    [0m[40m    [0m[41m    [0m[40m    [0m[41m    [0m
 [31m4 [0m[41m    [0m[40m    [0m[41m    [0m[40m    [0m[41m    [0m[40m    [0m[41m    [0m[40m    [0m
-[37m3 [0m[40m    [0m[41m    [0m[40m    [0m[41m    [0m[40m ♙  [0m[41m    [0m[40m    [0m[41m    [0m
-[31m2 [0m[41m ♙  [0m[40m ♙  [0m[41m ♙  [0m[40m ♙  [0m[41m    [0m[40m ♙  [0m[41m ♙  [0m[40m ♙  [0m
-[37m1 [0m[40m ♖  [0m[41m ♘  [0m[40m ♗  [0m[41m    [0m[40m ♔  [0m[41m ♗  [0m[40m ♘  [0m[41m ♖  [0m
+[37m3 [0m[40m ♘  [0m[41m    [0m[40m    [0m[41m    [0m[40m    [0m[41m    [0m[40m    [0m[41m ♘  [0m
+[31m2 [0m[41m ♙  [0m[40m ♙  [0m[41m ♙  [0m[40m ♙  [0m[41m ♙  [0m[40m ♙  [0m[41m ♙  [0m[40m ♙  [0m
+[37m1 [0m[40m ♖  [0m[41m    [0m[40m ♗  [0m[41m ♕  [0m[40m ♔  [0m[41m ♗  [0m[40m    [0m[41m ♖  [0m
 
 [32mWhite player's round[0m
 [0mWhat is your stroke : 
 [31m   a[37m   b[31m   c[37m   d[31m   e[37m   f[31m   g[37m   h[0m
-[31m8 [0m[41m    [0m[40m ♞  [0m[41m ♝  [0m[40m ♛  [0m[41m ♚  [0m[40m ♝  [0m[41m ♞  [0m[40m ♜  [0m
-[37m7 [0m[40m    [0m[41m ♟  [0m[40m ♟  [0m[41m ♟  [0m[40m ♟  [0m[41m ♟  [0m[40m ♟  [0m[41m ♟  [0m
-[31m6 [0m[41m ♜  [0m[40m    [0m[41m    [0m[40m    [0m[41m    [0m[40m    [0m[41m    [0m[40m    [0m
-[37m5 [0m[40m ♟  [0m[41m    [0m[40m    [0m[41m    [0m[40m    [0m[41m    [0m[40m    [0m[41m ♕  [0m
+[31m8 [0m[41m ♜  [0m[40m    [0m[41m ♝  [0m[40m ♛  [0m[41m ♚  [0m[40m ♝  [0m[41m    [0m[40m ♜  [0m
+[37m7 [0m[40m ♟  [0m[41m ♟  [0m[40m ♟  [0m[41m ♟  [0m[40m ♟  [0m[41m ♟  [0m[40m ♟  [0m[41m ♟  [0m
+[31m6 [0m[41m ♞  [0m[40m    [0m[41m    [0m[40m    [0m[41m    [0m[40m    [0m[41m    [0m[40m ♞  [0m
+[37m5 [0m[40m    [0m[41m    [0m[40m    [0m[41m    [0m[40m    [0m[41m    [0m[40m    [0m[41m    [0m
 [31m4 [0m[41m    [0m[40m    [0m[41m    [0m[40m    [0m[41m    [0m[40m    [0m[41m    [0m[40m    [0m
-[37m3 [0m[40m    [0m[41m    [0m[40m    [0m[41m    [0m[40m ♙  [0m[41m    [0m[40m    [0m[41m    [0m
-[31m2 [0m[41m ♙  [0m[40m ♙  [0m[41m ♙  [0m[40m ♙  [0m[41m    [0m[40m ♙  [0m[41m ♙  [0m[40m ♙  [0m
-[37m1 [0m[40m ♖  [0m[41m ♘  [0m[40m ♗  [0m[41m    [0m[40m ♔  [0m[41m ♗  [0m[40m ♘  [0m[41m ♖  [0m
+[37m3 [0m[40m ♘  [0m[41m    [0m[40m    [0m[41m    [0m[40m    [0m[41m    [0m[40m    [0m[41m ♘  [0m
+[31m2 [0m[41m ♙  [0m[40m ♙  [0m[41m ♙  [0m[40m ♙  [0m[41m ♙  [0m[40m ♙  [0m[41m ♙  [0m[40m ♙  [0m
+[37m1 [0m[40m ♖  [0m[41m    [0m[40m ♗  [0m[41m ♕  [0m[40m ♔  [0m[41m ♗  [0m[40m    [0m[41m ♖  [0m
 
 [32mBlack player's round[0m
 [0mWhat is your stroke : 
 [31m   a[37m   b[31m   c[37m   d[31m   e[37m   f[31m   g[37m   h[0m
-[31m8 [0m[41m    [0m[40m ♞  [0m[41m ♝  [0m[40m ♛  [0m[41m ♚  [0m[40m ♝  [0m[41m ♞  [0m[40m ♜  [0m
-[37m7 [0m[40m    [0m[41m ♟  [0m[40m ♟  [0m[41m ♟  [0m[40m ♟  [0m[41m ♟  [0m[40m ♟  [0m[41m ♟  [0m
-[31m6 [0m[41m ♜  [0m[40m    [0m[41m    [0m[40m    [0m[41m    [0m[40m    [0m[41m    [0m[40m    [0m
-[37m5 [0m[40m ♕  [0m[41m    [0m[40m    [0m[41m    [0m[40m    [0m[41m    [0m[40m    [0m[41m    [0m
-[31m4 [0m[41m    [0m[40m    [0m[41m    [0m[40m    [0m[41m    [0m[40m    [0m[41m    [0m[40m    [0m
-[37m3 [0m[40m    [0m[41m    [0m[40m    [0m[41m    [0m[40m ♙  [0m[41m    [0m[40m    [0m[41m    [0m
-[31m2 [0m[41m ♙  [0m[40m ♙  [0m[41m ♙  [0m[40m ♙  [0m[41m    [0m[40m ♙  [0m[41m ♙  [0m[40m ♙  [0m
-[37m1 [0m[40m ♖  [0m[41m ♘  [0m[40m ♗  [0m[41m    [0m[40m ♔  [0m[41m ♗  [0m[40m ♘  [0m[41m ♖  [0m
+[31m8 [0m[41m ♜  [0m[40m    [0m[41m ♝  [0m[40m ♛  [0m[41m ♚  [0m[40m ♝  [0m[41m    [0m[40m ♜  [0m
+[37m7 [0m[40m ♟  [0m[41m ♟  [0m[40m ♟  [0m[41m ♟  [0m[40m ♟  [0m[41m ♟  [0m[40m ♟  [0m[41m ♟  [0m
+[31m6 [0m[41m ♞  [0m[40m    [0m[41m    [0m[40m    [0m[41m    [0m[40m    [0m[41m    [0m[40m ♞  [0m
+[37m5 [0m[40m    [0m[41m    [0m[40m    [0m[41m    [0m[40m    [0m[41m    [0m[40m    [0m[41m    [0m
+[31m4 [0m[41m    [0m[40m    [0m[41m    [0m[40m ♙  [0m[41m    [0m[40m    [0m[41m    [0m[40m    [0m
+[37m3 [0m[40m ♘  [0m[41m    [0m[40m    [0m[41m    [0m[40m    [0m[41m    [0m[40m    [0m[41m ♘  [0m
+[31m2 [0m[41m ♙  [0m[40m ♙  [0m[41m ♙  [0m[40m    [0m[41m ♙  [0m[40m ♙  [0m[41m ♙  [0m[40m ♙  [0m
+[37m1 [0m[40m ♖  [0m[41m    [0m[40m ♗  [0m[41m ♕  [0m[40m ♔  [0m[41m ♗  [0m[40m    [0m[41m ♖  [0m
 
 [32mWhite player's round[0m
 [0mWhat is your stroke : 
 [31m   a[37m   b[31m   c[37m   d[31m   e[37m   f[31m   g[37m   h[0m
-[31m8 [0m[41m    [0m[40m ♞  [0m[41m ♝  [0m[40m ♛  [0m[41m ♚  [0m[40m ♝  [0m[41m ♞  [0m[40m ♜  [0m
-[37m7 [0m[40m    [0m[41m ♟  [0m[40m ♟  [0m[41m ♟  [0m[40m ♟  [0m[41m ♟  [0m[40m ♟  [0m[41m    [0m
-[31m6 [0m[41m ♜  [0m[40m    [0m[41m    [0m[40m    [0m[41m    [0m[40m    [0m[41m    [0m[40m    [0m
-[37m5 [0m[40m ♕  [0m[41m    [0m[40m    [0m[41m    [0m[40m    [0m[41m    [0m[40m    [0m[41m ♟  [0m
-[31m4 [0m[41m    [0m[40m    [0m[41m    [0m[40m    [0m[41m    [0m[40m    [0m[41m    [0m[40m    [0m
-[37m3 [0m[40m    [0m[41m    [0m[40m    [0m[41m    [0m[40m ♙  [0m[41m    [0m[40m    [0m[41m    [0m
-[31m2 [0m[41m ♙  [0m[40m ♙  [0m[41m ♙  [0m[40m ♙  [0m[41m    [0m[40m ♙  [0m[41m ♙  [0m[40m ♙  [0m
-[37m1 [0m[40m ♖  [0m[41m ♘  [0m[40m ♗  [0m[41m    [0m[40m ♔  [0m[41m ♗  [0m[40m ♘  [0m[41m ♖  [0m
+[31m8 [0m[41m ♜  [0m[40m    [0m[41m ♝  [0m[40m ♛  [0m[41m ♚  [0m[40m ♝  [0m[41m    [0m[40m ♜  [0m
+[37m7 [0m[40m ♟  [0m[41m ♟  [0m[40m ♟  [0m[41m    [0m[40m ♟  [0m[41m ♟  [0m[40m ♟  [0m[41m ♟  [0m
+[31m6 [0m[41m ♞  [0m[40m    [0m[41m    [0m[40m    [0m[41m    [0m[40m    [0m[41m    [0m[40m ♞  [0m
+[37m5 [0m[40m    [0m[41m    [0m[40m    [0m[41m ♟  [0m[40m    [0m[41m    [0m[40m    [0m[41m    [0m
+[31m4 [0m[41m    [0m[40m    [0m[41m    [0m[40m ♙  [0m[41m    [0m[40m    [0m[41m    [0m[40m    [0m
+[37m3 [0m[40m ♘  [0m[41m    [0m[40m    [0m[41m    [0m[40m    [0m[41m    [0m[40m    [0m[41m ♘  [0m
+[31m2 [0m[41m ♙  [0m[40m ♙  [0m[41m ♙  [0m[40m    [0m[41m ♙  [0m[40m ♙  [0m[41m ♙  [0m[40m ♙  [0m
+[37m1 [0m[40m ♖  [0m[41m    [0m[40m ♗  [0m[41m ♕  [0m[40m ♔  [0m[41m ♗  [0m[40m    [0m[41m ♖  [0m
 
 [32mBlack player's round[0m
 [0mWhat is your stroke : 
 [31m   a[37m   b[31m   c[37m   d[31m   e[37m   f[31m   g[37m   h[0m
-[31m8 [0m[41m    [0m[40m ♞  [0m[41m ♝  [0m[40m ♛  [0m[41m ♚  [0m[40m ♝  [0m[41m ♞  [0m[40m ♜  [0m
-[37m7 [0m[40m    [0m[41m ♟  [0m[40m ♕  [0m[41m ♟  [0m[40m ♟  [0m[41m ♟  [0m[40m ♟  [0m[41m    [0m
-[31m6 [0m[41m ♜  [0m[40m    [0m[41m    [0m[40m    [0m[41m    [0m[40m    [0m[41m    [0m[40m    [0m
-[37m5 [0m[40m    [0m[41m    [0m[40m    [0m[41m    [0m[40m    [0m[41m    [0m[40m    [0m[41m ♟  [0m
-[31m4 [0m[41m    [0m[40m    [0m[41m    [0m[40m    [0m[41m    [0m[40m    [0m[41m    [0m[40m    [0m
-[37m3 [0m[40m    [0m[41m    [0m[40m    [0m[41m    [0m[40m ♙  [0m[41m    [0m[40m    [0m[41m    [0m
-[31m2 [0m[41m ♙  [0m[40m ♙  [0m[41m ♙  [0m[40m ♙  [0m[41m    [0m[40m ♙  [0m[41m ♙  [0m[40m ♙  [0m
-[37m1 [0m[40m ♖  [0m[41m ♘  [0m[40m ♗  [0m[41m    [0m[40m ♔  [0m[41m ♗  [0m[40m ♘  [0m[41m ♖  [0m
+[31m8 [0m[41m ♜  [0m[40m    [0m[41m ♝  [0m[40m ♛  [0m[41m ♚  [0m[40m ♝  [0m[41m    [0m[40m ♜  [0m
+[37m7 [0m[40m ♟  [0m[41m ♟  [0m[40m ♟  [0m[41m    [0m[40m ♟  [0m[41m ♟  [0m[40m ♟  [0m[41m ♟  [0m
+[31m6 [0m[41m ♞  [0m[40m    [0m[41m    [0m[40m    [0m[41m    [0m[40m    [0m[41m    [0m[40m ♞  [0m
+[37m5 [0m[40m    [0m[41m    [0m[40m    [0m[41m ♟  [0m[40m    [0m[41m    [0m[40m    [0m[41m    [0m
+[31m4 [0m[41m    [0m[40m    [0m[41m    [0m[40m ♙  [0m[41m ♙  [0m[40m    [0m[41m    [0m[40m    [0m
+[37m3 [0m[40m ♘  [0m[41m    [0m[40m    [0m[41m    [0m[40m    [0m[41m    [0m[40m    [0m[41m ♘  [0m
+[31m2 [0m[41m ♙  [0m[40m ♙  [0m[41m ♙  [0m[40m    [0m[41m    [0m[40m ♙  [0m[41m ♙  [0m[40m ♙  [0m
+[37m1 [0m[40m ♖  [0m[41m    [0m[40m ♗  [0m[41m ♕  [0m[40m ♔  [0m[41m ♗  [0m[40m    [0m[41m ♖  [0m
 
 [32mWhite player's round[0m
 [0mWhat is your stroke : 
 [31m   a[37m   b[31m   c[37m   d[31m   e[37m   f[31m   g[37m   h[0m
-[31m8 [0m[41m    [0m[40m ♞  [0m[41m ♝  [0m[40m ♛  [0m[41m ♚  [0m[40m ♝  [0m[41m ♞  [0m[40m ♜  [0m
-[37m7 [0m[40m    [0m[41m ♟  [0m[40m ♕  [0m[41m ♟  [0m[40m ♟  [0m[41m ♟  [0m[40m ♟  [0m[41m    [0m
-[31m6 [0m[41m    [0m[40m    [0m[41m    [0m[40m    [0m[41m    [0m[40m    [0m[41m    [0m[40m ♜  [0m
-[37m5 [0m[40m    [0m[41m    [0m[40m    [0m[41m    [0m[40m    [0m[41m    [0m[40m    [0m[41m ♟  [0m
-[31m4 [0m[41m    [0m[40m    [0m[41m    [0m[40m    [0m[41m    [0m[40m    [0m[41m    [0m[40m    [0m
-[37m3 [0m[40m    [0m[41m    [0m[40m    [0m[41m    [0m[40m ♙  [0m[41m    [0m[40m    [0m[41m    [0m
-[31m2 [0m[41m ♙  [0m[40m ♙  [0m[41m ♙  [0m[40m ♙  [0m[41m    [0m[40m ♙  [0m[41m ♙  [0m[40m ♙  [0m
-[37m1 [0m[40m ♖  [0m[41m ♘  [0m[40m ♗  [0m[41m    [0m[40m ♔  [0m[41m ♗  [0m[40m ♘  [0m[41m ♖  [0m
+[31m8 [0m[41m ♜  [0m[40m    [0m[41m ♝  [0m[40m ♛  [0m[41m ♚  [0m[40m ♝  [0m[41m    [0m[40m ♜  [0m
+[37m7 [0m[40m ♟  [0m[41m ♟  [0m[40m ♟  [0m[41m    [0m[40m    [0m[41m ♟  [0m[40m ♟  [0m[41m ♟  [0m
+[31m6 [0m[41m ♞  [0m[40m    [0m[41m    [0m[40m    [0m[41m    [0m[40m    [0m[41m    [0m[40m ♞  [0m
+[37m5 [0m[40m    [0m[41m    [0m[40m    [0m[41m ♟  [0m[40m ♟  [0m[41m    [0m[40m    [0m[41m    [0m
+[31m4 [0m[41m    [0m[40m    [0m[41m    [0m[40m ♙  [0m[41m ♙  [0m[40m    [0m[41m    [0m[40m    [0m
+[37m3 [0m[40m ♘  [0m[41m    [0m[40m    [0m[41m    [0m[40m    [0m[41m    [0m[40m    [0m[41m ♘  [0m
+[31m2 [0m[41m ♙  [0m[40m ♙  [0m[41m ♙  [0m[40m    [0m[41m    [0m[40m ♙  [0m[41m ♙  [0m[40m ♙  [0m
+[37m1 [0m[40m ♖  [0m[41m    [0m[40m ♗  [0m[41m ♕  [0m[40m ♔  [0m[41m ♗  [0m[40m    [0m[41m ♖  [0m
 
 [32mBlack player's round[0m
 [0mWhat is your stroke : 
 [31m   a[37m   b[31m   c[37m   d[31m   e[37m   f[31m   g[37m   h[0m
-[31m8 [0m[41m    [0m[40m ♞  [0m[41m ♝  [0m[40m ♛  [0m[41m ♚  [0m[40m ♝  [0m[41m ♞  [0m[40m ♜  [0m
-[37m7 [0m[40m    [0m[41m ♟  [0m[40m ♕  [0m[41m ♟  [0m[40m ♟  [0m[41m ♟  [0m[40m ♟  [0m[41m    [0m
-[31m6 [0m[41m    [0m[40m    [0m[41m    [0m[40m    [0m[41m    [0m[40m    [0m[41m    [0m[40m ♜  [0m
-[37m5 [0m[40m    [0m[41m    [0m[40m    [0m[41m    [0m[40m    [0m[41m    [0m[40m    [0m[41m ♟  [0m
-[31m4 [0m[41m    [0m[40m    [0m[41m    [0m[40m    [0m[41m    [0m[40m    [0m[41m    [0m[40m ♙  [0m
-[37m3 [0m[40m    [0m[41m    [0m[40m    [0m[41m    [0m[40m ♙  [0m[41m    [0m[40m    [0m[41m    [0m
-[31m2 [0m[41m ♙  [0m[40m ♙  [0m[41m ♙  [0m[40m ♙  [0m[41m    [0m[40m ♙  [0m[41m ♙  [0m[40m    [0m
-[37m1 [0m[40m ♖  [0m[41m ♘  [0m[40m ♗  [0m[41m    [0m[40m ♔  [0m[41m ♗  [0m[40m ♘  [0m[41m ♖  [0m
+[31m8 [0m[41m ♜  [0m[40m    [0m[41m ♝  [0m[40m ♛  [0m[41m ♚  [0m[40m ♝  [0m[41m    [0m[40m ♜  [0m
+[37m7 [0m[40m ♟  [0m[41m ♟  [0m[40m ♟  [0m[41m    [0m[40m    [0m[41m ♟  [0m[40m ♟  [0m[41m ♟  [0m
+[31m6 [0m[41m ♞  [0m[40m    [0m[41m    [0m[40m    [0m[41m    [0m[40m    [0m[41m    [0m[40m ♞  [0m
+[37m5 [0m[40m    [0m[41m    [0m[40m    [0m[41m ♟  [0m[40m ♟  [0m[41m    [0m[40m    [0m[41m    [0m
+[31m4 [0m[41m    [0m[40m    [0m[41m    [0m[40m ♙  [0m[41m ♙  [0m[40m    [0m[41m    [0m[40m    [0m
+[37m3 [0m[40m ♘  [0m[41m    [0m[40m    [0m[41m    [0m[40m ♗  [0m[41m    [0m[40m    [0m[41m ♘  [0m
+[31m2 [0m[41m ♙  [0m[40m ♙  [0m[41m ♙  [0m[40m    [0m[41m    [0m[40m ♙  [0m[41m ♙  [0m[40m ♙  [0m
+[37m1 [0m[40m ♖  [0m[41m    [0m[40m    [0m[41m ♕  [0m[40m ♔  [0m[41m ♗  [0m[40m    [0m[41m ♖  [0m
 
 [32mWhite player's round[0m
 [0mWhat is your stroke : 
 [31m   a[37m   b[31m   c[37m   d[31m   e[37m   f[31m   g[37m   h[0m
-[31m8 [0m[41m    [0m[40m ♞  [0m[41m ♝  [0m[40m ♛  [0m[41m ♚  [0m[40m ♝  [0m[41m ♞  [0m[40m ♜  [0m
-[37m7 [0m[40m    [0m[41m ♟  [0m[40m ♕  [0m[41m ♟  [0m[40m ♟  [0m[41m    [0m[40m ♟  [0m[41m    [0m
-[31m6 [0m[41m    [0m[40m    [0m[41m    [0m[40m    [0m[41m    [0m[40m ♟  [0m[41m    [0m[40m ♜  [0m
-[37m5 [0m[40m    [0m[41m    [0m[40m    [0m[41m    [0m[40m    [0m[41m    [0m[40m    [0m[41m ♟  [0m
-[31m4 [0m[41m    [0m[40m    [0m[41m    [0m[40m    [0m[41m    [0m[40m    [0m[41m    [0m[40m ♙  [0m
-[37m3 [0m[40m    [0m[41m    [0m[40m    [0m[41m    [0m[40m ♙  [0m[41m    [0m[40m    [0m[41m    [0m
-[31m2 [0m[41m ♙  [0m[40m ♙  [0m[41m ♙  [0m[40m ♙  [0m[41m    [0m[40m ♙  [0m[41m ♙  [0m[40m    [0m
-[37m1 [0m[40m ♖  [0m[41m ♘  [0m[40m ♗  [0m[41m    [0m[40m ♔  [0m[41m ♗  [0m[40m ♘  [0m[41m ♖  [0m
+[31m8 [0m[41m ♜  [0m[40m    [0m[41m    [0m[40m ♛  [0m[41m ♚  [0m[40m ♝  [0m[41m    [0m[40m ♜  [0m
+[37m7 [0m[40m ♟  [0m[41m ♟  [0m[40m ♟  [0m[41m    [0m[40m    [0m[41m ♟  [0m[40m ♟  [0m[41m ♟  [0m
+[31m6 [0m[41m ♞  [0m[40m    [0m[41m    [0m[40m    [0m[41m ♝  [0m[40m    [0m[41m    [0m[40m ♞  [0m
+[37m5 [0m[40m    [0m[41m    [0m[40m    [0m[41m ♟  [0m[40m ♟  [0m[41m    [0m[40m    [0m[41m    [0m
+[31m4 [0m[41m    [0m[40m    [0m[41m    [0m[40m ♙  [0m[41m ♙  [0m[40m    [0m[41m    [0m[40m    [0m
+[37m3 [0m[40m ♘  [0m[41m    [0m[40m    [0m[41m    [0m[40m ♗  [0m[41m    [0m[40m    [0m[41m ♘  [0m
+[31m2 [0m[41m ♙  [0m[40m ♙  [0m[41m ♙  [0m[40m    [0m[41m    [0m[40m ♙  [0m[41m ♙  [0m[40m ♙  [0m
+[37m1 [0m[40m ♖  [0m[41m    [0m[40m    [0m[41m ♕  [0m[40m ♔  [0m[41m ♗  [0m[40m    [0m[41m ♖  [0m
 
 [32mBlack player's round[0m
-[0mWhat is your stroke : [0mCheck's situation against white pawns !
-
+[0mWhat is your stroke : 
 [31m   a[37m   b[31m   c[37m   d[31m   e[37m   f[31m   g[37m   h[0m
-[31m8 [0m[41m    [0m[40m ♞  [0m[41m ♝  [0m[40m ♛  [0m[41m ♚  [0m[40m ♝  [0m[41m ♞  [0m[40m ♜  [0m
-[37m7 [0m[40m    [0m[41m ♟  [0m[40m    [0m[41m ♕  [0m[40m ♟  [0m[41m    [0m[40m ♟  [0m[41m    [0m
-[31m6 [0m[41m    [0m[40m    [0m[41m    [0m[40m    [0m[41m    [0m[40m ♟  [0m[41m    [0m[40m ♜  [0m
-[37m5 [0m[40m    [0m[41m    [0m[40m    [0m[41m    [0m[40m    [0m[41m    [0m[40m    [0m[41m ♟  [0m
-[31m4 [0m[41m    [0m[40m    [0m[41m    [0m[40m    [0m[41m    [0m[40m    [0m[41m    [0m[40m ♙  [0m
-[37m3 [0m[40m    [0m[41m    [0m[40m    [0m[41m    [0m[40m ♙  [0m[41m    [0m[40m    [0m[41m    [0m
-[31m2 [0m[41m ♙  [0m[40m ♙  [0m[41m ♙  [0m[40m ♙  [0m[41m    [0m[40m ♙  [0m[41m ♙  [0m[40m    [0m
-[37m1 [0m[40m ♖  [0m[41m ♘  [0m[40m ♗  [0m[41m    [0m[40m ♔  [0m[41m ♗  [0m[40m ♘  [0m[41m ♖  [0m
+[31m8 [0m[41m ♜  [0m[40m    [0m[41m    [0m[40m ♛  [0m[41m ♚  [0m[40m ♝  [0m[41m    [0m[40m ♜  [0m
+[37m7 [0m[40m ♟  [0m[41m ♟  [0m[40m ♟  [0m[41m    [0m[40m    [0m[41m ♟  [0m[40m ♟  [0m[41m ♟  [0m
+[31m6 [0m[41m ♞  [0m[40m    [0m[41m    [0m[40m    [0m[41m ♝  [0m[40m    [0m[41m    [0m[40m ♞  [0m
+[37m5 [0m[40m    [0m[41m    [0m[40m    [0m[41m ♟  [0m[40m ♟  [0m[41m    [0m[40m    [0m[41m    [0m
+[31m4 [0m[41m    [0m[40m    [0m[41m    [0m[40m ♙  [0m[41m ♙  [0m[40m    [0m[41m    [0m[40m    [0m
+[37m3 [0m[40m ♘  [0m[41m    [0m[40m    [0m[41m    [0m[40m ♗  [0m[41m    [0m[40m    [0m[41m ♘  [0m
+[31m2 [0m[41m ♙  [0m[40m ♙  [0m[41m ♙  [0m[40m    [0m[41m ♗  [0m[40m ♙  [0m[41m ♙  [0m[40m ♙  [0m
+[37m1 [0m[40m ♖  [0m[41m    [0m[40m    [0m[41m ♕  [0m[40m ♔  [0m[41m    [0m[40m    [0m[41m ♖  [0m
 
 [32mWhite player's round[0m
-[0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : [0mWhat is your stroke : 
+[0mWhat is your stroke : 
+[31m   a[37m   b[31m   c[37m   d[31m   e[37m   f[31m   g[37m   h[0m
+[31m8 [0m[41m ♜  [0m[40m    [0m[41m    [0m[40m ♛  [0m[41m ♚  [0m[40m    [0m[41m    [0m[40m ♜  [0m
+[37m7 [0m[40m ♟  [0m[41m ♟  [0m[40m ♟  [0m[41m    [0m[40m ♝  [0m[41m ♟  [0m[40m ♟  [0m[41m ♟  [0m
+[31m6 [0m[41m ♞  [0m[40m    [0m[41m    [0m[40m    [0m[41m ♝  [0m[40m    [0m[41m    [0m[40m ♞  [0m
+[37m5 [0m[40m    [0m[41m    [0m[40m    [0m[41m ♟  [0m[40m ♟  [0m[41m    [0m[40m    [0m[41m    [0m
+[31m4 [0m[41m    [0m[40m    [0m[41m    [0m[40m ♙  [0m[41m ♙  [0m[40m    [0m[41m    [0m[40m    [0m
+[37m3 [0m[40m ♘  [0m[41m    [0m[40m    [0m[41m    [0m[40m ♗  [0m[41m    [0m[40m    [0m[41m ♘  [0m
+[31m2 [0m[41m ♙  [0m[40m ♙  [0m[41m ♙  [0m[40m    [0m[41m ♗  [0m[40m ♙  [0m[41m ♙  [0m[40m ♙  [0m
+[37m1 [0m[40m ♖  [0m[41m    [0m[40m    [0m[41m ♕  [0m[40m ♔  [0m[41m    [0m[40m    [0m[41m ♖  [0m
+
+[32mBlack player's round[0m
+[0mWhat is your stroke : 
+[31m   a[37m   b[31m   c[37m   d[31m   e[37m   f[31m   g[37m   h[0m
+[31m8 [0m[41m ♜  [0m[40m    [0m[41m    [0m[40m ♛  [0m[41m ♚  [0m[40m    [0m[41m    [0m[40m ♜  [0m
+[37m7 [0m[40m ♟  [0m[41m ♟  [0m[40m ♟  [0m[41m    [0m[40m ♝  [0m[41m ♟  [0m[40m ♟  [0m[41m ♟  [0m
+[31m6 [0m[41m ♞  [0m[40m    [0m[41m    [0m[40m    [0m[41m ♝  [0m[40m    [0m[41m    [0m[40m ♞  [0m
+[37m5 [0m[40m    [0m[41m    [0m[40m    [0m[41m ♟  [0m[40m ♟  [0m[41m    [0m[40m    [0m[41m    [0m
+[31m4 [0m[41m    [0m[40m    [0m[41m    [0m[40m ♙  [0m[41m ♙  [0m[40m    [0m[41m    [0m[40m    [0m
+[37m3 [0m[40m ♘  [0m[41m    [0m[40m    [0m[41m    [0m[40m ♗  [0m[41m    [0m[40m    [0m[41m ♘  [0m
+[31m2 [0m[41m ♙  [0m[40m ♙  [0m[41m ♙  [0m[40m ♕  [0m[41m ♗  [0m[40m ♙  [0m[41m ♙  [0m[40m ♙  [0m
+[37m1 [0m[40m ♖  [0m[41m    [0m[40m    [0m[41m    [0m[40m ♔  [0m[41m    [0m[40m    [0m[41m ♖  [0m
+
+[32mWhite player's round[0m
+[0mWhat is your stroke : 
+[31m   a[37m   b[31m   c[37m   d[31m   e[37m   f[31m   g[37m   h[0m
+[31m8 [0m[41m ♜  [0m[40m    [0m[41m    [0m[40m    [0m[41m ♚  [0m[40m    [0m[41m    [0m[40m ♜  [0m
+[37m7 [0m[40m ♟  [0m[41m ♟  [0m[40m ♟  [0m[41m ♛  [0m[40m ♝  [0m[41m ♟  [0m[40m ♟  [0m[41m ♟  [0m
+[31m6 [0m[41m ♞  [0m[40m    [0m[41m    [0m[40m    [0m[41m ♝  [0m[40m    [0m[41m    [0m[40m ♞  [0m
+[37m5 [0m[40m    [0m[41m    [0m[40m    [0m[41m ♟  [0m[40m ♟  [0m[41m    [0m[40m    [0m[41m    [0m
+[31m4 [0m[41m    [0m[40m    [0m[41m    [0m[40m ♙  [0m[41m ♙  [0m[40m    [0m[41m    [0m[40m    [0m
+[37m3 [0m[40m ♘  [0m[41m    [0m[40m    [0m[41m    [0m[40m ♗  [0m[41m    [0m[40m    [0m[41m ♘  [0m
+[31m2 [0m[41m ♙  [0m[40m ♙  [0m[41m ♙  [0m[40m ♕  [0m[41m ♗  [0m[40m ♙  [0m[41m ♙  [0m[40m ♙  [0m
+[37m1 [0m[40m ♖  [0m[41m    [0m[40m    [0m[41m    [0m[40m ♔  [0m[41m    [0m[40m    [0m[41m ♖  [0m
+
+[32mBlack player's round[0m
+[0mWhat is your stroke : [32mCastling done ![0m
+
+[31m   a[37m   b[31m   c[37m   d[31m   e[37m   f[31m   g[37m   h[0m
+[31m8 [0m[41m ♜  [0m[40m    [0m[41m    [0m[40m    [0m[41m ♚  [0m[40m    [0m[41m    [0m[40m ♜  [0m
+[37m7 [0m[40m ♟  [0m[41m ♟  [0m[40m ♟  [0m[41m ♛  [0m[40m ♝  [0m[41m ♟  [0m[40m ♟  [0m[41m ♟  [0m
+[31m6 [0m[41m ♞  [0m[40m    [0m[41m    [0m[40m    [0m[41m ♝  [0m[40m    [0m[41m    [0m[40m ♞  [0m
+[37m5 [0m[40m    [0m[41m    [0m[40m    [0m[41m ♟  [0m[40m ♟  [0m[41m    [0m[40m    [0m[41m    [0m
+[31m4 [0m[41m    [0m[40m    [0m[41m    [0m[40m ♙  [0m[41m ♙  [0m[40m    [0m[41m    [0m[40m    [0m
+[37m3 [0m[40m ♘  [0m[41m    [0m[40m    [0m[41m    [0m[40m ♗  [0m[41m    [0m[40m    [0m[41m ♘  [0m
+[31m2 [0m[41m ♙  [0m[40m ♙  [0m[41m ♙  [0m[40m ♕  [0m[41m ♗  [0m[40m ♙  [0m[41m ♙  [0m[40m ♙  [0m
+[37m1 [0m[40m    [0m[41m    [0m[40m ♔  [0m[41m ♖  [0m[40m    [0m[41m    [0m[40m    [0m[41m ♖  [0m
+
+[32mWhite player's round[0m
+[0mWhat is your stroke : [32mCastling done ![0m
+
+[31m   a[37m   b[31m   c[37m   d[31m   e[37m   f[31m   g[37m   h[0m
+[31m8 [0m[41m    [0m[40m    [0m[41m ♚  [0m[40m ♜  [0m[41m    [0m[40m    [0m[41m    [0m[40m ♜  [0m
+[37m7 [0m[40m ♟  [0m[41m ♟  [0m[40m ♟  [0m[41m ♛  [0m[40m ♝  [0m[41m ♟  [0m[40m ♟  [0m[41m ♟  [0m
+[31m6 [0m[41m ♞  [0m[40m    [0m[41m    [0m[40m    [0m[41m ♝  [0m[40m    [0m[41m    [0m[40m ♞  [0m
+[37m5 [0m[40m    [0m[41m    [0m[40m    [0m[41m ♟  [0m[40m ♟  [0m[41m    [0m[40m    [0m[41m    [0m
+[31m4 [0m[41m    [0m[40m    [0m[41m    [0m[40m ♙  [0m[41m ♙  [0m[40m    [0m[41m    [0m[40m    [0m
+[37m3 [0m[40m ♘  [0m[41m    [0m[40m    [0m[41m    [0m[40m ♗  [0m[41m    [0m[40m    [0m[41m ♘  [0m
+[31m2 [0m[41m ♙  [0m[40m ♙  [0m[41m ♙  [0m[40m ♕  [0m[41m ♗  [0m[40m ♙  [0m[41m ♙  [0m[40m ♙  [0m
+[37m1 [0m[40m    [0m[41m    [0m[40m ♔  [0m[41m ♖  [0m[40m    [0m[41m    [0m[40m    [0m[41m ♖  [0m
+
+[32mBlack player's round[0m
+[0mWhat is your stroke : wR,,,,wR,wK,,,wP,wP,wP,wB,wQ,wP,wP,wP,wN,,,wB,,,,wN,,,,wP,wP,,,,,,,bP,bP,,,,bN,,,bB,,,,bN,bP,bP,bP,bB,bQ,bP,bP,bP,bR,,,,bR,bK,,,
+
+[32mEnd of game ![0m

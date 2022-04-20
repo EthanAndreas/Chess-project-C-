@@ -1,5 +1,5 @@
 CC = g++
-CFLAGS = -O0 -Wall -Werror Wextra -g 
+CFLAGS = -O0 -Wall -Werror -Wextra -g 
 
 INCLUDE_DIR = ./include
 TARGET = exe 

@@ -23,6 +23,7 @@ bool King::is_valid_move(int init_x, int init_y, int dest_x,
         // move is valid
 
         return true;
-    } else
-        return false;
+    }
+
+    return false;
 }
