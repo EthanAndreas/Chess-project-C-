@@ -223,7 +223,7 @@ bool Chessboard::is_checkmate(Color color) {
     if (chess_tab[init_x][init_y] == nullptr) {
 
         // the king is not in the board, end the game
-        cout << RED << color_err
+        cerr << RED << color_err
              << " king is not on the board ! Please, reset the "
                 "game. " NC
              << endl;

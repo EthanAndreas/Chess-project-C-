@@ -54,34 +54,34 @@ bool Game::kingside_castling() {
 
     if (chessboard.get_piece(line, 4) == nullptr) {
 
-        cout << RED "There is no piece at the king's position !" NC
+        cerr << RED "There is no piece at the king's position !" NC
              << endl;
         return false;
     }
 
     if (chessboard.get_piece(line, 7) == nullptr) {
 
-        cout << RED "There is no piece at the rook's position !" NC
+        cerr << RED "There is no piece at the rook's position !" NC
              << endl;
         return false;
     }
 
     if (chessboard.get_piece(line, 4)->get_castling() == true) {
 
-        cout << RED "The king has already moved !" NC << endl;
+        cerr << RED "The king has already moved !" NC << endl;
         return false;
     }
 
     if (chessboard.get_piece(line, 7)->get_castling() == true) {
 
-        cout << RED "The rook has already moved !" NC << endl;
+        cerr << RED "The rook has already moved !" NC << endl;
         return false;
     }
 
     if (chessboard.get_piece(line, 5) != nullptr ||
         chessboard.get_piece(line, 6) != nullptr) {
 
-        cout << RED "Castling impossile !" NC << endl;
+        cerr << RED "Castling impossile !" NC << endl;
         return false;
     }
 
@@ -104,27 +104,27 @@ bool Game::queenside_castling() {
 
     if (chessboard.get_piece(line, 4) == nullptr) {
 
-        cout << RED "There is no piece at the king's position !" NC
+        cerr << RED "There is no piece at the king's position !" NC
              << endl;
         return false;
     }
 
     if (chessboard.get_piece(line, 0) == nullptr) {
 
-        cout << RED "There is no piece at the rook's position !" NC
+        cerr << RED "There is no piece at the rook's position !" NC
              << endl;
         return false;
     }
 
     if (chessboard.get_piece(line, 4)->get_castling() == true) {
 
-        cout << RED "The king has already moved !" NC << endl;
+        cerr << RED "The king has already moved !" NC << endl;
         return false;
     }
 
     if (chessboard.get_piece(line, 0)->get_castling() == true) {
 
-        cout << RED "The rook has already moved !" NC << endl;
+        cerr << RED "The rook has already moved !" NC << endl;
         return false;
     }
 
@@ -132,7 +132,7 @@ bool Game::queenside_castling() {
         chessboard.get_piece(line, 2) != nullptr ||
         chessboard.get_piece(line, 3) != nullptr) {
 
-        cout << RED "Castling impossile !" NC << endl;
+        cerr << RED "Castling impossile !" NC << endl;
         return false;
     }
 
@@ -148,7 +148,7 @@ bool Game::move(int init_x, int init_y, int dest_x, int dest_y) {
 
     if (chessboard.get_piece(init_x, init_y) == nullptr) {
 
-        cout << RED "No piece at this position !"
+        cerr << RED "No piece at this position !"
                     " Please, try again." NC
              << endl;
         return false;
@@ -187,18 +187,18 @@ bool Game::move(int init_x, int init_y, int dest_x, int dest_y) {
             chessboard.get_piece(init_x, init_y)->get_color() ==
                 chessboard.get_piece(dest_x, dest_y)->get_color()) {
 
-            cout << RED "There is already one of your pawns on this "
+            cerr << RED "There is already one of your pawns on this "
                         "position. "
                  << "Please try again." NC << endl;
             return false;
         }
 
-        cout << RED "This is a forbidden move ! "
+        cerr << RED "This is a forbidden move ! "
              << "Please try again." NC << endl;
         return false;
     }
 
-    cout << RED "You try to move a pawn that is not yours ! "
+    cerr << RED "You try to move a pawn that is not yours ! "
          << "Please try again." NC << endl;
     return false;
 }
@@ -250,7 +250,7 @@ bool Game::stroke() {
             }
 
         } else {
-            cout << RED "Error in command line ! "
+            cerr << RED "Error in command line ! "
                         "Please try again." NC
                  << endl;
         }
