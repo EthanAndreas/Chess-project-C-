@@ -25,7 +25,7 @@ void Game::print() { chessboard.print_board(); }
 // string to coordinates
 int *Game::string_to_coord(string str) {
 
-    int *coord = new int[2];
+    int *coord = new int[4];
     coord[1] = str[0] - 'a';
     coord[0] = str[1] - '1';
     coord[3] = str[2] - 'a';
@@ -288,6 +288,7 @@ string Game::canonical_position() {
             output += ",";
         }
     }
+
     return output;
 }
 
