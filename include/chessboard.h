@@ -12,10 +12,15 @@
 class Chessboard {
 
   private:
+    // indicate the chessboard with the piece
     Piece *chess_tab[8][8];
+    // indicate the x coordinates of white king
     int white_king_x;
+    // indicate the y coordinates of white king
     int white_king_y;
+    // indicate the x coordinates of black king
     int black_king_x;
+    // indicate the y coordinates of black king
     int black_king_y;
 
   public:

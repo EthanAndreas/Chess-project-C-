@@ -18,9 +18,9 @@ rm example/output.txt
 timeout 1 cat example/check.txt | ./bin/exe >> example/output.txt
 if [ `grep -c "Check's situation" example/output.txt` == 1 ]
 then
-    echo "Test 1 (check): OK"
+    echo "Test 1 (check):\033[92m OK\033[0m"
 else
-    echo "Test 1 (check): ERROR"
+    echo "Test 1 (check):\033[91mNo ERROR\033[0m"
 fi
 
 # # Test 2 : Test on checkmate 

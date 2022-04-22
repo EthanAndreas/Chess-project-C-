@@ -42,7 +42,9 @@ bool queenside_castling_selection(string const &cmd);
 class Game {
 
   private:
+    // indicate the chessboard created
     Chessboard chessboard;
+    // indicate the player who is playing
     Color player;
 
   public:

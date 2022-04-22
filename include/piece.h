@@ -10,7 +10,9 @@ using namespace std;
 class Piece {
 
   private:
+    // indicate the color of the piece
     Color color;
+    // indicate the piece of chess game
     string name;
 
   public:
