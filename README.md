@@ -19,9 +19,15 @@ For castling the format is :
 o-o / O-O / 0-0 (kingside castling)
 o-o-o / O-O-O / 0-0-0 (queenside castling)
 
+* Information about the test :
+Test on "/quit" command
+Test on check situation
+Test on checkmate
+Test on staleamte
+Test on kingside castling
+Test on queenside castling
+
 * Comment :
-! no display with cerr because it displays it
-when tests are launched
 
 ## Language
 
