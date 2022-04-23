@@ -147,6 +147,10 @@ void Chessboard::move(int init_x, int init_y, int dest_x,
     } else
         set_counter();
 
+    if ((chess_tab[init_x][init_y]->get_name() == "\u2659" ||
+         chess_tab[init_x][init_y]->get_name() == "\u265F"))
+        stroke_without_take = 0;
+
     // save that the piece has move at least once
     chess_tab[init_x][init_y]->set_castling();
 
