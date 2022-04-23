@@ -9,63 +9,91 @@ void Queen::set_castling() { castling = true; }
 bool Queen::is_valid_move(int init_x, int init_y, int dest_x,
                           int dest_y, Piece *chess_tab[8][8]) {
 
-    // check if the move is valid for the chessboard
-    if (dest_x < 0 || dest_x > 7 || dest_y < 0 || dest_y > 7)
-        return false;
-    if (dest_x == init_x && dest_y == init_y)
-        return false;
+    // one-axis move
 
-    // test if the move is valid for the queen
+    // horizontal move
+    if (init_y == dest_y) {
 
-    // Two cases :
-    int i = init_x, j = init_y;
+        if (init_x < dest_x) {
 
-    // First case : same movement in both axis (Bishop)
+            for (int i(init_x + 1); i < dest_x; i++) {
 
-    // first move
-    if (dest_x - init_x > 0)
-        i = init_x + 1;
-    else
-        i = init_x - 1;
+                if (chess_tab[i][init_y] != nullptr)
+                    return false;
+            }
+        } else {
 
-    if (dest_y - init_y > 0)
-        j = init_y + 1;
-    else
-        j = init_y - 1;
+            for (int i = dest_x + 1; i < init_x; i++) {
 
-    while (chess_tab[i][j] == nullptr && i != dest_x && j != dest_y) {
+                if (chess_tab[i][init_y] != nullptr)
+                    return false;
+            }
+        }
 
-        i += (dest_x - i > 0) ? 1 : -1;
-        j += (dest_y - j > 0) ? 1 : -1;
-    }
-
-    if (i == dest_x && j == dest_y)
         return true;
-
-    // Second case : same movement in one axis (Rook)
-    if ((dest_x - init_x) != 0 && (dest_y - init_y) != 0)
-        return false;
-
-    i = init_x;
-    j = init_y;
-
-    if ((dest_x - init_x) != 0) {
-
-        // first move
-        i += (dest_x - init_x > 0) ? 1 : -1;
-        // move's rest
-        while (chess_tab[i][j] == nullptr && i != dest_x)
-            i += (dest_x - i > 0) ? 1 : -1;
-    } else {
-
-        // first move
-        j += (dest_y - init_y > 0) ? 1 : -1;
-        // move's rest
-        while (chess_tab[i][j] == nullptr && j != dest_y)
-            j += (dest_y - j > 0) ? 1 : -1;
     }
 
-    if (i != dest_x || j != dest_y)
+    // vertical move
+    if (init_x == dest_x) {
+
+        if (init_y < dest_y) {
+
+            for (int i = init_y + 1; i < dest_y; i++) {
+
+                if (chess_tab[init_x][i] != nullptr)
+                    return false;
+            }
+        } else {
+            for (int i = dest_y + 1; i < init_y; i++) {
+
+                if (chess_tab[init_x][i] != nullptr)
+                    return false;
+            }
+        }
+
+        return true;
+    }
+
+    // diagonal move
+    if (abs(init_x - dest_x) != abs(init_y - dest_y))
+        return false;
+
+    // upper-right diagonal
+    if (init_x < dest_x && init_y < dest_y) {
+
+        for (int i = 1; i < (dest_x - init_x); i++) {
+
+            if (chess_tab[init_x + i][init_y + i] != nullptr)
+                return false;
+        }
+    }
+    // lower-right diagonal
+    else if (init_x < dest_x && dest_y < init_y) {
+
+        for (int i = 1; i < (dest_x - init_x); i++) {
+
+            if (chess_tab[init_x + i][init_y - i] != nullptr)
+                return false;
+        }
+    }
+    // upper-left diagonal
+    else if (dest_x < init_x && init_y < dest_y) {
+
+        for (int i = 1; i < (init_x - dest_x); i++) {
+
+            if (chess_tab[init_x - i][init_y + i] != nullptr)
+                return false;
+        }
+    }
+    // lower-left diagonal
+    else if (dest_x < init_x && dest_y < init_y) {
+
+        for (int i = 1; i < (init_x - dest_x); i++) {
+
+            if (chess_tab[init_x - i][init_y - i] != nullptr)
+                return false;
+        }
+    } else
         return false;
 
     return true;

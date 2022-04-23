@@ -83,11 +83,12 @@ bool Pawn::is_valid_move(int init_x, int init_y, int dest_x,
             if (chess_tab[dest_x][dest_y] == nullptr)
                 return true;
 
-        } else if (dest_x - init_x == 2) {
+        } else if (init_x == 1 && dest_x - init_x == 2 &&
+                   dest_y == init_y) {
             // movement of two squares up allowed if it is the first
             // movement of the pawn
 
-            if (init_x == 1 && chess_tab[dest_x][dest_y] == nullptr &&
+            if (chess_tab[dest_x][dest_y] == nullptr &&
                 chess_tab[init_x + 1][dest_y] == nullptr)
                 return true;
 
@@ -99,6 +100,16 @@ bool Pawn::is_valid_move(int init_x, int init_y, int dest_x,
                 chess_tab[dest_x][dest_y]->get_color() != get_color())
                 return true;
 
+            if (dest_x == 5 && chess_tab[dest_x][dest_y] == nullptr &&
+                chess_tab[dest_x - 1][dest_y] != nullptr &&
+                chess_tab[dest_x - 1][dest_y]->get_name() ==
+                    "\u265F") {
+
+                cout << GRN "Pawn's take done !" NC << endl;
+                chess_tab[dest_x - 1][dest_y] = nullptr;
+                return true;
+            }
+
         } else if (dest_x - init_x == 1 && dest_y - init_y == -1) {
             // movement of one square diagonally authorized if there
             // is an opposing pawn
@@ -106,6 +117,16 @@ bool Pawn::is_valid_move(int init_x, int init_y, int dest_x,
             if (chess_tab[dest_x][dest_y] != nullptr &&
                 chess_tab[dest_x][dest_y]->get_color() != get_color())
                 return true;
+
+            if (dest_x == 5 && chess_tab[dest_x][dest_y] == nullptr &&
+                chess_tab[dest_x - 1][dest_y] != nullptr &&
+                chess_tab[dest_x - 1][dest_y]->get_name() ==
+                    "\u265F") {
+
+                chess_tab[dest_x - 1][dest_y] = nullptr;
+                cout << GRN "Pawn's take done !" NC << endl;
+                return true;
+            }
         }
     }
 
@@ -118,7 +139,8 @@ bool Pawn::is_valid_move(int init_x, int init_y, int dest_x,
             if (chess_tab[dest_x][dest_y] == nullptr)
                 return true;
 
-        } else if (init_x == 6 && dest_x - init_x == -2) {
+        } else if (init_x == 6 && dest_x - init_x == -2 &&
+                   dest_y == init_y) {
             // movement of two squares down allowed if it is the first
             // movement of the pawn
 
@@ -134,6 +156,16 @@ bool Pawn::is_valid_move(int init_x, int init_y, int dest_x,
                 chess_tab[dest_x][dest_y]->get_color() == BLACK)
                 return true;
 
+            if (dest_x == 2 && chess_tab[dest_x][dest_y] == nullptr &&
+                chess_tab[dest_x + 1][dest_y] != nullptr &&
+                chess_tab[dest_x + 1][dest_y]->get_name() ==
+                    "\u2659") {
+
+                cout << GRN "Pawn's take done !" NC << endl;
+                chess_tab[dest_x + 1][dest_y] = nullptr;
+                return true;
+            }
+
         } else if (dest_x - init_x == -1 && dest_y - init_y == -1) {
             // movement of one square diagonally authorized if there
             // is an opposing pawn
@@ -141,6 +173,16 @@ bool Pawn::is_valid_move(int init_x, int init_y, int dest_x,
             if (chess_tab[dest_x][dest_y] != nullptr &&
                 chess_tab[dest_x][dest_y]->get_color() == BLACK)
                 return true;
+
+            if (dest_x == 2 && chess_tab[dest_x][dest_y] == nullptr &&
+                chess_tab[dest_x + 1][dest_y] != nullptr &&
+                chess_tab[dest_x + 1][dest_y]->get_name() ==
+                    "\u2659") {
+
+                cout << GRN "Pawn's take done !" NC << endl;
+                chess_tab[dest_x + 1][dest_y] = nullptr;
+                return true;
+            }
         }
     }
 

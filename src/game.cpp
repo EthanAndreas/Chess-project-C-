@@ -18,7 +18,7 @@ bool queenside_castling_selection(string const &cmd) {
 
 Game::Game() : chessboard(), player(BLACK) {}
 
-Game::~Game() { cout << endl << GRN "End of game !" NC << endl; }
+Game::~Game() { cout << GRN "End of game !" NC << endl; }
 
 void Game::print() { chessboard.print_board(); }
 
@@ -90,6 +90,7 @@ bool Game::kingside_castling() {
     chessboard.move(line, 4, line, 6);
     chessboard.move(line, 7, line, 5);
 
+    chessboard.set_counter();
     return true;
 }
 
@@ -141,6 +142,7 @@ bool Game::queenside_castling() {
     chessboard.move(line, 4, line, 2);
     chessboard.move(line, 0, line, 3);
 
+    chessboard.set_counter();
     return true;
 }
 
@@ -255,9 +257,6 @@ bool Game::stroke() {
                  << endl;
         }
     }
-
-    if (checkmate() == true)
-        return true;
 
     chessboard.print_board();
 

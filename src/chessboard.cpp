@@ -38,6 +38,8 @@ Chessboard::Chessboard() {
     white_king_y = 4;
     black_king_x = 0;
     black_king_y = 4;
+
+    stroke_without_take = 0;
 }
 
 Chessboard::~Chessboard() {
@@ -137,9 +139,13 @@ void Chessboard::move(int init_x, int init_y, int dest_x,
     if (chess_tab[init_x][init_y] == nullptr)
         return;
 
-    // in the case where the player destrinit_y an opponent piece
-    if (chess_tab[dest_x][dest_y] != nullptr)
+    // in the case where the player destroy an opponent piece
+    if (chess_tab[dest_x][dest_y] != nullptr) {
+
+        stroke_without_take = 0;
         delete chess_tab[dest_x][dest_y];
+    } else
+        set_counter();
 
     // save that the piece has move at least once
     chess_tab[init_x][init_y]->set_castling();
@@ -191,11 +197,8 @@ bool Chessboard::is_check(Color color) {
                     // king
                     if (get_piece(i, j)->is_valid_move(
                             i, j, black_king_x, black_king_y,
-                            chess_tab) == true) {
-
-                        cout << i << " " << j << endl;
+                            chess_tab) == true)
                         return true;
-                    }
                 } else {
 
                     // we try if all other pieces can touch the
@@ -262,7 +265,7 @@ bool Chessboard::is_checkmate(Color color) {
         }
 
         // if any move leads to a check, the king is checkmate
-        cout << GRN "Checkmate ! " << endl;
+        cout << endl << GRN "Checkmate ! " << endl;
         cout << GRN << color_win << " player won !" NC << endl;
         return true;
     }
@@ -270,7 +273,17 @@ bool Chessboard::is_checkmate(Color color) {
     return false;
 }
 
+void Chessboard::set_counter(void) { stroke_without_take++; }
+
 bool Chessboard::is_stalemate(Color color) {
+
+    // check if the game is a draw, which it signicates that 50
+    // strokes without a take was done
+    if (stroke_without_take == 50) {
+
+        cout << endl << GRN "The game is a draw !" NC << endl;
+        return true;
+    }
 
     string color_win = color == WHITE ? "Black" : "White";
 
@@ -284,9 +297,7 @@ bool Chessboard::is_stalemate(Color color) {
                 for (int i = 0; i < 8; i++) {
                     for (int j = 0; j < 8; j++) {
 
-                        if (chess_tab[k][l] != nullptr &&
-                            chess_tab[k][l]->get_color() == color &&
-                            allowed_move(color, k, l, i, j) == true)
+                        if (allowed_move(color, k, l, i, j) == true)
                             return false;
                     }
                 }
@@ -295,7 +306,7 @@ bool Chessboard::is_stalemate(Color color) {
     }
 
     // if no move can be done, the game is stalemate
-    cout << GRN "Stalemate ! " << endl;
+    cout << endl << GRN "Stalemate ! " << endl;
     cout << GRN << color_win << " player won !" NC << endl;
     return true;
 }
@@ -325,7 +336,8 @@ bool Chessboard::allowed_move(Color color, int init_x, int init_y,
 
     Piece *copy_piece = chess_tab[dest_x][dest_y];
 
-    // if the piece we move is a king, update the location of the king
+    // if the piece we move is a king, update the location of the
+    // king
     if (chess_tab[init_x][init_y]->get_name() == "\u2654") {
 
         black_king_x = dest_x;

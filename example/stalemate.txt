@@ -17,3 +17,4 @@ d3h7
 b8c8
 f7g6
 c8e6
+/quit

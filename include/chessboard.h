@@ -22,6 +22,8 @@ class Chessboard {
     int black_king_x;
     // indicate the y coordinates of black king
     int black_king_y;
+    // indicate the number of stroke without a take in a row
+    int stroke_without_take;
 
   public:
     /**
@@ -69,6 +71,12 @@ class Chessboard {
      * @return false
      */
     bool is_checkmate(Color color);
+
+    /**
+     * @brief Increase by one the number of stroke without a take in a
+     * row
+     */
+    void set_counter();
 
     /**
      * @brief Verify if the player (color) is in stalemate
