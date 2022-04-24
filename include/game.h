@@ -119,6 +119,12 @@ class Game {
      * @return string
      */
     string pgn_piece_name(string const name, Color color);
+
+    /**
+     * @brief Print the pieces destroyed and the number of pieces
+     * destroyed
+     */
+    void print_destroyed_pieces(void);
 };
 
 #endif

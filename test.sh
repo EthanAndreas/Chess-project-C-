@@ -1,7 +1,7 @@
 #!/bin/bash
 
-make clean
-make
+# make clean
+# make
 
 # Test 0 : Test on end of game during 2 seconds
 rm example/output.txt
@@ -103,3 +103,26 @@ else
     printf "Test 9 (king against king situation):\033[91m ERROR\033[0m\n"
 fi
 
+# # Test 9 : Test on draw game with king against king situation
+rm example/output.txt
+timeout 1 cat example/display.txt | ./bin/exe >> example/output.txt
+if [ `grep -c ",wN,,wK,wQ,,,,,bP,,,,,,,,,,,,,,bP,,,bP,,bP,,,,,,wP,,wP,,wP,,bN,,,,,,,bB,,wP,,,,,,,,,,bK,bQ,,bN,," example/output.txt` == 1 ]
+then
+    printf "Test 10.0 (display):\033[92m OK\033[0m\n"
+else
+    printf "Test 10.0 (display):\033[91m ERROR\033[0m\n"
+fi
+
+if [ `grep -c "♜ 2 ♛ 0 ♟ 4 ♚ 0 ♞ 1 ♝ 2" example/output.txt` == 1 ]
+then
+    printf "Test 10.1 (display):\033[92m OK\033[0m\n"
+else
+    printf "Test 10.1 (display):\033[91m ERROR\033[0m\n"
+fi
+
+if [ `grep -c "♜ 2 ♛ 0 ♟ 4 ♚ 0 ♞ 1 ♝ 2" example/output.txt` == 1 ]
+then
+    printf "Test 10.2 (display):\033[92m OK\033[0m\n"
+else
+    printf "Test 10.2 (display):\033[91m ERROR\033[0m\n"
+fi

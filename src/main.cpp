@@ -14,5 +14,6 @@ int main() {
     while (end == false)
         end = game.stroke();
 
+    game.print_destroyed_pieces();
     cout << game.canonical_position() << endl;
 }

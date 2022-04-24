@@ -37,6 +37,7 @@ Test on pawn's take                                                             
 Test on 50 stroke without a take in a row                                                               \n
 Test on pawn's promotion                                                                                \n
 Test on king against king situation leading to impossible checkmate                                     \n
+Test on display (canonical position and number of destroyed pieces)                                     \n
                                                                                                         \n
 * Comment :                                                                                             \n
 The tests show the level of requirement reached.                                                        \n
@@ -46,7 +47,7 @@ way to implement "stalemate" and "checkmate" as optimally as possible.          
 The executable is called "./bin/exe", the name has been modified in the directory and the script        \n
 "test-level".                                                                                           \n
 The stalemate situation is complete with the consideration of the 50 stroke in a row without take and   \n
-pawn movement, the 3 positions repeated and the lack of pieces to do a checkmate.                       \n
+pawn movement and the lack of pieces to do a checkmate.                                                 \n
 
 ## Github link
 

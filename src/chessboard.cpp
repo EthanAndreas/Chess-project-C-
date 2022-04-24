@@ -40,6 +40,9 @@ Chessboard::Chessboard() {
     black_king_y = 4;
 
     stroke_without_take = 0;
+
+    for (int i = 0; i < 12; i++)
+        destroyed_pieces[i] = 0;
 }
 
 Chessboard::~Chessboard() {
@@ -208,7 +211,45 @@ bool Chessboard::lack_of_piece_for_checkmate(void) {
     return false;
 }
 
-void Chessboard::set_counter(void) { stroke_without_take++; }
+void Chessboard::set_destroyed_pieces(string name) {
+
+    // black rook
+    if (name == "\u2656")
+        destroyed_pieces[0]++;
+    // white rook
+    else if (name == "\u265C")
+        destroyed_pieces[1]++;
+    // black queen
+    else if (name == "\u2655")
+        destroyed_pieces[2]++;
+    // white queen
+    else if (name == "\u265B")
+        destroyed_pieces[3]++;
+    // black pawn
+    else if (name == "\u2659")
+        destroyed_pieces[4]++;
+    // white pawn
+    else if (name == "\u265F")
+        destroyed_pieces[5]++;
+    // black king
+    else if (name == "\u2654")
+        destroyed_pieces[6]++;
+    // white king
+    else if (name == "\u265A")
+        destroyed_pieces[7]++;
+    // black knight
+    else if (name == "\u2658")
+        destroyed_pieces[8]++;
+    // white knight
+    else if (name == "\u265E")
+        destroyed_pieces[9]++;
+    // black bishop
+    else if (name == "\u2657")
+        destroyed_pieces[10]++;
+    // white bishop
+    else if (name == "\u265D")
+        destroyed_pieces[11]++;
+}
 
 void Chessboard::move(int init_x, int init_y, int dest_x,
                       int dest_y) {
@@ -221,6 +262,7 @@ void Chessboard::move(int init_x, int init_y, int dest_x,
     if (chess_tab[dest_x][dest_y] != nullptr) {
 
         stroke_without_take = 0;
+        set_destroyed_pieces(chess_tab[dest_x][dest_y]->get_name());
         delete chess_tab[dest_x][dest_y];
     } else
         // if the player does not do a take
@@ -355,6 +397,8 @@ bool Chessboard::is_checkmate(Color color) {
     return false;
 }
 
+void Chessboard::set_counter(void) { stroke_without_take++; }
+
 bool Chessboard::is_stalemate(Color color) {
 
     // check if the game is a draw, which it signicates that 50
@@ -479,4 +523,59 @@ bool Chessboard::allowed_move(Color color, int init_x, int init_y,
     chess_tab[dest_x][dest_y] = copy_piece;
 
     return false;
+}
+
+void Chessboard::print_destroyed_pieces(void) {
+
+    cout << endl;
+
+    // black rook
+    cout << "\u2656"
+         << " " << destroyed_pieces[0];
+    cout << " ";
+    // black queen
+    cout << "\u2655"
+         << " " << destroyed_pieces[2];
+    cout << " ";
+    // black pawn
+    cout << "\u2659"
+         << " " << destroyed_pieces[4];
+    cout << " ";
+    // black king
+    cout << "\u2654"
+         << " " << destroyed_pieces[6];
+    cout << " ";
+    // black knight
+    cout << "\u2658"
+         << " " << destroyed_pieces[8];
+    cout << " ";
+    // black bishop
+    cout << "\u2657"
+         << " " << destroyed_pieces[10];
+    cout << endl;
+
+    // white rook
+    cout << "\u265C"
+         << " " << destroyed_pieces[1];
+    cout << " ";
+    // white queen
+    cout << "\u265B"
+         << " " << destroyed_pieces[3];
+    cout << " ";
+    // white pawn
+    cout << "\u265F"
+         << " " << destroyed_pieces[5];
+    cout << " ";
+    // white king
+    cout << "\u265A"
+         << " " << destroyed_pieces[7];
+    cout << " ";
+    // white knight
+    cout << "\u265E"
+         << " " << destroyed_pieces[9];
+    cout << " ";
+    // white bishop
+    cout << "\u265D"
+         << " " << destroyed_pieces[11];
+    cout << endl;
 }

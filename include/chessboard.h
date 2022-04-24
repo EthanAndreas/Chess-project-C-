@@ -24,6 +24,8 @@ class Chessboard {
     int black_king_y;
     // indicate the number of stroke without a take in a row
     int stroke_without_take;
+    // indicate at the end of the game all the pieces destroyed
+    int destroyed_pieces[12];
 
   public:
     /**
@@ -76,6 +78,13 @@ class Chessboard {
     void move(int init_x, int init_y, int dest_x, int dest_y);
 
     /**
+     * @brief Increase by one each time a piece is detroyed the piece
+     * in question
+     * @param name
+     */
+    void set_destroyed_pieces(string name);
+
+    /**
      * @brief Verify if the player (color) is in check situation
      * @param color
      * @return true
@@ -120,6 +129,12 @@ class Chessboard {
      */
     bool allowed_move(Color color, int init_x, int init_y, int dest_x,
                       int dest_y);
+
+    /**
+     * @brief Display the number of pieces destroyed at the end of the
+     * game
+     */
+    void print_destroyed_pieces(void);
 };
 
 #endif

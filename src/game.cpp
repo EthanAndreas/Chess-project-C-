@@ -320,3 +320,8 @@ string Game::pgn_piece_name(string name, Color color) {
 
     return psymb;
 }
+
+void Game::print_destroyed_pieces(void) {
+
+    chessboard.print_destroyed_pieces();
+}
