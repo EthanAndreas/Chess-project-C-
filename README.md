@@ -51,4 +51,4 @@ pawn movement and the lack of pieces to do a checkmate.                         
 
 ## Github link
 
-<https://github.com/EthanAndreas/Chess-project-C>
+<https://github.com/EthanAndreas/Chess-project-C-.git>

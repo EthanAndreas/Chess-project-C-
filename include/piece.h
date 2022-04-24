@@ -7,6 +7,10 @@
 #include "enum.h"
 using namespace std;
 
+/**
+ * @brief Manage each pieces of the chessboard (bishop, king,
+ * knight, pawn, queen, rook) with inheritage
+ */
 class Piece {
 
   private:
@@ -84,6 +88,10 @@ class Piece {
                                Piece *chess_tab[8][8]) = 0;
 };
 
+/**
+ * @brief Manage the bishop of the chessboard (what move can be done
+ * ..)
+ */
 class Bishop : public Piece {
 
   private:
@@ -136,6 +144,10 @@ class Bishop : public Piece {
                        Piece *chess_tab[8][8]);
 };
 
+/**
+ * @brief Manage the knight of the chessboard (what move can be done
+ * ..)
+ */
 class Knight : public Piece {
 
   private:
@@ -188,6 +200,10 @@ class Knight : public Piece {
                        Piece *chess_tab[8][8]);
 };
 
+/**
+ * @brief Manage the queen of the chessboard (what move can be done
+ * ..)
+ */
 class Queen : public Piece {
 
   private:
@@ -240,6 +256,10 @@ class Queen : public Piece {
                        Piece *chess_tab[8][8]);
 };
 
+/**
+ * @brief Manage the rook of the chessboard (what move can be done
+ * ..)
+ */
 class Rook : public Piece {
 
   private:
@@ -292,6 +312,10 @@ class Rook : public Piece {
                        Piece *chess_tab[8][8]);
 };
 
+/**
+ * @brief Manage the king of the chessboard (what move can be done
+ * ..)
+ */
 class King : public Piece {
 
   private:
@@ -344,6 +368,10 @@ class King : public Piece {
                        Piece *chess_tab[8][8]);
 };
 
+/**
+ * @brief Manage the pawn of the chessboard (what move can be done
+ * ..)
+ */
 class Pawn : public Piece {
 
   private:
