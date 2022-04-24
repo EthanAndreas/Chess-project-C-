@@ -103,7 +103,7 @@ else
     printf "Test 9 (king against king situation):\033[91m ERROR\033[0m\n"
 fi
 
-# # Test 9 : Test on draw game with king against king situation
+# # Test 10 : Test on draw game with king against king situation
 rm example/output.txt
 timeout 1 cat example/display.txt | ./bin/exe >> example/output.txt
 if [ `grep -c ",wN,,wK,wQ,,,,,bP,,,,,,,,,,,,,,bP,,,bP,,bP,,,,,,wP,,wP,,wP,,bN,,,,,,,bB,,wP,,,,,,,,,,bK,bQ,,bN,," example/output.txt` == 1 ]
