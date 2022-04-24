@@ -35,6 +35,8 @@ Test on kingside castling                                                       
 Test on queenside castling                                                                              \n
 Test on pawn's take                                                                                     \n
 Test on 50 stroke without a take in a row                                                               \n
+Test on pawn's promotion                                                                                \n
+Test on king against king situation leading to impossible checkmate                                     \n
                                                                                                         \n
 * Comment :                                                                                             \n
 The tests show the level of requirement reached.                                                        \n

@@ -1,7 +1,7 @@
 #!/bin/bash
 
-# make clean
-# make
+make clean
+make
 
 # Test 0 : Test on end of game during 2 seconds
 rm example/output.txt
@@ -81,5 +81,25 @@ then
     printf "Test 7 (draw game):\033[92m OK\033[0m\n"
 else
     printf "Test 7 (draw game):\033[91m ERROR\033[0m\n"
+fi
+
+# # Test 8 : Test on pawn's promotion
+rm example/output.txt
+timeout 1 cat example/promotion.txt | ./bin/exe >> example/output.txt
+if [ `grep -c "Promotion done !" example/output.txt` == 2 ]
+then
+    printf "Test 8 (promotion):\033[92m OK\033[0m\n"
+else
+    printf "Test 8 (promotion):\033[91m ERROR\033[0m\n"
+fi
+
+# # Test 9 : Test on draw game with king against king situation
+rm example/output.txt
+timeout 1 cat example/lack_piece_checkmate.txt | ./bin/exe >> example/output.txt
+if [ `grep -c "The game is a draw !" example/output.txt` == 1 ]
+then
+    printf "Test 9 (king against king situation):\033[92m OK\033[0m\n"
+else
+    printf "Test 9 (king against king situation):\033[91m ERROR\033[0m\n"
 fi
 

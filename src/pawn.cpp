@@ -62,6 +62,8 @@ void Pawn::promotion(int x, int y, Piece *chess_tab[8][8],
             break;
         }
     }
+
+    cout << endl << GRN "Promotion done !" NC << endl;
 }
 
 bool Pawn::is_valid_move(int init_x, int init_y, int dest_x,
