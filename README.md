@@ -9,16 +9,16 @@ C++
 
 ## Presentation
 
-* Project's compilation :                                                                               \n
-make clean                                                                                              \n
-make                                                                                                    \n
-make docs (to create the documentation)                                                                 \n
-                                                                                                        \n
-* Project's launch :                                                                                    \n
-./bin/exe                                                                                               \n
-./test.sh (to test the features)                                                                        \n
-                                                                                                        \n
-* Information about the game :                                                                          \n
+* Project's compilation :                                                                               
+make clean                                                                                              
+make                                                                                                    
+make docs (to create the documentation)                                                                 
+                                                                                                        
+* Project's launch :                                                                                    
+./bin/exe                                                                                               
+./test.sh (to test the features)                                                                        
+                                                                                                        
+* Information about the game :                                                                          
 The chessboard is displayed every stroke                                                                
 Each stroke is chosen by the format :                                                                   
 letter-number-letter-number (Ex : a2a3)                                                                 
