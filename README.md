@@ -43,6 +43,8 @@ The difficulties encountered were mainly the organization of methods, inheritanc
 way to implement "stalemate" and "checkmate" as optimally as possible.                                  \n
 The executable is called "./bin/exe", the name has been modified in the directory and the script        \n
 "test-level".                                                                                           \n
+The stalemate situation is complete with the consideration of the 50 stroke in a row without take and   \n
+pawn movement, the 3 positions repeated and the lack of pieces to do a checkmate.                       \n
 
 ## Github link
 

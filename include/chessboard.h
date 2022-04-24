@@ -48,6 +48,25 @@ class Chessboard {
     Piece *get_piece(int x, int y) const;
 
     /**
+     * @brief Check if the piece put in argument is on the board
+     * @param name
+     * @return true
+     * @return false
+     */
+    int is_contained(string name);
+
+    /**
+     * @brief Check if the three situation of non possibility of
+     * checkmate is on the board. These situations are :
+     * - a king against a king
+     * - a king against a king and two knights
+     * - a king against a king and a bishop or a knight
+     * @return true
+     * @return false
+     */
+    bool lack_of_piece_for_checkmate(void);
+
+    /**
      * @brief Move the chess_tab object chosen by the user
      * @param init_x the x coordinate of the piece to move
      * @param init_y the y coordinate of the piece to move
@@ -73,8 +92,8 @@ class Chessboard {
     bool is_checkmate(Color color);
 
     /**
-     * @brief Increase by one the number of stroke without a take in a
-     * row
+     * @brief Increase by one the number of stroke without a take
+     * in a row
      */
     void set_counter();
 
@@ -87,10 +106,10 @@ class Chessboard {
     bool is_stalemate(Color color);
 
     /**
-     * @brief Verify if the move chosen by the player (color) is valid
-     * (the piece chosen is the player's piece, the destination is
-     * empty or it is a take, if the move does not put the player in
-     * check)
+     * @brief Verify if the move chosen by the player (color) is
+     * valid (the piece chosen is the player's piece, the
+     * destination is empty or it is a take, if the move does not
+     * put the player in check)
      * @param color
      * @param init_x
      * @param init_y

@@ -11,6 +11,7 @@ void Pawn::promotion(int x, int y, Piece *chess_tab[8][8],
 
     string choice, Q_name, R_name, N_name, B_name;
 
+    // we take the name of the choice of the player
     if (color == WHITE) {
 
         Q_name = "\u2655";

@@ -132,6 +132,84 @@ Piece *Chessboard::get_piece(int x, int y) const {
     return chess_tab[x][y];
 }
 
+int Chessboard::is_contained(string name) {
+
+    // count the number of pieces with the name "name" on the board
+    int nb = 0;
+
+    for (int i = 0; i < 8; i++) {
+
+        for (int j = 0; j < 8; j++) {
+
+            if (chess_tab[i][j] != nullptr) {
+
+                if (chess_tab[i][j]->get_name() == name)
+                    nb++;
+            }
+        }
+    }
+
+    // if nb = 0, the piece is not on the board
+    return nb;
+}
+
+bool Chessboard::lack_of_piece_for_checkmate(void) {
+
+    // if a queen or a pawn or a rook is on the board, we can have a
+    // checkmate
+    if (is_contained("\u2656") == 0 && is_contained("\u265C") == 0 &&
+        is_contained("\u2655") == 0 && is_contained("\u265B") == 0 &&
+        is_contained("\u2659") == 0 && is_contained("\u265F") == 0) {
+
+        if (is_contained("\u2654") != 0 &&
+            is_contained("\u265A") != 0) {
+
+            // king against king situation
+            if (is_contained("\u2658") == 0 &&
+                is_contained("\u265E") == 0 &&
+                is_contained("\u2657") == 0 &&
+                is_contained("\u265D") == 0)
+                return true;
+
+            // king against king and two knights situation
+            if (is_contained("\u2658") == 0 &&
+                is_contained("\u265E") == 2 &&
+                is_contained("\u2657") == 0 &&
+                is_contained("\u265D") == 0)
+                return true;
+
+            // king and two knights against king situation
+            if (is_contained("\u2658") == 2 &&
+                is_contained("\u265E") == 0 &&
+                is_contained("\u2657") == 0 &&
+                is_contained("\u265D") == 0)
+                return true;
+
+            // king against king and a bishop or a knight situation
+            if (is_contained("\u2658") == 0 &&
+                is_contained("\u2657") == 0) {
+
+                if (is_contained("\u265E") == 1 ||
+                    is_contained("\u265D") == 1)
+                    return true;
+            }
+
+            // king and a bishop or a knight against king situation
+            if (is_contained("\u265E") == 0 &&
+                is_contained("\u265D") == 0) {
+
+                if (is_contained("\u2658") == 1 ||
+                    is_contained("\u2657") == 1)
+                    return true;
+            }
+        }
+    }
+
+    return false;
+}
+
+void Chessboard::set_counter(void) { stroke_without_take++; }
+
 void Chessboard::move(int init_x, int init_y, int dest_x,
                       int dest_y) {
 
@@ -145,8 +223,10 @@ void Chessboard::move(int init_x, int init_y, int dest_x,
         stroke_without_take = 0;
         delete chess_tab[dest_x][dest_y];
     } else
+        // if the player does not do a take
         set_counter();
 
+    // if the player moves a pawn the counter is put to 0
     if ((chess_tab[init_x][init_y]->get_name() == "\u2659" ||
          chess_tab[init_x][init_y]->get_name() == "\u265F"))
         stroke_without_take = 0;
@@ -169,6 +249,7 @@ void Chessboard::move(int init_x, int init_y, int dest_x,
     chess_tab[dest_x][dest_y] = chess_tab[init_x][init_y];
     chess_tab[init_x][init_y] = nullptr;
 
+    // management of pawn's promotion
     if (chess_tab[dest_x][dest_y]->get_name() == "\u265F") {
 
         if (dest_x == 0)
@@ -186,8 +267,8 @@ void Chessboard::move(int init_x, int init_y, int dest_x,
 }
 
 bool Chessboard::is_check(Color color) {
-    // test if color's pawns are in check
 
+    // test if color's king is in check
     for (int i = 0; i < 8; i++) {
 
         for (int j = 0; j < 8; j++) {
@@ -221,6 +302,7 @@ bool Chessboard::is_check(Color color) {
 
 bool Chessboard::is_checkmate(Color color) {
 
+    // display
     string color_win = color == WHITE ? "Black" : "White";
     string color_err = color == BLACK ? "Black" : "White";
 
@@ -252,16 +334,12 @@ bool Chessboard::is_checkmate(Color color) {
                     for (int i = 0; i < 8; i++) {
                         for (int j = 0; j < 8; j++) {
 
-                            // if the move is correct
-                            if (chess_tab[i][j] == nullptr ||
-                                (chess_tab[i][j] != nullptr &&
-                                 chess_tab[i][j]->get_color() !=
-                                     color)) {
-
-                                if (allowed_move(color, k, l, i, j) ==
-                                    true)
-                                    return false;
-                            }
+                            // if a move is possible without
+                            // creating a check situation, then
+                            // there is no checkamte
+                            if (allowed_move(color, k, l, i, j) ==
+                                true)
+                                return false;
                         }
                     }
                 }
@@ -277,8 +355,6 @@ bool Chessboard::is_checkmate(Color color) {
     return false;
 }
 
-void Chessboard::set_counter(void) { stroke_without_take++; }
-
 bool Chessboard::is_stalemate(Color color) {
 
     // check if the game is a draw, which it signicates that 50
@@ -289,6 +365,14 @@ bool Chessboard::is_stalemate(Color color) {
         return true;
     }
 
+    // check if we can checkmate the opponent
+    if (lack_of_piece_for_checkmate() == true) {
+
+        cout << endl << GRN "The game is a draw !" NC << endl;
+        return true;
+    }
+
+    // display
     string color_win = color == WHITE ? "Black" : "White";
 
     // test if the piece can move
@@ -301,6 +385,8 @@ bool Chessboard::is_stalemate(Color color) {
                 for (int i = 0; i < 8; i++) {
                     for (int j = 0; j < 8; j++) {
 
+                        // if a move is possible without creating a
+                        // check situation, then there is no stalemate
                         if (allowed_move(color, k, l, i, j) == true)
                             return false;
                     }
