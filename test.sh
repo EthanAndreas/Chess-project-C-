@@ -1,10 +1,10 @@
 #!/bin/bash
 
-# make clean
-# make
+make clean
+make
 
 # Test 0 : Test on end of game during 2 seconds
-rm example/output.txt
+rm -f example/output.txt
 timeout 1  cat example/quit.txt | ./bin/exe >> example/output.txt
 if [ `grep -c "End of game !" example/output.txt` == 1 ]
 then
