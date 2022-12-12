@@ -10,13 +10,17 @@ C++
 ## Presentation
 
 * Project's compilation :
+```bash
 make clean
 make
 make docs (to create the documentation)
+```
 
 * Project's launch :
+```bash
 ./bin/exe
 ./test.sh (to test the features)
+ ```
 
 * Information about the game :
 The chessboard is displayed every stroke
@@ -48,7 +52,3 @@ The executable is called "./bin/exe", the name has been modified in the director
 "test-level".
 The stalemate situation is complete with the consideration of the 50 stroke in a row without take and
 pawn movement and the lack of pieces to do a checkmate.
-
-## Github link
-
-<https://github.com/EthanAndreas/Chess-project-C-.git>
