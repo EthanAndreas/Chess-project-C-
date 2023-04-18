@@ -42,6 +42,7 @@ make docs
 
 ## Tests
 - Realized on :
+|-------------------------------------------------------------|
 | "/quit" command                                             |
 | check situation                                             |
 | checkmate                                                   |
