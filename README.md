@@ -42,23 +42,17 @@ make docs
 
 ## Tests
 - Realized on :
-> "/quit" command
+> /quit command
 > &nbsp;                                             
 > check situation                                         
 > checkmate                                               
 > stalemate                                                  
-> kingside castling      
-> &nbsp;                                     
-> queenside castling  
-> &nbsp;                                        
-> pawn's take   
-> &nbsp;                                              
-> 50 stroke without a take in a row   
-> &nbsp;                        
-> pawn's promotion     
-> &nbsp;                                       
+> kingside castling                                       
+> queenside castling                         
+> pawn's take                                   
+> 50 stroke without a take in a row                   
+> pawn's promotion              
 > king against king situation leading to impossible checkmate 
-> &nbsp;
 > display (canonical position and number of destroyed pieces) 
 - Launch
 ```bash
