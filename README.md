@@ -1,6 +1,6 @@
 # ChessGame
 [![version](https://img.shields.io/badge/version-0.0.1-blue.svg)](https://github.com/EthanAndreas/ChessGame)
-[![compiler](https://img.shields.io/badge/compiler-gcc-red.svg)](https://github.com/EthanAndreas/ChessGame/blob/main/Makefile)
+[![compiler](https://img.shields.io/badge/compiler-g++-red.svg)](https://github.com/EthanAndreas/ChessGame/blob/main/Makefile)
 [![license](https://img.shields.io/badge/license-GPL_3.0-yellow.svg)](https://github.com/EthanAndreas/ChessGame/blob/main/LICENSE)
 [![author](https://img.shields.io/badge/author-EthanAndreas-blue)](https://github.com/EthanAndreas)
 
@@ -42,17 +42,17 @@ make docs
 
 ## Tests
 - Realized on :
-** "/quit" command
-** check situation
-** checkmate
-** staleamte
-** kingside castling
-** queenside castling
-** pawn's take
-** 50 stroke without a take in a row
-** pawn's promotion
-** king against king situation leading to impossible checkmate
-** display (canonical position and number of destroyed pieces)
+| "/quit" command
+| check situation
+| checkmate
+| staleamte
+| kingside castling
+| queenside castling
+| pawn's take
+| 50 stroke without a take in a row
+| pawn's promotion
+| king against king situation leading to impossible checkmate
+| display (canonical position and number of destroyed pieces)
 - Launch
 ```bash
 ./test.sh 
