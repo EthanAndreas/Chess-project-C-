@@ -44,12 +44,9 @@ make docs
 - Realized on :
 > "/quit" command
 > &nbsp;                                             
-> check situation  
-> &nbsp;                                           
-> checkmate   
-> &nbsp;                                                
-> stalemate 
-> &nbsp;                                                  
+> check situation                                         
+> checkmate                                               
+> stalemate                                                  
 > kingside castling      
 > &nbsp;                                     
 > queenside castling  
